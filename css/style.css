@@ -1,0 +1,317 @@
+:root{--ink:#213d4b;--muted:#617681;--blue:#087fba;--blue-deep:#075982;--sky:#eaf8fd;--sky-soft:#f7fcfe;--yellow:#ffd85a;--orange:#f18337;--line:#d6e8ef;--whatsapp:#25d366;--paper:#fff;--sans:Nunito,Inter,ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;--serif:Georgia,'Times New Roman',serif}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6}.section-shell{width:min(1180px,calc(100% - 40px));margin-inline:auto}.section-space{padding-block:76px}h1,h2,h3,p{margin-top:0}h1,h2{font-weight:850;letter-spacing:-.055em;line-height:1.04}h1{font-size:clamp(3rem,6.1vw,5.55rem);margin-bottom:20px}h2{font-size:clamp(2.15rem,4vw,3.65rem);margin-bottom:18px}h3{font-size:1.03rem;line-height:1.35;margin-bottom:7px}a{color:inherit;text-decoration:none}.eyebrow{color:var(--blue-deep);font-size:.68rem;font-weight:850;letter-spacing:.14em;text-transform:uppercase;margin-bottom:13px}.site-header{min-height:72px;width:100%;padding-inline:max(20px,calc((100% - 1180px)/2));display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:#fffffff2;backdrop-filter:blur(14px);z-index:20;box-shadow:0 1px 18px #07598212}.brand{display:inline-flex;align-items:baseline;gap:7px;color:var(--blue-deep);font-size:1.35rem;font-weight:900;letter-spacing:-.06em;white-space:nowrap}.brand span{font-style:italic}.brand small{font-size:.56rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}.nav{display:flex;align-items:center;gap:25px;font-size:.81rem;font-weight:750}.nav-cta{background:var(--whatsapp);color:#fff;border-radius:999px;padding:9px 16px;box-shadow:0 6px 15px #0a9f482e}.menu-toggle{display:none}.hero{min-height:calc(100svh - 72px);display:grid;grid-template-columns:minmax(0,1fr) minmax(410px,.92fr);gap:clamp(40px,6vw,95px);align-items:center;padding-block:42px}.hero-copy{position:relative;z-index:1;max-width:620px}.hero-copy .eyebrow{display:inline-block;border-radius:999px;background:var(--yellow);color:#25404d;padding:5px 11px}.hero h1 em{font-family:var(--serif);font-weight:400;color:var(--blue);letter-spacing:-.06em}.hero-lead{font-size:1.1rem;line-height:1.52;color:#3a5663;max-width:540px;margin-bottom:12px}.hero-detail{max-width:540px;color:var(--muted);font-size:.93rem;margin-bottom:23px}.button{display:inline-flex;align-items:center;gap:18px;border-radius:999px;padding:14px 21px;font-size:.88rem;font-weight:850;transition:transform .2s,box-shadow .2s}.button:hover{transform:translateY(-2px);box-shadow:0 10px 24px #0759822e}.button-primary{background:var(--whatsapp);color:#fff}.button-light{background:#fff;color:var(--blue-deep)}.button span{font-size:1.15rem}.microcopy{color:var(--muted);font-size:.73rem;margin:10px 0 0}.hero-photo{margin:0;position:relative;aspect-ratio:4/5;border-radius:25px;overflow:hidden;box-shadow:0 16px 45px #07598220}.hero-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center center}.hero-photo:after{content:'';position:absolute;inset:auto 0 0;height:32%;background:linear-gradient(transparent,#063d5c91);pointer-events:none}.hero-photo figcaption{position:absolute;left:17px;bottom:15px;z-index:1;color:#fff;font-size:.71rem;font-weight:700}.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);margin-top:2px}.trust-item{background:var(--sky-soft);padding:18px clamp(18px,3.4vw,42px);text-align:center}.trust-item strong{display:block;color:var(--blue-deep);font-size:1.06rem;line-height:1.25}.trust-item span{display:block;color:var(--muted);font-size:.76rem;margin-top:2px}.reviews{background:var(--sky-soft)}.section-intro{max-width:680px}.section-intro>p:last-child{color:var(--muted);max-width:540px}.centered{text-align:center;margin-inline:auto}.centered>p:last-child{margin-inline:auto}.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px;margin-top:35px}.review-card{display:flex;flex-direction:column;min-height:218px;padding:23px;border-radius:17px;background:#fff;box-shadow:0 8px 27px #0759820d}.review-card.featured{background:var(--blue);color:#fff;transform:translateY(-8px)}.review-stars{font-size:.82rem;letter-spacing:2px;color:#f5bb2e}.review-card p{font-family:var(--serif);font-size:1.02rem;line-height:1.53;margin:14px 0 auto}.review-person{display:flex;align-items:center;gap:9px;font-size:.74rem;line-height:1.3}.review-person span:last-child{display:grid;gap:2px}.review-person small{color:var(--muted)}.featured .review-person small{color:#d8f0fa}.avatar{display:grid;place-items:center;width:29px;height:29px;border-radius:50%;background:var(--sky);color:var(--blue-deep);font-weight:850}.featured .avatar{background:var(--yellow);color:#27404c}.benefits{background:#fff}.benefits-heading{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:end}.benefits-heading p:last-child{color:var(--muted);max-width:400px;padding-bottom:7px}.benefits-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:36px}.benefit{padding:23px;border:1px solid var(--line);border-radius:15px;transition:transform .2s,box-shadow .2s}.benefit:hover{transform:translateY(-3px);box-shadow:0 11px 24px #07598212}.benefit-number{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--sky);color:var(--blue-deep);font-size:.64rem;font-weight:850}.benefit h3{color:var(--blue-deep);margin-top:18px}.benefit p{color:var(--muted);font-size:.85rem;margin-bottom:0}.day{display:grid;grid-template-columns:.75fr 1.25fr;gap:clamp(45px,7vw,110px)}.day-heading{max-width:410px}.day-heading>p:last-child{color:var(--muted)}.timeline{list-style:none;margin:0;padding:0}.timeline li{display:grid;grid-template-columns:60px 1fr;gap:18px;padding:19px 0;border-bottom:1px solid var(--line)}.timeline li:first-child{border-top:1px solid var(--line)}.time{font-size:.75rem;font-weight:850;color:var(--orange);padding-top:4px}.timeline h3{color:var(--blue-deep);margin:0 0 3px}.timeline p{margin:0;color:var(--muted);font-size:.86rem}.director{background:var(--sky)}.director-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:clamp(45px,8vw,125px)}.director-photo{margin:0;border-radius:22px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 12px 30px #0759821c}.director-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center center}.letter{max-width:505px}.letter>p:not(.eyebrow):not(.signature):not(.role){color:#46626f}.signature{font-family:var(--serif);font-size:1.7rem;font-style:italic;color:var(--blue-deep);margin:23px 0 0}.role{color:var(--muted);font-size:.69rem;letter-spacing:.1em;text-transform:uppercase;margin:0}.gallery-grid{display:grid;grid-template-columns:1.45fr 1fr 1fr;grid-template-rows:210px 210px;gap:14px;margin-top:34px}.gallery-item{margin:0;overflow:hidden;border-radius:15px;background:var(--sky)}.gallery-item img{display:block;width:100%;height:100%;object-fit:cover;object-position:center center;transition:transform .5s ease}.gallery-item:hover img{transform:scale(1.035)}.gallery-item.large{grid-row:span 2}.gallery-item.wide{grid-column:span 2}.gallery-item.wide img{object-position:center 48%}.faq{background:var(--sky-soft)}.faq-layout{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(48px,9vw,135px)}.accordion{border-top:1px solid var(--line)}details{border-bottom:1px solid var(--line);padding:18px 0}summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;color:var(--blue-deep);font-weight:850;font-size:.95rem}summary::-webkit-details-marker{display:none}summary span{font-size:1.38rem;font-weight:400;line-height:1;transition:transform .2s}details[open] summary span{transform:rotate(45deg)}details p{color:var(--muted);font-size:.86rem;max-width:550px;margin:12px 30px 0 0}.final-cta{background:var(--blue-deep);color:#fff;text-align:center;padding:88px 0;position:relative;overflow:hidden}.final-cta:before{content:'';position:absolute;width:390px;height:390px;border-radius:50%;background:#0d91cb;left:-240px;top:-220px;opacity:.5}.final-cta>div{position:relative;max-width:680px}.final-cta .eyebrow{color:#ffe998}.final-cta p:not(.eyebrow):not(.microcopy){font-size:1.03rem;color:#dff3fb;max-width:550px;margin:0 auto 25px}.final-cta .microcopy{color:#c7e9f6}.site-footer{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:30px;color:var(--muted);font-size:.74rem}.site-footer div{text-align:center}.site-footer div p{margin:0 0 3px}.site-footer .brand{font-size:1.2rem}.footer-details{max-width:440px}.footer-links{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 16px;margin-top:8px}.footer-links a{color:var(--blue-deep);font-weight:700;text-decoration:underline;text-underline-offset:3px}.whatsapp-float{position:fixed;right:18px;bottom:18px;z-index:30;display:flex;align-items:center;gap:8px;padding:11px 16px;border-radius:999px;background:var(--whatsapp);color:#fff;font-size:.79rem;font-weight:850;box-shadow:0 9px 23px #1681423d;animation:whatsapp-pulse 3s ease-in-out infinite}.whatsapp-float>span:first-child{font-size:1.15rem;line-height:1}.skip-link{position:fixed;left:10px;top:-50px;background:var(--blue-deep);color:#fff;padding:8px;z-index:40}.skip-link:focus{top:10px}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.reveal{transition:opacity .6s ease,transform .6s ease}@media(prefers-reduced-motion:no-preference){.reveal{opacity:0;transform:translateY(14px)}.reveal.visible{opacity:1;transform:none}}@keyframes whatsapp-pulse{0%,100%{transform:translateY(0);box-shadow:0 9px 23px #1681423d}50%{transform:translateY(-3px);box-shadow:0 12px 28px #16814250}}@media(prefers-reduced-motion:reduce){.whatsapp-float{animation:none}}@media(max-width:760px){.section-shell{width:min(100% - 32px,1180px)}.site-header{min-height:66px;padding-inline:16px}.brand small{display:none}.menu-toggle{display:flex;flex-direction:column;gap:4px;justify-content:center;border:0;background:transparent;padding:10px 0}.menu-toggle>span:not(.sr-only){display:block;width:22px;height:1px;background:var(--ink)}.nav{display:none;position:absolute;top:57px;left:16px;right:16px;padding:18px;flex-direction:column;align-items:flex-start;gap:15px;background:#fff;border-radius:14px;box-shadow:0 13px 36px #07598222}.nav.is-open{display:flex}.nav-cta{width:100%;text-align:center}.hero{grid-template-columns:1fr;gap:0;padding:0}.hero-copy{order:2;padding:36px 0 54px}.hero-photo{order:1;width:100%;border-radius:0;aspect-ratio:1.1/1;box-shadow:none}.hero-photo img{object-position:center 52%}.hero-photo figcaption{left:16px;bottom:13px}.section-space{padding-block:58px}.trust{grid-template-columns:1fr}.trust-item{padding:15px}.reviews-grid,.benefits-grid{grid-template-columns:1fr;gap:11px}.review-card.featured{transform:none}.benefits-heading,.day,.director-grid,.faq-layout{grid-template-columns:1fr;gap:29px}.benefits-heading p:last-child{padding:0}.day-heading{max-width:500px}.timeline li{grid-template-columns:52px 1fr}.director-photo{max-width:480px}.gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:190px 155px 155px;margin-top:28px}.gallery-item.large{grid-column:span 2;grid-row:auto}.gallery-item.wide{grid-column:span 2}.site-footer{align-items:flex-start;flex-direction:column;padding-block:26px}.site-footer div,.footer-links{text-align:left;justify-content:flex-start}.whatsapp-float{right:13px;bottom:13px;padding:10px 13px}}@media(max-width:390px){.gallery-grid{grid-template-columns:1fr;grid-template-rows:210px 165px 165px 165px}.gallery-item.large,.gallery-item.wide{grid-column:auto}}
+.brand-mark{width:42px;height:42px;object-fit:contain;object-position:center;flex:0 0 42px}
+@media(max-width:760px){.brand-mark{width:36px;height:36px;flex-basis:36px}}
+
+/* ============================================================
+   SECCIONES NUEVAS — historias reales y cómo llegar.
+   Nota de mantenimiento: a diferencia del CSS de arriba (minificado
+   por el proyecto original), estas reglas quedan legibles y comentadas
+   a propósito. Es una decisión de arquitectura, no estética: el CSS
+   original ya está probado en producción y no vale la pena reformatearlo
+   (riesgo de romper algo sin beneficio real); el código nuevo, en cambio,
+   lo va a tener que tocar alguien en el futuro, así que prioriza
+   mantenibilidad sobre consistencia de formato.
+   ============================================================ */
+
+/* --- Historias reales --- */
+.stories {
+  background: #fff;
+}
+
+.stories-intro {
+  max-width: 680px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.stories-intro > p:last-child {
+  color: var(--muted);
+  max-width: 560px;
+  margin-inline: auto;
+}
+
+.stories-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 17px;
+  margin-top: 40px;
+}
+
+.story-card {
+  padding: 24px;
+  border-radius: 17px;
+  background: var(--sky-soft);
+  border: 1px solid var(--line);
+}
+
+.story-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.story-head strong {
+  display: block;
+  color: var(--blue-deep);
+  font-size: 0.95rem;
+}
+
+.story-head small {
+  color: var(--muted);
+  font-size: 0.72rem;
+}
+
+.story-card p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #3a5663;
+  margin: 0;
+}
+
+.story-card em {
+  font-style: italic;
+  color: var(--blue-deep);
+}
+
+.stories-more {
+  margin-top: 22px;
+}
+
+.stories-more summary {
+  list-style: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--blue-deep);
+  font-weight: 850;
+  font-size: 0.88rem;
+  padding: 10px 0;
+}
+
+.stories-more summary::-webkit-details-marker {
+  display: none;
+}
+
+.stories-more summary span {
+  font-size: 1.2rem;
+  font-weight: 400;
+  transition: transform 0.2s;
+}
+
+.stories-more[open] summary span {
+  transform: rotate(45deg);
+}
+
+.stories-grid-more {
+  margin-top: 18px;
+}
+
+.stories-cta {
+  margin-top: 40px;
+  text-align: center;
+}
+
+/* --- Cómo llegar --- */
+.location {
+  background: var(--sky-soft);
+}
+
+.location-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.location-card {
+  background: #fff;
+  border-radius: 17px;
+  overflow: hidden;
+  box-shadow: 0 8px 27px #0759820d;
+}
+
+.location-map {
+  aspect-ratio: 16 / 10;
+  background: var(--sky);
+}
+
+.location-map iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.location-info {
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.location-info h3 {
+  color: var(--blue-deep);
+  margin-bottom: 2px;
+}
+
+.location-info p {
+  color: var(--muted);
+  font-size: 0.82rem;
+  margin: 0;
+}
+
+.location-link {
+  color: var(--blue);
+  font-weight: 850;
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+
+/* --- Responsive: nuevas secciones en mobile --- */
+@media (max-width: 760px) {
+  .stories-grid,
+  .location-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .stories-grid {
+    margin-top: 30px;
+  }
+
+  .location-grid {
+    margin-top: 28px;
+  }
+
+  .location-info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ============================================================
+   "Qué pasa después de escribir" — franja de 3 pasos
+   ============================================================ */
+.next-steps {
+  padding-block: 34px 10px;
+}
+
+.next-steps-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.next-steps-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 14px;
+  background: var(--sky-soft);
+}
+
+.next-steps-number {
+  flex: 0 0 26px;
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--blue);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 850;
+}
+
+.next-steps-list h3 {
+  color: var(--blue-deep);
+  font-size: 0.9rem;
+  margin-bottom: 2px;
+}
+
+.next-steps-list p {
+  color: var(--muted);
+  font-size: 0.78rem;
+  margin: 0;
+}
+
+@media (max-width: 760px) {
+  .next-steps-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   Efecto dinámico en tarjetas de prueba social (reseñas + historias)
+   Un spotlight suave que sigue al mouse + elevación con sombra.
+   En touch no hay hover real: se usa :active como respuesta táctil,
+   y el spotlight simplemente no se activa (no tiene sentido sin cursor).
+   ============================================================ */
+.review-card,
+.story-card {
+  position: relative;
+  overflow: hidden;
+  --mx: 50%;
+  --my: 50%;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.review-card::before,
+.story-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(260px circle at var(--mx) var(--my), rgba(8, 127, 186, 0.12), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.review-card.featured::before {
+  background: radial-gradient(260px circle at var(--mx) var(--my), rgba(255, 255, 255, 0.22), transparent 70%);
+}
+
+.story-card {
+  border: 1px solid var(--line);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .review-card:hover,
+  .story-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 36px rgba(7, 89, 130, 0.16);
+    border-color: var(--blue);
+  }
+
+  .review-card:hover::before,
+  .story-card:hover::before {
+    opacity: 1;
+  }
+}
+
+.review-card:active,
+.story-card:active {
+  transform: scale(0.98);
+  transition: transform 0.12s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .review-card,
+  .story-card {
+    transition: none;
+  }
+  .review-card:hover,
+  .story-card:hover,
+  .review-card:active,
+  .story-card:active {
+    transform: none;
+  }
+}
