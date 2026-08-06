@@ -1,6 +1,6 @@
 (() => {
   window.dataLayer = window.dataLayer || [];
-const MAKE_WEBHOOK = "ACA_VA_LA_URL_DE_TU_WEBHOOK";
+const MAKE_WEBHOOK = "https://hook.us2.make.com/742dgrpbco5isrihxjaunocmkq6hlig8";
   const menuButton = document.querySelector('.menu-toggle');
   const navigation = document.querySelector('.nav');
 
@@ -19,11 +19,41 @@ const MAKE_WEBHOOK = "ACA_VA_LA_URL_DE_TU_WEBHOOK";
   });
 
   document.querySelectorAll('[data-track]').forEach((element) => {
-    element.addEventListener('click', () => {
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({ event: 'whatsapp_interview_request', placement: element.dataset.track });
+  element.addEventListener('click', async () => {
+
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'whatsapp_interview_request',
+      placement: element.dataset.track
     });
+
+    const payload = {
+      whatsapp: element.href || "",
+      gclid: localStorage.getItem("gclid"),
+      utm_source: localStorage.getItem("utm_source"),
+      utm_medium: localStorage.getItem("utm_medium"),
+      utm_campaign: localStorage.getItem("utm_campaign"),
+      utm_term: localStorage.getItem("utm_term"),
+      utm_content: localStorage.getItem("utm_content"),
+      boton: element.dataset.track,
+      fecha: new Date().toISOString()
+    };
+
+    try {
+      await fetch(MAKE_WEBHOOK, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload),
+        keepalive: true
+      });
+    } catch (e) {
+      console.error(e);
+    }
+
   });
+});
 
   // Spotlight que sigue al cursor en tarjetas de reseñas e historias reales.
   // Solo se activa con mouse/trackpad real (matchMedia hover:hover): en touch
