@@ -26,6 +26,9 @@ const MAKE_WEBHOOK = "https://hook.us2.make.com/742dgrpbco5isrihxjaunocmkq6hlig8
       event: 'whatsapp_interview_request',
       placement: element.dataset.track
     });
+    if (typeof window.fbq === 'function') {
+  window.fbq('track', 'Lead');
+}
 
     const payload = {
       whatsapp: element.href || "",
