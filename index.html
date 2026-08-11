@@ -5,43 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Jardín Maternal Primeros Pasos en San Miguel. Más de 20 años acompañando con paciencia y cariño los primeros años de cada niño. Agendá un primer encuentro sin compromiso." />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://primeros-pasos-eta.vercel.app/" />
+    <link rel="canonical" href="https://www.jardinprimerospasos.com/" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_AR" />
     <meta property="og:title" content="Jardín Maternal Primeros Pasos | San Miguel" />
     <meta property="og:description" content="Un lugar cálido donde tu hijo puede crecer acompañado y vos podés estar tranquila." />
-    <meta property="og:url" content="https://primeros-pasos-eta.vercel.app/" />
-    <meta property="og:image" content="https://primeros-pasos-eta.vercel.app/images/hero-patio-primeros-pasos.jpg" />
+    <meta property="og:url" content="https://www.jardinprimerospasos.com/" />
+    <meta property="og:image" content="https://www.jardinprimerospasos.com/images/hero-patio-primeros-pasos.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="theme-color" content="#eaf7fc" />
     <title>Jardín Maternal Primeros Pasos | San Miguel</title>
     <link rel="icon" href="images/favicon.ico" sizes="any" />
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
 
-    <!-- Preconnect a dominios externos usados por la página: reduce el tiempo de conexión en el primer clic real (WhatsApp) y en los mapas -->
-    <link rel="preconnect" href="https://wa.me" />
-    <link rel="preconnect" href="https://www.google.com" />
+    <!-- Preconnect: reduce tiempo de conexión a dominios externos -->
+    <link rel="preconnect" href="https://api.whatsapp.com" />
     <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://connect.facebook.net" />
 
-    <!-- Preload de la imagen hero: es el elemento LCP (Largest Contentful Paint) de la página -->
+    <!-- Preload imagen hero (LCP) -->
     <link rel="preload" as="image" href="images/hero-patio-primeros-pasos.webp" fetchpriority="high" />
 
     <link rel="stylesheet" href="css/style.css" />
 
     <!--
-      TRACKING — INSTALACIÓN TÉCNICA (Consent Mode v2, simplificado)
-      ============================================================
-      Container ID instalado: GTM-NZ5WHRZ (contenedor Web de la cuenta
-      "Jardin Primeros Pasos").
-      Consentimiento por defecto = 'granted' (público Argentina).
+      TRACKING — Consent Mode v2 (simplificado)
+      Container ID: GTM-NZ5WHRZ · Jardín Primeros Pasos
+      Consentimiento por defecto = 'granted' (público Argentina)
     -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('consent', 'default', {
-        'analytics_storage': 'granted',
-        'ad_storage': 'granted',
-        'ad_user_data': 'granted',
+        'analytics_storage':  'granted',
+        'ad_storage':         'granted',
+        'ad_user_data':       'granted',
         'ad_personalization': 'granted'
       });
     </script>
@@ -52,37 +50,31 @@
       'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
       })(window,document,'script','dataLayer','GTM-NZ5WHRZ');</script>
     <!-- End Google Tag Manager -->
-   <!-- Meta Pixel Code -->
+
+    <!--
+      Meta Pixel — PageView solamente en el <head>.
+      El evento Lead se dispara UNA SOLA VEZ desde main.js,
+      en cada clic a [data-track]. El listener del head que
+      generaba el doble disparo fue eliminado.
+    -->
     <script>
-      const META_PIXEL_ID = "2817614701920348";
-
-      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src='https://connect.facebook.net/en_US/fbevents.js';s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script');
-
-      fbq('init', META_PIXEL_ID);
-      fbq('track', 'PageView');
-
-      document.addEventListener('click', function(event) {
-        const link = event.target.closest('a');
-        if (link) {
-          const href = link.getAttribute('href') || '';
-          if (href.includes('wa.me') || href.includes('api.whatsapp.com')) {
-            fbq('track', 'Lead');
-          }
-        }
-      });
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src='https://connect.facebook.net/en_US/fbevents.js';s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window,document,'script');
+      fbq('init','2817614701920348');
+      fbq('track','PageView');
     </script>
     <!-- End Meta Pixel Code -->
 
+    <!-- Schema.org — Sede Paunero 2117 -->
     <script type="application/ld+json">
-      {"@context":"https://schema.org","@type":"ChildCare","name":"Jardín Maternal Primeros Pasos","url":"https://primeros-pasos-eta.vercel.app/","description":"Jardín maternal en San Miguel que acompaña con cercanía y confianza los primeros años de cada niño.","telephone":"+5491130011050","address":{"@type":"PostalAddress","streetAddress":"Paunero 2117","addressLocality":"San Miguel","addressRegion":"Buenos Aires","addressCountry":"AR"},"sameAs":["https://www.instagram.com/jardinprimerospasos_sm/","https://www.facebook.com/jprimerospasos/"]}
+      {"@context":"https://schema.org","@type":"ChildCare","name":"Jardín Maternal Primeros Pasos","url":"https://www.jardinprimerospasos.com/","description":"Jardín maternal en San Miguel que acompaña con cercanía y confianza los primeros años de cada niño. Recibimos niños de 18 meses a 4 años.","telephone":"+5491130011050","typicalAgeRange":"1.5-4","address":{"@type":"PostalAddress","streetAddress":"Paunero 2117","addressLocality":"San Miguel","addressRegion":"Buenos Aires","addressCountry":"AR"},"sameAs":["https://www.instagram.com/jardinprimerospasos_sm/","https://www.facebook.com/jprimerospasos/"]}
     </script>
+    <!-- Schema.org — Sede Monseñor Blois 1684 -->
     <script type="application/ld+json">
-      {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-        {"@type":"Question","name":"¿Cómo es la adaptación?","acceptedAnswer":{"@type":"Answer","text":"La hacemos de a poco, junto a cada familia. Cada chico tiene su propio tiempo y lo respetamos sin apuros."}},
-        {"@type":"Question","name":"¿Cómo me comunican cómo está mi hijo?","acceptedAnswer":{"@type":"Answer","text":"Nos gusta que estés cerca de su día: una foto, un audio o una charla al salir te dan total tranquilidad."}},
-        {"@type":"Question","name":"¿Puedo conocer el jardín antes de anotarlo?","acceptedAnswer":{"@type":"Answer","text":"¡Sí, claro! Te invitamos a coordinar un primer encuentro sereno para recorrer el jardín, conocer a Rosana y al equipo, y hacer todas las preguntas que necesites."}},
-        {"@type":"Question","name":"Tienen dos direcciones, ¿cuál me corresponde?","acceptedAnswer":{"@type":"Answer","text":"Contanos por WhatsApp dónde vivís y la edad de tu hijo, y te aconsejamos cuál de las dos sedes les conviene más."}}
-      ]}
+      {"@context":"https://schema.org","@type":"ChildCare","name":"Jardín Maternal Primeros Pasos","url":"https://www.jardinprimerospasos.com/","description":"Jardín maternal en San Miguel que acompaña con cercanía y confianza los primeros años de cada niño. Recibimos niños de 18 meses a 4 años.","telephone":"+5491130011050","typicalAgeRange":"1.5-4","address":{"@type":"PostalAddress","streetAddress":"Monseñor Blois 1684","addressLocality":"San Miguel","addressRegion":"Buenos Aires","addressCountry":"AR"},"sameAs":["https://www.instagram.com/jardinprimerospasos_sm/","https://www.facebook.com/jprimerospasos/"]}
     </script>
   </head>
   <body>
@@ -94,24 +86,32 @@
     /></noscript>
 
     <!-- ============================================================
-         REQUERIMIENTO 1: BANNER PROMOCIONAL SUPERIOR
-         Integrado al diseño, no invasivo, con icono de regalo, 
-         mensaje cálido, CTA WhatsApp propio y botón de cierre (✕).
+         MODAL DE OFERTA
+         Aparece 4 s después de la primera visita de la sesión.
+         sessionStorage evita que reaparezca en recarga.
+         Manejado íntegramente en main.js.
          ============================================================ -->
-    <aside id="top-banner" class="top-banner" aria-label="Aviso de bienvenida">
-      <div class="section-shell top-banner-content">
-        <div class="top-banner-text">
-          <span class="top-banner-icon" aria-hidden="true">🎁</span>
-          <p><strong>Un mimo para su comienzo:</strong> Reservando la vacante durante tu primer encuentro con el jardín, tu hijo recibe su kit de bienvenida de regalo.</p>
+    <div id="promo-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+      <div class="modal-card">
+        <button class="modal-close" type="button" id="close-promo-modal" aria-label="Cerrar oferta">✕</button>
+        <span class="modal-tag">Para familias que comienzan en septiembre</span>
+        <h2 class="modal-title" id="modal-title">Una nueva etapa puede empezar en septiembre</h2>
+        <div class="modal-price-block">
+          <p class="modal-price-label">Primer mes</p>
+          <p class="modal-price-amount">$95.000</p>
+          <p class="modal-price-sub">Reservando durante agosto · Sujeto a vacante</p>
         </div>
-        <div class="top-banner-actions">
-          <a class="button button-banner" href="https://wa.me/5491130011050?text=Hola%20Rosana%2C%20quiero%20consultar%20por%20las%20vacantes%20y%20el%20kit%20de%20bienvenida." target="_blank" rel="noopener" data-track="whatsapp_top_banner">Consultar por WhatsApp <span aria-hidden="true">↗</span></a>
-          <button class="top-banner-close" type="button" aria-label="Cerrar aviso" id="close-top-banner">✕</button>
-        </div>
+        <p class="modal-body">Una adaptación progresiva para que tu peque pueda empezar a compartir, jugar y crecer con sus nuevos amigos, mientras tu familia encuentra su ritmo.</p>
+        <a class="button button-primary modal-cta" href="https://wa.me/5491130011050?text=Hola%21%20Quiero%20conocer%20la%20propuesta%20del%20primer%20mes%20para%20comenzar%20en%20septiembre." target="_blank" rel="noopener" data-track="whatsapp_banner_oferta">Quiero conocer esta propuesta <span aria-hidden="true">↗</span></a>
+        <p class="modal-legal">Oferta válida para familias que reserven durante agosto de 2026 y comiencen en septiembre de 2026, siempre que exista vacante disponible.</p>
       </div>
-    </aside>
+    </div>
 
     <a class="skip-link" href="#contenido">Ir al contenido principal</a>
+
+    <!-- ============================================================
+         HEADER
+         ============================================================ -->
     <header class="site-header">
       <a class="brand" href="#inicio" aria-label="Primeros Pasos, inicio">
         <picture>
@@ -122,25 +122,23 @@
       </a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal"><span></span><span></span><span></span><span class="sr-only">Abrir menú</span></button>
       <nav id="menu-principal" class="nav" aria-label="Navegación principal">
-        <a href="#historias">Historias reales</a><a href="#acompanar">Cómo acompañamos</a><a href="#ubicacion">Cómo llegar</a><a href="#preguntas">Preguntas</a>
-        <a class="nav-cta" href="https://wa.me/5491130011050?text=Hola%2C%20quiero%20conocer%20el%20jard%C3%ADn." target="_blank" rel="noopener" data-track="whatsapp_header">Quiero conocerlo</a>
+        <a href="#experiencia">La experiencia</a><a href="#historias">Historias</a><a href="#acompanar">Cómo acompañamos</a><a href="#sedes">Sedes</a>
+        <a class="nav-cta" href="https://wa.me/5491130011050?text=Hola%21%20Quiero%20conocer%20el%20jard%C3%ADn." target="_blank" rel="noopener" data-track="whatsapp_header">Quiero conocer el jardín</a>
       </nav>
     </header>
+
     <main id="contenido">
 
       <!-- ============================================================
-           REQUERIMIENTO 2: HERO OPTIMIZADO
-           Jerarquía visual clara, propuesta directa en < 3 segundos,
-           claridad de lo que ofrece el jardín y el paso siguiente.
+           HERO
            ============================================================ -->
       <section id="inicio" class="hero section-shell">
         <div class="hero-copy reveal">
           <p class="eyebrow">Jardín Maternal · San Miguel</p>
           <h1>El mejor lugar después del <em>hogar.</em></h1>
-          <p class="hero-lead">En casa, con upa y mucho amor, tu hijo tiene todo lo que necesita para sentirse seguro. Pero hay un mundo que solo se vive entre pares: la primera vez que comparte un juguete sin que se lo pidan, la primera carcajada con otro chico de su misma altura, el primer paso que se anima a dar solo — mientras alguien lo mira sonriendo de lejos. Imaginátelo en el patio de Primeros Pasos, con el pasto bajo los pies y una torre de bloques más alta que él: esos primeros pasos de independencia pasan una sola vez, y merecen vivirse rodeados de risas.</p>
-          <p class="hero-detail">Hace más de 20 años elegimos construir ese lugar. Te invitamos a conocerlo en persona, caminar cada rincón, y ver con tus propios ojos si este es el sitio donde tu hijo puede vivir su propia historia.</p>
-          <a class="button button-primary" href="https://wa.me/5491130011050?text=Hola%2C%20quiero%20conocer%20el%20jard%C3%ADn." target="_blank" rel="noopener" data-track="whatsapp_hero">Quiero conocer el jardín <span aria-hidden="true">↗</span></a>
-          <p class="microcopy">Una entrevista tranquila, sin compromiso y a tu ritmo.</p>
+          <p class="hero-lead">Un espacio donde cada niño encuentra su tiempo para crecer, aprender y compartir, acompañado con cariño.</p>
+          <a class="button button-primary" href="https://wa.me/5491130011050?text=Hola%21%20Quiero%20conocer%20el%20jard%C3%ADn%20y%20que%20mi%20peque%20pueda%20vivir%20su%20primera%20experiencia%20en%20Primeros%20Pasos." target="_blank" rel="noopener" data-track="whatsapp_hero">Quiero conocer el jardín y vivir esta experiencia <span aria-hidden="true">↗</span></a>
+          <p class="microcopy">Una visita tranquila, sin compromiso. Mientras vos conocés el jardín, tu peque empieza a vivir su primera experiencia con nosotros.</p>
         </div>
         <figure class="hero-photo reveal">
           <picture>
@@ -151,75 +149,91 @@
         </figure>
       </section>
 
+      <!-- ============================================================
+           TRUST BAR
+           ============================================================ -->
       <section class="trust section-shell" aria-label="Primeros Pasos en números">
-        <div class="trust-item reveal"><strong>+20 años</strong><span>acompañando familias</span></div>
+        <div class="trust-item reveal"><strong>+20 años</strong><span>creciendo junto a las familias de San Miguel</span></div>
         <div class="trust-item reveal"><strong>18 meses a 4 años</strong><span>salas para sus primeros pasos</span></div>
-        <div class="trust-item reveal"><strong>San Miguel</strong><span>dos sedes cerca tuyo</span></div>
+        <div class="trust-item reveal"><strong>2 sedes</strong><span>en San Miguel</span></div>
       </section>
 
       <!-- ============================================================
-           REQUERIMIENTO 3: NUEVA SECCIÓN "¿QUÉ PASA CUANDO VIENEN A CONOCERNOS?"
-           Vende la experiencia cálida del primer encuentro en 3 pasos.
+           PRIMERA EXPERIENCIA — 3 pasos
            ============================================================ -->
-      <section id="primer-encuentro" class="first-meeting section-space" aria-labelledby="encuentro-titulo">
+      <section id="experiencia" class="first-experience section-space" aria-labelledby="experiencia-titulo">
         <div class="section-shell">
           <div class="section-intro centered reveal">
             <p class="eyebrow">Tu primer encuentro con el jardín</p>
-            <h2 id="encuentro-titulo">¿Qué pasa cuando vienen a conocernos?</h2>
-            <p>No es una reunión fría ni un trámite administrativo. Es un momento pensado para que vos te sientas tranquila y tu hijo descubra el jardín jugando.</p>
+            <h2 id="experiencia-titulo">Su primera experiencia en Primeros Pasos</h2>
+            <p>No es una entrevista ni un trámite. Es un momento pensado para que tu peque empiece a descubrir el jardín jugando, mientras vos lo conocés con toda la calma del mundo.</p>
           </div>
-          <div class="meeting-steps-grid">
-            <article class="meeting-step-card reveal">
-              <span class="step-badge">1</span>
+          <div class="experience-steps-grid">
+            <article class="experience-step-card reveal">
+              <span class="step-num">01</span>
               <div class="step-content">
-                <h3>Los recibimos con los brazos abiertos</h3>
-                <p>Rosana las espera en la puerta para recorrer juntas cada salita y el patio. Sin apuros, charlando sobre los hábitos de tu hijo y resolviendo cada duda que tengas.</p>
+                <h3>Conoce a su seño</h3>
+                <p>Un primer acercamiento cálido y natural. Sin apuros ni protocolos. Una mano amiga desde el primer momento.</p>
               </div>
             </article>
-            <article class="meeting-step-card reveal featured-step">
-              <span class="step-badge">2</span>
+            <article class="experience-step-card featured-step reveal">
+              <span class="step-num">02</span>
               <div class="step-content">
-                <h3>Un momento de juego para tu hijo</h3>
-                <p>Mientras conversamos tranquilas, tu peque comparte una actividad guiada con juguetes y canciones junto a su futura seño y compañeritos. Descubre el espacio sonriendo y a su propio ritmo.</p>
+                <h3>Tiene una actividad preparada para él</h3>
+                <p>Una propuesta adaptada a su edad para jugar, explorar y compartir. Descubre el espacio a su propio ritmo, sonriendo.</p>
               </div>
             </article>
-            <article class="meeting-step-card reveal">
-              <span class="step-badge">3</span>
+            <article class="experience-step-card reveal">
+              <span class="step-num">03</span>
               <div class="step-content">
-                <h3>Vuelven a casa en paz y sin presiones</h3>
-                <p>Se llevan toda la información sobre la propuesta pedagógica, la adaptación y las vacantes para poder conversarlo en familia y decidir con total serenidad.</p>
+                <h3>Vos podés verlo desde la oficina</h3>
+                <p>Mientras conversás con Rosana y recorrés el jardín, podés observar cómo participa tu peque mediante las cámaras. Tranquilidad real.</p>
               </div>
             </article>
           </div>
           <div class="stories-cta reveal">
-            <a class="button button-primary" href="https://wa.me/5491130011050?text=Hola%20Rosana%2C%20me%20gustar%C3%ADa%20coordinar%20este%20primer%20encuentro%20para%20ir%20con%20mi%20hijo." target="_blank" rel="noopener" data-track="whatsapp_first_meeting">Quiero vivir este primer encuentro <span aria-hidden="true">↗</span></a>
+            <a class="button button-primary" href="https://wa.me/5491130011050?text=Hola%20Rosana%21%20Me%20encantar%C3%ADa%20coordinar%20esa%20primera%20experiencia%20para%20que%20mi%20peque%20conozca%20el%20jard%C3%ADn%20junto%20a%20m%C3%AD." target="_blank" rel="noopener" data-track="whatsapp_experiencia">Quiero vivir esta experiencia <span aria-hidden="true">↗</span></a>
             <p class="microcopy">Escribinos por WhatsApp. Coordinamos el día y horario que mejor te quede.</p>
           </div>
         </div>
       </section>
 
       <!-- ============================================================
-           SECCIÓN: HISTORIAS REALES
-           Prueba social narrativa con relatos reales de adaptación.
+           INCORPORACIÓN SEPTIEMBRE — positiva, sin urgencia artificial
+           ============================================================ -->
+      <section class="september-section section-space" aria-labelledby="septiembre-titulo">
+        <div class="section-shell">
+          <div class="sept-card reveal">
+            <p class="eyebrow">Para los que se suman en septiembre</p>
+            <h2 id="septiembre-titulo">Un lindo momento para empezar a compartir</h2>
+            <p>Para septiembre, nuestro grupo ya estará formado y los chicos habrán encontrado su ritmo en el jardín. Para un peque que se suma, eso es una oportunidad hermosa: llega a un espacio vivo, donde ya hay amigos, actividades en marcha y una seño que conoce bien cómo recibir a cada uno.</p>
+            <p>La adaptación siempre la hacemos a su tiempo y con acompañamiento de la familia. Sin apuros ni comparaciones.</p>
+            <a class="button button-primary" href="https://wa.me/5491130011050?text=Hola%21%20Quisiera%20saber%20si%20todav%C3%ADa%20hay%20lugar%20para%20que%20mi%20peque%20empiece%20en%20septiembre%20en%20Primeros%20Pasos." target="_blank" rel="noopener" data-track="whatsapp_septiembre">Quiero saber si hay lugar para mi peque <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           HISTORIAS REALES — máximo protagonismo
            ============================================================ -->
       <section id="historias" class="stories section-space" aria-labelledby="historias-titulo">
         <div class="section-shell">
           <div class="stories-intro reveal">
-            <p class="eyebrow">Así vivimos los primeros días</p>
-            <h2 id="historias-titulo">Sabemos que cada comienzo es distinto. Por eso te contamos todo, paso a paso.</h2>
-            <p>Esto es lo que pasa, semana a semana, cuando una familia decide confiar en nosotros. No son promesas: son historias reales de mamás y papás que se sentaron en este mismo primer encuentro, con el mismo deseo de conocernos que tenés vos hoy.</p>
+            <p class="eyebrow">Cada peque tiene su propio comienzo</p>
+            <h2 id="historias-titulo">Así arrancaron los chicos que hoy se quedan contentos.</h2>
+            <p>Estas son historias reales de niños que pasaron por el mismo primer día que está pensando tu peque. Cada uno llegó a su manera, y cada uno encontró su lugar.</p>
           </div>
           <div class="stories-grid">
             <article class="story-card reveal">
-              <div class="story-head"><span class="avatar">M</span><div><strong>Mateo</strong><small>2 años</small></div></div>
+              <div class="story-head"><span class="avatar">M</span><div><strong>Mateo</strong><small>2 años · primera semana</small></div></div>
               <p>El primer día, mientras la mamá manejaba de vuelta a casa, sonó su celular: un audio de Rosana de apenas quince segundos. <em>«Hola mami, tranquila, ya está contento y armando una torre con Seño Agus.»</em> Minutos después llegó la foto: Mateo, sonriendo, con una torre más alta que él.</p>
             </article>
             <article class="story-card reveal">
-              <div class="story-head"><span class="avatar">T</span><div><strong>Thiago</strong><small>2 años</small></div></div>
+              <div class="story-head"><span class="avatar">T</span><div><strong>Thiago</strong><small>2 años · primer almuerzo</small></div></div>
               <p>Papás primerizos, con la duda de siempre: «¿va a comer bien si no estoy yo?». La respuesta llegó al mediodía: una foto de Thiago con la cuchara en la mano, la carita llena de puré de calabaza y una sonrisa enorme. <em>«Comió todo y pidió repetir. Lo hizo solito»</em>, decía el mensaje.</p>
             </article>
             <article class="story-card reveal">
-              <div class="story-head"><span class="avatar">B</span><div><strong>Bruno</strong><small>3 años</small></div></div>
+              <div class="story-head"><span class="avatar">B</span><div><strong>Bruno</strong><small>3 años · su propio ritmo</small></div></div>
               <p>Bruno tardó un tiempo en animarse a subir al tobogán. Nadie lo apuró. Una tarde se subió solo, sin que nadie lo alentara. Rosana grabó el momento justo: Bruno bajando, gritando de alegría, pidiendo «otra vez, otra vez» mientras sus compañeritos aplaudían.</p>
             </article>
           </div>
@@ -227,25 +241,28 @@
             <summary>Ver más historias así<span aria-hidden="true">+</span></summary>
             <div class="stories-grid stories-grid-more">
               <article class="story-card">
-                <div class="story-head"><span class="avatar">D</span><div><strong>Delfina</strong><small>3 años</small></div></div>
+                <div class="story-head"><span class="avatar">D</span><div><strong>Delfina</strong><small>3 años · su propio ritmo</small></div></div>
                 <p>La abuela repetía que «todavía no estaba lista» para dejar los pañales, y en casa nadie la apuraba. En el jardín tampoco: la auxiliar acompañaba el proceso a su ritmo, sin apuros ni comparaciones. Un mediodía llegó un video cortito: Delfina saliendo del bañito con las manos en alto, gritando «¡lo hice sola!».</p>
               </article>
               <article class="story-card">
-                <div class="story-head"><span class="avatar">I</span><div><strong>Isabella</strong><small>4 años</small></div></div>
+                <div class="story-head"><span class="avatar">I</span><div><strong>Isabella</strong><small>4 años · la despedida</small></div></div>
                 <p>Isabella se quedaba un ratito abrazada a la mamá todas las mañanas antes de entrar. Rosana le sugirió esperar un momento en la entrada, sin que Isabella la viera. Y ahí la vio: a los pocos segundos, tomó la mano de un compañerito y se fue derecho a la salita. Esa noche llegó una foto con un mensaje: «Mirá cómo juega feliz».</p>
               </article>
               <article class="story-card">
-                <div class="story-head"><span class="avatar">R</span><div><strong>Renata</strong><small>4 años</small></div></div>
+                <div class="story-head"><span class="avatar">R</span><div><strong>Renata</strong><small>4 años · la que lidera</small></div></div>
                 <p>Su abuela, que la buscaba después del jardín, un día llegó un poco más temprano y la vio desde la puerta: Renata organizando sola la ronda de despedida, cantando y dirigiendo a los demás como una pequeña maestra. Esa noche llegó un audio: «Se la ve grande de golpe, ¿no? Mirá cómo canta».</p>
               </article>
             </div>
           </details>
           <div class="stories-cta reveal">
-            <a class="button button-primary" href="https://wa.me/5491130011050?text=Hola%2C%20quiero%20conocer%20el%20jard%C3%ADn%20y%20saber%20c%C3%B3mo%20es%20el%20acompa%C3%B1amiento%20en%20la%20adaptaci%C3%B3n." target="_blank" rel="noopener" data-track="whatsapp_stories">Quiero que mi hijo tenga su propia historia <span aria-hidden="true">↗</span></a>
+            <a class="button button-primary" href="https://wa.me/5491130011050?text=Hola%21%20Le%C3%AD%20las%20historias%20y%20me%20gustar%C3%ADa%20que%20mi%20peque%20viva%20su%20propia%20experiencia%20en%20Primeros%20Pasos." target="_blank" rel="noopener" data-track="whatsapp_historias">Quiero que mi hijo tenga su propia historia <span aria-hidden="true">↗</span></a>
           </div>
         </div>
       </section>
 
+      <!-- ============================================================
+           RESEÑAS GOOGLE
+           ============================================================ -->
       <section class="reviews section-space" aria-labelledby="resenas-titulo">
         <div class="section-shell">
           <div class="section-intro centered reveal">
@@ -254,13 +271,16 @@
             <p>Palabras reales de mamás y papás que alguna vez tuvieron las mismas preguntas que vos.</p>
           </div>
           <div class="reviews-grid">
-            <article class="review-card reveal"><span class="review-stars" aria-label="5 de 5 estrellas">★★★★★</span><p>"Su adaptación duró dos meses; siempre nos acompañaron con paciencia y contención. Logró entrar y salir contento e hizo amigos."</p><div class="review-person"><span class="avatar">L</span><span><strong>Lara Sánchez</strong><small>Reseña de Google</small></span></div></article>
-            <article class="review-card featured reveal"><span class="review-stars" aria-label="5 de 5 estrellas">★★★★★</span><p>"Sale y entra re feliz todos los días. El tacto, la paciencia y el amor que manejan desde la directora hasta los auxiliares es increíble."</p><div class="review-person"><span class="avatar">V</span><span><strong>Vale Contreras</strong><small>Reseña de Google</small></span></div></article>
-            <article class="review-card reveal"><span class="review-stars" aria-label="5 de 5 estrellas">★★★★★</span><p>"Elegimos el jardín para nuestra hija mayor y ahora lo volvemos a elegir para nuestra hija menor."</p><div class="review-person"><span class="avatar">A</span><span><strong>Andrea Costantino</strong><small>Reseña de Google</small></span></div></article>
+            <article class="review-card reveal"><span class="review-stars" aria-label="5 de 5 estrellas">★★★★★</span><p>«Su adaptación duró dos meses; siempre nos acompañaron con paciencia y contención. Logró entrar y salir contento e hizo amigos.»</p><div class="review-person"><span class="avatar">L</span><span><strong>Lara Sánchez</strong><small>Reseña de Google</small></span></div></article>
+            <article class="review-card featured reveal"><span class="review-stars" aria-label="5 de 5 estrellas">★★★★★</span><p>«Sale y entra re feliz todos los días. El tacto, la paciencia y el amor que manejan desde la directora hasta los auxiliares es increíble.»</p><div class="review-person"><span class="avatar">V</span><span><strong>Vale Contreras</strong><small>Reseña de Google</small></span></div></article>
+            <article class="review-card reveal"><span class="review-stars" aria-label="5 de 5 estrellas">★★★★★</span><p>«Elegimos el jardín para nuestra hija mayor y ahora lo volvemos a elegir para nuestra hija menor.»</p><div class="review-person"><span class="avatar">A</span><span><strong>Andrea Costantino</strong><small>Reseña de Google</small></span></div></article>
           </div>
         </div>
       </section>
 
+      <!-- ============================================================
+           CÓMO ACOMPAÑAMOS
+           ============================================================ -->
       <section id="acompanar" class="benefits section-space" aria-labelledby="beneficios-titulo">
         <div class="section-shell">
           <div class="benefits-heading reveal">
@@ -277,73 +297,13 @@
             <article class="benefit reveal"><span class="benefit-number">06</span><h3>Con alegría</h3><p>Queremos que juegue, que se ría y que vuelva a casa con algo lindo para contar.</p></article>
           </div>
           <div class="stories-cta reveal">
-            <a class="button button-primary" href="https://wa.me/5491130011050?text=Hola%2C%20quiero%20coordinar%20una%20visita%20al%20jard%C3%ADn." target="_blank" rel="noopener" data-track="whatsapp_beneficios">Quiero conocer el jardín <span aria-hidden="true">↗</span></a>
+            <a class="button button-primary" href="https://wa.me/5491130011050?text=Hola%21%20Quiero%20conocer%20la%20propuesta%20de%20Primeros%20Pasos%20y%20coordinar%20una%20visita." target="_blank" rel="noopener" data-track="whatsapp_beneficios">Quiero conocer el jardín <span aria-hidden="true">↗</span></a>
           </div>
         </div>
       </section>
 
       <!-- ============================================================
-           REQUERIMIENTO 6: UN DÍA EN PRIMEROS PASOS (EXPERIENCIA VISUAL)
-           Fotografías grandes, descripciones cortas y generoso espacio en blanco.
-           ============================================================ -->
-      <section id="dia" class="day-experience section-space" aria-labelledby="dia-titulo">
-        <div class="section-shell">
-          <div class="section-intro centered reveal">
-            <p class="eyebrow">Así se vive cada jornada</p>
-            <h2 id="dia-titulo">Un día en Primeros Pasos: risas, juego y mucha contención.</h2>
-            <p>Momentos simples y cuidados donde tu hijo aprende a relacionarse con otros niños sintiéndose querido y protegido.</p>
-          </div>
-          <div class="day-moments-grid">
-            <article class="day-moment-card reveal">
-              <figure class="moment-photo">
-                <picture><source srcset="images/galeria-ronda-primeros-pasos.webp" type="image/webp" /><img src="images/galeria-ronda-primeros-pasos.jpg" alt="Niños participando de una ronda junto a su docente" width="760" height="759" loading="lazy" /></picture>
-              </figure>
-              <div class="moment-info">
-                <span class="moment-time">MOMENTO 01 · BIENVENIDA</span>
-                <h3>La recepción con upa y sonrisa</h3>
-                <p>Un saludo cálido, una mirada atenta y el tiempo que cada chiquito necesita para despedirse de mamá o papá sin sobresaltos.</p>
-              </div>
-            </article>
-            <article class="day-moment-card reveal">
-              <figure class="moment-photo">
-                <picture><source srcset="images/hero-patio-primeros-pasos.webp" type="image/webp" /><img src="images/hero-patio-primeros-pasos.jpg" alt="Niños y docentes compartiendo un momento de juego en el patio" width="959" height="1280" loading="lazy" /></picture>
-              </figure>
-              <div class="moment-info">
-                <span class="moment-time">MOMENTO 02 · PATIO Y JUEGO LIBRE</span>
-                <h3>Sol, pasto y primeras carcajadas</h3>
-                <p>Bloques de colores, carreras en el pasto y esos "otra vez" entusiastas que nacen cuando se sienten totalmente seguros.</p>
-              </div>
-            </article>
-            <article class="day-moment-card reveal">
-              <figure class="moment-photo">
-                <picture><source srcset="images/galeria-acompanamiento-primeros-pasos.webp" type="image/webp" /><img src="images/galeria-acompanamiento-primeros-pasos.jpg" alt="Docente acompañando a niños en el jardín" width="760" height="1210" loading="lazy" /></picture>
-              </figure>
-              <div class="moment-info">
-                <span class="moment-time">MOMENTO 03 · ALMUERZO Y DESCANSO</span>
-                <h3>Tranquilidad como en casa</h3>
-                <p>Un momento sereno para comer a su propio ritmo y descansar acurrucados con la seño cerca.</p>
-              </div>
-            </article>
-            <article class="day-moment-card reveal">
-              <figure class="moment-photo">
-                <picture><source srcset="images/grupo-primeros-pasos.webp" type="image/webp" /><img src="images/grupo-primeros-pasos.jpg" alt="Niños de Primeros Pasos compartiendo un momento alegre" width="984" height="1524" loading="lazy" /></picture>
-              </figure>
-              <div class="moment-info">
-                <span class="moment-time">MOMENTO 04 · REENCUENTRO</span>
-                <h3>Volver a tus brazos felices</h3>
-                <p>La alegría de reencontrarse con vos y llevarse a casa una hermosa historia nueva para contar en el camino.</p>
-              </div>
-            </article>
-          </div>
-          <div class="stories-cta reveal">
-            <a class="button button-primary" href="https://wa.me/5491130011050?text=Hola%20Rosana%2C%20quisiera%20coordinar%20una%20visita%20para%20conocer%20el%20jard%C3%ADn%20en%20acci%C3%B3n." target="_blank" rel="noopener" data-track="whatsapp_day_experience">Imaginar a mi hijo en Primeros Pasos ↗</a>
-          </div>
-        </div>
-      </section>
-
-      <!-- ============================================================
-           REQUERIMIENTO 5: CARTA REESCRIBA DE ROSANA
-           Más corta, más cálida, más humana, invitando personalmente.
+           CARTA DE ROSANA — breve, humana, cálida
            ============================================================ -->
       <section class="director section-space" aria-labelledby="directora-titulo">
         <div class="section-shell director-grid">
@@ -357,23 +317,23 @@
             <p class="eyebrow">Una palabra de Rosana</p>
             <h2 id="directora-titulo">No te pedimos que confíes de entrada. Nos ganamos esa confianza, día a día.</h2>
             <p>En estos más de 20 años recibiendo familias en San Miguel, aprendí algo fundamental: dejar a tu hijo por primera vez en el jardín genera mil dudas y la necesidad profunda de saber que va a estar tan cuidado como en casa.</p>
-            <p>Por eso, Primeros Pasos no se explica en un folleto; se siente cuando caminás por el patio, escuchás las risas en las salitas y ves la mirada atenta de nuestras seños. Estamos para abrazar a los chicos, pero también para darte tranquilidad a vos.</p>
-            <p>Te invito a venir a conocernos, tomar unos mates sin apuro y charlar de mamá a mamá. Traé a tu peque para que explore libremente mientras conversamos.</p>
+            <p>Primeros Pasos no se explica en un folleto: se siente cuando caminás por el patio, escuchás las risas en las salitas y ves la mirada atenta de nuestras seños.</p>
+            <p>Te invito a venir a conocernos, tomar unos mates sin apuro. Traé a tu peque para que explore mientras conversamos.</p>
             <p class="signature">Rosana</p>
             <p class="role">Directora y Maestra Jardinera · Primeros Pasos</p>
           </div>
         </div>
       </section>
 
-      <!-- REQUERIMIENTO 7: CTA TRAS LA CARTA DE ROSANA -->
-      <section class="rosana-cta section-space" aria-label="Coordinar visita con Rosana">
+      <!-- CTA tras carta de Rosana -->
+      <section class="rosana-cta" aria-label="Coordinar visita con Rosana">
         <div class="section-shell stories-cta">
-          <a class="button button-primary" href="https://wa.me/5491130011050?text=Hola%2C%20quiero%20coordinar%20una%20visita%20al%20jard%C3%ADn." target="_blank" rel="noopener" data-track="whatsapp_rosana">Quiero conocer el jardín <span aria-hidden="true">↗</span></a>
+          <a class="button button-primary" href="https://wa.me/5491130011050?text=Hola%20Rosana%21%20Me%20gustar%C3%ADa%20coordinar%20una%20visita%20tranquila%20para%20conocer%20el%20jard%C3%ADn." target="_blank" rel="noopener" data-track="whatsapp_rosana">Quiero conocer el jardín <span aria-hidden="true">↗</span></a>
         </div>
       </section>
 
       <!-- ============================================================
-           GALERÍA DE ESPACIOS
+           GALERÍA — imágenes reales, sin stock
            ============================================================ -->
       <section class="gallery section-shell section-space" aria-labelledby="galeria-titulo">
         <div class="section-intro reveal">
@@ -382,87 +342,78 @@
         </div>
         <div class="gallery-grid">
           <figure class="gallery-item media-slot reveal large">
-            <picture><source srcset="images/grupo-primeros-pasos.webp" type="image/webp" /><img src="images/grupo-primeros-pasos.jpg" alt="Niños de Primeros Pasos compartiendo un momento de juego" width="984" height="1524" loading="lazy" /></picture>
+            <picture><source srcset="images/galeria-patio-primeros-pasos.webp" type="image/webp" /><img src="images/galeria-patio-primeros-pasos.jpg" alt="Niños jugando y compartiendo al aire libre en el patio de Primeros Pasos" width="1100" height="1465" loading="lazy" /></picture>
           </figure>
           <figure class="gallery-item media-slot reveal">
             <picture><source srcset="images/galeria-ronda-primeros-pasos.webp" type="image/webp" /><img src="images/galeria-ronda-primeros-pasos.jpg" alt="Niños participando de una ronda junto a su docente" width="760" height="759" loading="lazy" /></picture>
           </figure>
           <figure class="gallery-item media-slot reveal">
-            <picture><source srcset="images/galeria-acompanamiento-primeros-pasos.webp" type="image/webp" /><img src="images/galeria-acompanamiento-primeros-pasos.jpg" alt="Docente acompañando a niños en el patio del jardín" width="760" height="1210" loading="lazy" /></picture>
+            <picture><source srcset="images/galeria-acompanamiento-primeros-pasos.webp" type="image/webp" /><img src="images/galeria-acompanamiento-primeros-pasos.jpg" alt="Docente acompañando a niños en el jardín" width="760" height="1210" loading="lazy" /></picture>
           </figure>
           <figure class="gallery-item media-slot reveal wide">
-            <picture><source srcset="images/galeria-patio-primeros-pasos.webp" type="image/webp" /><img src="images/galeria-patio-primeros-pasos.jpg" alt="Niños jugando y compartiendo al aire libre" width="1100" height="1465" loading="lazy" /></picture>
+            <picture><source srcset="images/grupo-primeros-pasos.webp" type="image/webp" /><img src="images/grupo-primeros-pasos.jpg" alt="Niños de Primeros Pasos compartiendo un momento alegre" width="984" height="1524" loading="lazy" /></picture>
           </figure>
         </div>
         <div class="stories-cta reveal">
-          <a class="button button-primary" href="https://wa.me/5491130011050?text=Hola%2C%20quiero%20coordinar%20una%20visita%20al%20jard%C3%ADn." target="_blank" rel="noopener" data-track="whatsapp_galeria">Quiero conocer el jardín <span aria-hidden="true">↗</span></a>
+          <a class="button button-primary" href="https://wa.me/5491130011050?text=Hola%21%20Vi%20las%20fotos%20del%20jard%C3%ADn%20y%20me%20encantar%C3%ADa%20visitarlo%20para%20conocerlo%20en%20persona." target="_blank" rel="noopener" data-track="whatsapp_galeria">Quiero conocer el jardín <span aria-hidden="true">↗</span></a>
         </div>
       </section>
 
       <!-- ============================================================
-           SECCIÓN: CÓMO LLEGAR / SEDES
+           SEDES — dirección + botón, sin mapas incrustados
            ============================================================ -->
-      <section id="ubicacion" class="location section-space" aria-labelledby="ubicacion-titulo">
+      <section id="sedes" class="location section-space" aria-labelledby="sedes-titulo">
         <div class="section-shell">
           <div class="section-intro centered reveal">
             <p class="eyebrow">Para venir a conocernos</p>
-            <h2 id="ubicacion-titulo">Te esperamos, sin apuro, para que lo veas con tus propios ojos.</h2>
+            <h2 id="sedes-titulo">Te esperamos, sin apuro, para que lo veas con tus propios ojos.</h2>
             <p>Tenemos dos sedes en San Miguel. Contanos por WhatsApp cuál te queda más cerca y coordinamos el día y horario que mejor te venga.</p>
           </div>
-          <div class="location-grid">
-            <article class="location-card reveal">
-              <div class="location-map"><iframe title="Mapa Paunero 2117, San Miguel" src="https://maps.google.com/maps?q=Paunero%202117%2C%20San%20Miguel%2C%20Buenos%20Aires&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
-              <div class="location-info"><h3>Sede Paunero 2117</h3><p>San Miguel, Buenos Aires</p><a class="location-link" href="https://www.google.com/maps/search/?api=1&query=Paunero+2117+San+Miguel+Buenos+Aires" target="_blank" rel="noopener">Cómo llegar ↗</a></div>
+          <div class="location-address-grid">
+            <article class="location-address-card reveal">
+              <div class="location-address-icon" aria-hidden="true">📍</div>
+              <div class="location-address-info">
+                <h3>Paunero 2117</h3>
+                <p>San Miguel, Buenos Aires</p>
+              </div>
+              <a class="location-link" href="https://www.google.com/maps/search/?api=1&query=Paunero+2117+San+Miguel+Buenos+Aires" target="_blank" rel="noopener">Cómo llegar ↗</a>
             </article>
-            <article class="location-card reveal">
-              <div class="location-map"><iframe title="Mapa Monseñor Blois 1684, San Miguel" src="https://maps.google.com/maps?q=Monse%C3%B1or%20Blois%201684%2C%20San%20Miguel%2C%20Buenos%20Aires&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
-              <div class="location-info"><h3>Sede Monseñor Blois 1684</h3><p>San Miguel, Buenos Aires</p><a class="location-link" href="https://www.google.com/maps/search/?api=1&query=Monse%C3%B1or+Blois+1684+San+Miguel+Buenos+Aires" target="_blank" rel="noopener">Cómo llegar ↗</a></div>
+            <article class="location-address-card reveal">
+              <div class="location-address-icon" aria-hidden="true">📍</div>
+              <div class="location-address-info">
+                <h3>Monseñor Blois 1684</h3>
+                <p>San Miguel, Buenos Aires</p>
+              </div>
+              <a class="location-link" href="https://www.google.com/maps/search/?api=1&query=Monse%C3%B1or+Blois+1684+San+Miguel+Buenos+Aires" target="_blank" rel="noopener">Cómo llegar ↗</a>
             </article>
           </div>
           <div class="stories-cta reveal">
-            <a class="button button-primary" href="https://wa.me/5491130011050?text=Hola%2C%20quiero%20coordinar%20una%20visita%20al%20jard%C3%ADn." target="_blank" rel="noopener" data-track="whatsapp_ubicacion">Coordinar mi visita por WhatsApp <span aria-hidden="true">↗</span></a>
+            <a class="button button-primary" href="https://wa.me/5491130011050?text=Hola%21%20Quisiera%20coordinar%20una%20visita%20al%20jard%C3%ADn." target="_blank" rel="noopener" data-track="whatsapp_sedes">Coordinar mi visita por WhatsApp <span aria-hidden="true">↗</span></a>
           </div>
         </div>
       </section>
 
       <!-- ============================================================
-           SECCIÓN: PREGUNTAS FRECUENTES
-           ============================================================ -->
-      <section id="preguntas" class="faq section-space" aria-labelledby="faq-titulo">
-        <div class="section-shell faq-layout">
-          <div class="section-intro reveal">
-            <p class="eyebrow">Preguntas que también nos haríamos</p>
-            <h2 id="faq-titulo">Queremos que te quedes tranquila antes de dar el primer paso.</h2>
-            <p>Y si tu pregunta no está acá, la hablamos con tiempo en nuestro primer encuentro.</p>
-          </div>
-          <div class="accordion reveal">
-            <details><summary>¿Cómo es la adaptación?<span aria-hidden="true">+</span></summary><p>La hacemos de a poco, junto a cada familia. Cada chico tiene su propio tiempo y lo respetamos sin apuros.</p></details>
-            <details><summary>¿Cómo me comunican cómo está mi hijo?<span aria-hidden="true">+</span></summary><p>Nos gusta que estés cerca de su día: una foto, un audio o una charla al salir te dan total tranquilidad.</p></details>
-            <details><summary>¿Puedo conocer el jardín antes de anotarlo?<span aria-hidden="true">+</span></summary><p>¡Sí, claro! Te invitamos a coordinar un primer encuentro sereno para recorrer el jardín, conocer a Rosana y al equipo, y hacer todas las preguntas que necesites.</p></details>
-            <details><summary>Tienen dos direcciones, ¿cuál me corresponde?<span aria-hidden="true">+</span></summary><p>Contanos por WhatsApp dónde vivís y la edad de tu hijo, y te aconsejamos cuál de las dos sedes les conviene más.</p></details>
-          </div>
-        </div>
-        <div class="stories-cta reveal" style="margin-top:30px;">
-          <a class="button button-primary" href="https://wa.me/5491130011050?text=Hola%20Rosana%2C%20tengo%20una%20consulta%20antes%20de%20ir%20a%20conocer%20el%20jard%C3%ADn." target="_blank" rel="noopener" data-track="whatsapp_faq">Tengo otra duda, hablar con Rosana ↗</a>
-        </div>
-      </section>
-
-      <!-- ============================================================
-           REQUERIMIENTO 8: CIERRE FINAL EMOCIONAL Y CÁLIDO
-           Invitación personal de Rosana sin dramatismos ni tono comercial.
+           CIERRE EMOCIONAL
            ============================================================ -->
       <section class="final-cta">
         <div class="section-shell reveal">
           <p class="eyebrow">Tu hijo merece un comienzo lleno de amor</p>
-          <h2>Dar el primer paso juntas es mucho más fácil.</h2>
-          <p>Sabemos que tomar la decisión de inscribir a tu hijo genera muchas emociones. Por eso no tenés que definir nada hoy: simplemente vení a caminar por el jardín, sentí el clima de las salitas y conversemos sin ningún compromiso. Te esperamos con los brazos abiertos.</p>
-          <a class="button button-light" href="https://wa.me/5491130011050?text=Hola%20Rosana%2C%20quisiera%20coordinar%20nuestro%20primer%20encuentro%20para%20conocer%20el%20jard%C3%ADn." target="_blank" rel="noopener" data-track="whatsapp_final">Coordinar nuestro primer encuentro <span aria-hidden="true">↗</span></a>
+          <h2>Quizás este sea el comienzo de algo hermoso.</h2>
+          <p>Vení a conocer Primeros Pasos y descubrí cómo se siente tu peque en su primera experiencia con nosotros. Sin compromisos, sin apuros. Solo un encuentro tranquilo para ver si este es el lugar que estabas buscando.</p>
+          <a class="button button-light" href="https://wa.me/5491130011050?text=Hola%20Rosana%21%20Quisiera%20coordinar%20nuestro%20primer%20encuentro%20para%20conocer%20el%20jard%C3%ADn%20y%20que%20mi%20peque%20viva%20su%20primera%20experiencia." target="_blank" rel="noopener" data-track="whatsapp_cierre">Quiero conocer el jardín y vivir esta experiencia <span aria-hidden="true">↗</span></a>
           <p class="microcopy">Te responde Rosana o su equipo de seños. Cercano, sereno y a tu ritmo.</p>
         </div>
       </section>
 
     </main>
-    <a class="whatsapp-float" href="https://wa.me/5491130011050?text=Hola%2C%20quiero%20conocer%20el%20jard%C3%ADn." target="_blank" rel="noopener" data-track="whatsapp_float" aria-label="Quiero conocer el jardín por WhatsApp"><span aria-hidden="true">◔</span><span>WhatsApp</span></a>
+
+    <!-- WhatsApp flotante — desktop -->
+    <a class="whatsapp-float" href="https://wa.me/5491130011050?text=Hola%21%20Quiero%20conocer%20el%20jard%C3%ADn%20y%20que%20mi%20peque%20pueda%20vivir%20su%20primera%20experiencia%20en%20Primeros%20Pasos." target="_blank" rel="noopener" data-track="whatsapp_float" aria-label="Quiero conocer el jardín por WhatsApp"><span aria-hidden="true">💬</span><span>WhatsApp</span></a>
+
+    <!-- Barra sticky inferior — solo visible en mobile (CSS) -->
+    <a class="whatsapp-mobile-bar" href="https://wa.me/5491130011050?text=Hola%21%20Quiero%20conocer%20el%20jard%C3%ADn%20y%20que%20mi%20peque%20pueda%20vivir%20su%20primera%20experiencia%20en%20Primeros%20Pasos." target="_blank" rel="noopener" data-track="whatsapp_float_mobile" aria-label="Quiero conocer el jardín por WhatsApp">Quiero conocer el jardín y vivir esta experiencia ↗</a>
+
     <footer class="site-footer section-shell">
       <a class="brand" href="#inicio">
         <picture><source srcset="images/marca-primeros-pasos.webp" type="image/webp" /><img class="brand-mark" src="images/marca-primeros-pasos.png" alt="" width="42" height="42" /></picture>
@@ -472,10 +423,11 @@
         <p>Jardín Maternal · San Miguel</p>
         <p><strong>Sedes:</strong> Paunero 2117 · Monseñor Blois 1684</p>
         <p><strong>WhatsApp:</strong> +54 9 11 3001-1050</p>
-        <div class="footer-links"><a href="https://share.google/6nAwnaXwpzoBO8yPl" target="_blank" rel="noopener">Google Maps</a><a href="https://www.instagram.com/jardinprimerospasos_sm/" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/jprimerospasos/" target="_blank" rel="noopener">Facebook</a></div>
+        <div class="footer-links"><a href="https://www.instagram.com/jardinprimerospasos_sm/" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/jprimerospasos/" target="_blank" rel="noopener">Facebook</a></div>
       </div>
       <p>© <span data-year></span> Primeros Pasos</p>
     </footer>
+
     <script src="js/tracking.js" defer></script>
     <script src="js/main.js" defer></script>
   </body>
