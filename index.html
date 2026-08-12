@@ -455,7 +455,7 @@
             <div class="oferta-right">
               <p class="oferta-label">Primer mes</p>
               <p class="oferta-precio">$95.000</p>
-              <p class="oferta-periodo">Agosto → Septiembre</p>
+              <p class="oferta-periodo">Agosto &rarr; Septiembre</p>
               <p class="oferta-sub">Oferta válida para familias que reserven durante agosto de 2026 y comiencen en septiembre de 2026, siempre que exista vacante disponible.</p>
             </div>
           </div>
@@ -545,6 +545,28 @@
         }
       }
     }, 10000);
+    </script>
+    <script>
+    /* Fechas dinámicas de la oferta — sin tocar main.js ni el modal */
+    (function(){
+      var R=['marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre','enero','febrero'];
+      var I=['abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre','marzo','enero','febrero'];
+      var m=new Date().getMonth(); // 0=ene…11=dic; agosto=7
+      // Reindexamos: 0→marzo(idx2), usamos offset 2
+      // Tabla directa por índice de mes (0-11):
+      var reserva=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'][m];
+      var inicio=['febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre','marzo'][m];
+      var cap=function(s){return s.charAt(0).toUpperCase()+s.slice(1);};
+      function set(sel,txt){var el=document.querySelector(sel);if(el)el.textContent=txt;}
+      set('.modal-tag','Para familias que comienzan en '+inicio);
+      set('.modal-title','Una nueva etapa puede empezar en '+inicio);
+      set('.modal-price-sub','Reservando en '+reserva+' · Sujeto a vacante');
+      set('.modal-legal','Oferta válida para familias que reserven durante '+reserva+' y comiencen en '+inicio+', siempre que exista vacante disponible.');
+      set('.oferta-eyebrow','Para familias que comienzan en '+inicio);
+      set('.oferta-periodo',cap(reserva)+' → '+cap(inicio));
+      set('.oferta-microcopy','Reservando en '+reserva+' · Sujeto a vacante disponible');
+      set('.oferta-sub','Oferta válida para familias que reserven durante '+reserva+' y comiencen en '+inicio+', siempre que exista vacante disponible.');
+    })();
     </script>
   </body>
 </html>
