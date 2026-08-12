@@ -92,11 +92,8 @@
   document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
 
   // ── Modal de oferta ───────────────────────────────────────────────
-  const modal = document.getElementById('promo-modal');
-  const closeBtn = document.getElementById('close-promo-modal');
-  const MODAL_KEY = 'pp_promo_seen';
-
   function openModal() {
+    const modal = document.getElementById('promo-modal');
     if (!modal) return;
     modal.classList.add('is-visible');
     modal.setAttribute('aria-hidden', 'false');
@@ -105,30 +102,27 @@
   }
 
   function dismissModal() {
+    const modal = document.getElementById('promo-modal');
     if (!modal) return;
     modal.classList.remove('is-visible');
     modal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
-    sessionStorage.setItem(MODAL_KEY, '1');
     window.dataLayer.push({ event: 'banner_closed' });
   }
 
-  // Cerrar con el botón ✕
-  closeBtn?.addEventListener('click', dismissModal);
-
-  // Cerrar al hacer clic en el overlay (fuera de la card)
-  modal?.addEventListener('click', (e) => {
-    if (e.target === modal) dismissModal();
+  // Cerrar con el botón ✕ y el overlay — event delegation sobre document
+  document.addEventListener('click', (e) => {
+    if (e.target.id === 'close-promo-modal') { dismissModal(); return; }
+    if (e.target.id === 'promo-modal') { dismissModal(); return; }
   });
 
   // Cerrar con Escape
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal?.classList.contains('is-visible')) dismissModal();
+    if (e.key === 'Escape') {
+      const modal = document.getElementById('promo-modal');
+      if (modal?.classList.contains('is-visible')) dismissModal();
+    }
   });
 
-  // Mostrar a los 4 segundos, solo una vez por sesión
-  if (!sessionStorage.getItem(MODAL_KEY)) {
-    setTimeout(openModal, 8000);
-  }
 
 })();

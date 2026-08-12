@@ -87,8 +87,8 @@
 
     <!-- ============================================================
          MODAL DE OFERTA
-         Aparece 4 s después de la primera visita de la sesión.
-         sessionStorage evita que reaparezca en recarga.
+         Aparece a los 10 s de cargar la página, en cada visita.
+         Sin sessionStorage ni localStorage: reaparece siempre.
          Manejado íntegramente en main.js.
          ============================================================ -->
     <div id="promo-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
@@ -133,6 +133,23 @@
            HERO
            ============================================================ -->
       <section id="inicio" class="hero section-shell">
+        <!-- Doodles decorativos: sol y estrella — aria-hidden, pointer-events:none -->
+        <svg class="doodle doodle-hero-sun doodle-float" width="64" height="64" viewBox="0 0 56 56" aria-hidden="true" focusable="false">
+          <circle cx="28" cy="28" r="10" fill="currentColor"/>
+          <g stroke="currentColor" stroke-width="3" stroke-linecap="round">
+            <line x1="28" y1="4" x2="28" y2="14"/>
+            <line x1="28" y1="42" x2="28" y2="52"/>
+            <line x1="4" y1="28" x2="14" y2="28"/>
+            <line x1="42" y1="28" x2="52" y2="28"/>
+            <line x1="11" y1="11" x2="18" y2="18"/>
+            <line x1="38" y1="38" x2="45" y2="45"/>
+            <line x1="11" y1="45" x2="18" y2="38"/>
+            <line x1="38" y1="18" x2="45" y2="11"/>
+          </g>
+        </svg>
+        <svg class="doodle doodle-hero-star doodle-float-slow" width="26" height="26" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M12 2 L14.4 9.5 L22 9.5 L16.2 14.5 L18.5 22 L12 17.5 L5.5 22 L7.8 14.5 L2 9.5 L9.6 9.5 Z" fill="currentColor"/>
+        </svg>
         <div class="hero-copy reveal">
           <p class="eyebrow">Jardín Maternal · San Miguel</p>
           <h1>El mejor lugar después del <em>hogar.</em></h1>
@@ -162,11 +179,19 @@
            PRIMERA EXPERIENCIA — 3 pasos
            ============================================================ -->
       <section id="experiencia" class="first-experience section-space" aria-labelledby="experiencia-titulo">
+        <!-- Doodle: mariposa decorativa -->
+        <svg class="doodle doodle-exp-butterfly doodle-float-slow" width="56" height="44" viewBox="0 0 56 44" aria-hidden="true" focusable="false">
+          <ellipse cx="15" cy="15" rx="14" ry="10" fill="currentColor" transform="rotate(-28 15 15)"/>
+          <ellipse cx="41" cy="15" rx="14" ry="10" fill="currentColor" transform="rotate(28 41 15)"/>
+          <ellipse cx="15" cy="30" rx="11" ry="8" fill="currentColor" transform="rotate(22 15 30)"/>
+          <ellipse cx="41" cy="30" rx="11" ry="8" fill="currentColor" transform="rotate(-22 41 30)"/>
+          <path d="M27 8 Q28 22 28 36 Q28 22 29 8" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </svg>
         <div class="section-shell">
           <div class="section-intro centered reveal">
             <p class="eyebrow">Tu primer encuentro con el jardín</p>
-            <h2 id="experiencia-titulo">Su primera experiencia en Primeros Pasos</h2>
-            <p>No es una entrevista ni un trámite. Es un momento pensado para que tu peque empiece a descubrir el jardín jugando, mientras vos lo conocés con toda la calma del mundo.</p>
+            <h2 id="experiencia-titulo">La entrevista no es solo para los padres:<br>es la primera experiencia de tu hijo en el jardín.</h2>
+            <p>Un momento pensado para que tu peque empiece a descubrir el jardín jugando, mientras vos lo conocés con toda la calma del mundo.</p>
           </div>
           <div class="experience-steps-grid">
             <article class="experience-step-card reveal">
@@ -199,22 +224,30 @@
       </section>
 
       <!-- ============================================================
-           INCORPORACIÓN SEPTIEMBRE — positiva, sin urgencia artificial
+           INCORPORACIÓN SEPTIEMBRE — compacta (CTA conservado)
            ============================================================ -->
       <section class="september-section section-space" aria-labelledby="septiembre-titulo">
         <div class="section-shell">
-          <div class="sept-card reveal">
-            <p class="eyebrow">Para los que se suman en septiembre</p>
-            <h2 id="septiembre-titulo">Un lindo momento para empezar a compartir</h2>
-            <p>Para septiembre, nuestro grupo ya estará formado y los chicos habrán encontrado su ritmo en el jardín. Para un peque que se suma, eso es una oportunidad hermosa: llega a un espacio vivo, donde ya hay amigos, actividades en marcha y una seño que conoce bien cómo recibir a cada uno.</p>
-            <p>La adaptación siempre la hacemos a su tiempo y con acompañamiento de la familia. Sin apuros ni comparaciones.</p>
+          <div class="sept-card-compact reveal">
+            <div class="sept-card-compact-text">
+              <p class="eyebrow">Para los que se suman en septiembre</p>
+              <h2 id="septiembre-titulo">Llega a un espacio vivo, con amigos y ritmo propio.</h2>
+              <p>La adaptación siempre la hacemos a su tiempo, con acompañamiento de la familia. Sin apuros ni comparaciones.</p>
+            </div>
             <a class="button button-primary" href="https://wa.me/5491130011050?text=Hola%21%20Quisiera%20saber%20si%20todav%C3%ADa%20hay%20lugar%20para%20que%20mi%20peque%20empiece%20en%20septiembre%20en%20Primeros%20Pasos." target="_blank" rel="noopener" data-track="whatsapp_septiembre">Quiero saber si hay lugar para mi peque <span aria-hidden="true">↗</span></a>
           </div>
         </div>
       </section>
 
+      <!-- Separador orgánico: crema → blanco -->
+      <div class="wave-sep wave-sep--to-white" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 50" preserveAspectRatio="none">
+          <path d="M0,28 C400,5 1040,50 1440,22 L1440,50 L0,50 Z" fill="#ffffff"/>
+        </svg>
+      </div>
+
       <!-- ============================================================
-           HISTORIAS REALES — máximo protagonismo
+           HISTORIAS REALES — 3 principales + 3 en details
            ============================================================ -->
       <section id="historias" class="stories section-space" aria-labelledby="historias-titulo">
         <div class="section-shell">
@@ -279,7 +312,9 @@
       </section>
 
       <!-- ============================================================
-           CÓMO ACOMPAÑAMOS
+           CÓMO ACOMPAÑAMOS — 4 beneficios (6 → 4, sin perder conversión)
+           Eliminados: 04 (cubierto por 03) y 05 (cubierto por 03).
+           El copy del 03 absorbe lo mejor de ambos.
            ============================================================ -->
       <section id="acompanar" class="benefits section-space" aria-labelledby="beneficios-titulo">
         <div class="section-shell">
@@ -291,10 +326,8 @@
           <div class="benefits-grid">
             <article class="benefit reveal"><span class="benefit-number">01</span><h3>Recién llegado</h3><p>Lo recibimos con upa, calma y todo el tiempo que necesite para sentirse cómodo.</p></article>
             <article class="benefit reveal"><span class="benefit-number">02</span><h3>Para que estés tranquila</h3><p>Una foto, un audio o una charla al salir: pequeñas noticias que te acompañan todo el día.</p></article>
-            <article class="benefit reveal"><span class="benefit-number">03</span><h3>A su propio ritmo</h3><p>No apuramos ni comparamos. Cada chico avanza cuando se siente seguro y con ganas.</p></article>
-            <article class="benefit reveal"><span class="benefit-number">04</span><h3>Con mucha paciencia</h3><p>Respetamos el proceso de cada familia, sin presión y sin apuro.</p></article>
-            <article class="benefit reveal"><span class="benefit-number">05</span><h3>Ganando confianza</h3><p>Primero una mano amiga, después la salita y, de a poco, las ganas de quedarse.</p></article>
-            <article class="benefit reveal"><span class="benefit-number">06</span><h3>Con alegría</h3><p>Queremos que juegue, que se ría y que vuelva a casa con algo lindo para contar.</p></article>
+            <article class="benefit reveal"><span class="benefit-number">03</span><h3>A su propio ritmo, con paciencia</h3><p>No apuramos ni comparamos. Cada chico avanza cuando se siente seguro y con ganas. Primero una mano amiga, después la salita y, de a poco, las ganas de quedarse.</p></article>
+            <article class="benefit reveal"><span class="benefit-number">04</span><h3>Con alegría</h3><p>Queremos que juegue, que se ría y que vuelva a casa con algo lindo para contar.</p></article>
           </div>
           <div class="stories-cta reveal">
             <a class="button button-primary" href="https://wa.me/5491130011050?text=Hola%21%20Quiero%20conocer%20la%20propuesta%20de%20Primeros%20Pasos%20y%20coordinar%20una%20visita." target="_blank" rel="noopener" data-track="whatsapp_beneficios">Quiero conocer el jardín <span aria-hidden="true">↗</span></a>
@@ -333,7 +366,7 @@
       </section>
 
       <!-- ============================================================
-           GALERÍA — imágenes reales, sin stock
+           GALERÍA — imágenes reales, compacta
            ============================================================ -->
       <section class="gallery section-shell section-space" aria-labelledby="galeria-titulo">
         <div class="section-intro reveal">
@@ -394,13 +427,83 @@
       </section>
 
       <!-- ============================================================
-           CIERRE EMOCIONAL
+           OFERTA FINAL
+           Visualmente diferente del modal: fondo turquesa profundo,
+           precio en card flotante, CTA WhatsApp verde.
+           Precios y condiciones exactamente como fueron aprobados.
+           ============================================================ -->
+      <section class="oferta-final section-space" aria-labelledby="oferta-titulo">
+        <!-- Doodles de estrellas sobre fondo oscuro -->
+        <svg class="doodle doodle-oferta-star1 doodle-float" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M12 2 L14.4 9.5 L22 9.5 L16.2 14.5 L18.5 22 L12 17.5 L5.5 22 L7.8 14.5 L2 9.5 L9.6 9.5 Z" fill="currentColor"/>
+        </svg>
+        <svg class="doodle doodle-oferta-star2 doodle-float-slow" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M12 2 L14.4 9.5 L22 9.5 L16.2 14.5 L18.5 22 L12 17.5 L5.5 22 L7.8 14.5 L2 9.5 L9.6 9.5 Z" fill="currentColor"/>
+        </svg>
+        <svg class="doodle doodle-oferta-star3 doodle-float" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M12 2 L14.4 9.5 L22 9.5 L16.2 14.5 L18.5 22 L12 17.5 L5.5 22 L7.8 14.5 L2 9.5 L9.6 9.5 Z" fill="currentColor"/>
+        </svg>
+        <div class="section-shell oferta-shell">
+          <div class="oferta-card reveal">
+            <div class="oferta-left">
+              <p class="eyebrow oferta-eyebrow">Para familias que comienzan en septiembre</p>
+              <h2 id="oferta-titulo">Un primer paso concreto, con condiciones especiales para empezar.</h2>
+              <p>Conocé el jardín este mes, coordiná la visita, y si todo te convence, tu peque puede empezar septiembre con estas condiciones. Sin presión, sin compromiso previo.</p>
+              <a class="button button-wsp-oferta" href="https://wa.me/5491130011050?text=Hola%21%20Quiero%20conocer%20el%20jard%C3%ADn%20y%20saber%20m%C3%A1s%20sobre%20la%20propuesta%20para%20empezar%20en%20septiembre." target="_blank" rel="noopener" data-track="whatsapp_oferta_final">Quiero conocer el jardín <span aria-hidden="true">↗</span></a>
+              <p class="microcopy oferta-microcopy">Reservando durante agosto · Sujeto a vacante disponible</p>
+            </div>
+            <div class="oferta-right">
+              <p class="oferta-label">Primer mes</p>
+              <p class="oferta-precio">$95.000</p>
+              <p class="oferta-periodo">Agosto → Septiembre</p>
+              <p class="oferta-sub">Oferta válida para familias que reserven durante agosto de 2026 y comiencen en septiembre de 2026, siempre que exista vacante disponible.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           FAQ — 4 preguntas que eliminan las objeciones principales
+           ============================================================ -->
+      <section class="faq section-space" aria-labelledby="faq-titulo">
+        <div class="section-shell">
+          <div class="faq-layout">
+            <div class="faq-heading reveal">
+              <p class="eyebrow">Preguntas frecuentes</p>
+              <h2 id="faq-titulo">Todo lo que necesitás saber antes de venir.</h2>
+              <p>Si quedó alguna duda, escribinos. Rosana o su equipo te responden pronto.</p>
+              <a class="button button-primary faq-cta" href="https://wa.me/5491130011050?text=Hola%21%20Tengo%20algunas%20preguntas%20sobre%20el%20jard%C3%ADn%20antes%20de%20visitar." target="_blank" rel="noopener" data-track="whatsapp_faq">Escribir a Rosana <span aria-hidden="true">↗</span></a>
+            </div>
+            <div class="accordion reveal">
+              <details>
+                <summary>¿Qué edad tiene que tener mi hijo para ingresar? <span aria-hidden="true">+</span></summary>
+                <p>Recibimos niños de 18 meses a 4 años. Si tu peque está en ese rango, podemos coordinar una visita y ver juntos en qué sala encaja mejor.</p>
+              </details>
+              <details>
+                <summary>¿Cómo es la adaptación? <span aria-hidden="true">+</span></summary>
+                <p>Progresiva y a su ritmo. Los primeros días acompañamos el proceso junto a la familia, sin apuros ni comparaciones. Cada chico tiene su propio tiempo y lo respetamos.</p>
+              </details>
+              <details>
+                <summary>¿Puedo estar presente los primeros días? <span aria-hidden="true">+</span></summary>
+                <p>Sí. En la primera experiencia podés estar con tu peque y observar cómo interactúa. La adaptación se coordina con la familia según lo que necesite cada niño.</p>
+              </details>
+              <details>
+                <summary>¿Todavía hay lugar para septiembre? <span aria-hidden="true">+</span></summary>
+                <p>Depende de la sede y la sala. La mejor manera de saberlo es escribirnos: te respondemos rápido y, si hay lugar, coordinamos la visita sin compromiso.</p>
+              </details>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           CIERRE EMOCIONAL — frase diferencial
            ============================================================ -->
       <section class="final-cta">
         <div class="section-shell reveal">
-          <p class="eyebrow">Tu hijo merece un comienzo lleno de amor</p>
-          <h2>Quizás este sea el comienzo de algo hermoso.</h2>
-          <p>Vení a conocer Primeros Pasos y descubrí cómo se siente tu peque en su primera experiencia con nosotros. Sin compromisos, sin apuros. Solo un encuentro tranquilo para ver si este es el lugar que estabas buscando.</p>
+          <p class="eyebrow">Su primera hermosa experiencia empieza acá</p>
+          <h2>A veces nuestros hijos eligen antes que nosotros.</h2>
+          <p>Vení a conocer Primeros Pasos. Traé a tu peque, tomamos unos mates sin apuro, y dejamos que él descubra el jardín a su manera. Muchas veces, son ellos los que eligen primero.</p>
           <a class="button button-light" href="https://wa.me/5491130011050?text=Hola%20Rosana%21%20Quisiera%20coordinar%20nuestro%20primer%20encuentro%20para%20conocer%20el%20jard%C3%ADn%20y%20que%20mi%20peque%20viva%20su%20primera%20experiencia." target="_blank" rel="noopener" data-track="whatsapp_cierre">Quiero conocer el jardín y vivir esta experiencia <span aria-hidden="true">↗</span></a>
           <p class="microcopy">Te responde Rosana o su equipo de seños. Cercano, sereno y a tu ritmo.</p>
         </div>
@@ -430,5 +533,18 @@
 
     <script src="js/tracking.js" defer></script>
     <script src="js/main.js" defer></script>
+    <script>
+    setTimeout(() => {
+      const modal = document.getElementById('promo-modal');
+      if (modal) {
+        modal.classList.add('is-visible');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        if (window.dataLayer) {
+          window.dataLayer.push({ event: 'banner_opened' });
+        }
+      }
+    }, 10000);
+    </script>
   </body>
 </html>
