@@ -1058,3 +1058,168 @@
 .final-cta .eyebrow {
   color: var(--yellow);
 }
+
+/* ============================================================
+   CRO VISUAL — espaciado compacto + vida visual
+   ============================================================ */
+
+/* ---- Reducción global de espaciado vertical ---------------- */
+/* Sobreescribe los 76 px originales del minificado */
+.section-space { padding-block: 52px; }
+
+@media (max-width: 760px) {
+  .section-space { padding-block: 40px; }
+}
+
+/* Secciones compactas específicas */
+.september-section.section-space { padding-block: 28px; }
+.location.section-space          { padding-block: 44px; }
+.faq.section-space               { padding-block: 52px; }
+
+/* Márgenes internos: grids y CTAs */
+.stories-cta            { margin-top: 24px; }
+.experience-steps-grid  { margin-top: 26px; }
+.benefits-grid          { margin-top: 20px; }
+.reviews-grid           { margin-top: 20px; }
+.gallery-grid           { margin-top: 18px; }
+.location-address-grid  { margin-top: 24px; }
+.section-intro          { margin-bottom: 0; }
+
+/* ---- Oferta Final compacta (≈ 38 % menos altura) ----------- */
+/* Sobreescribe valores del bloque V2 */
+.oferta-final.section-space { padding-block: 44px; }
+
+.oferta-card {
+  gap: clamp(20px, 3.5vw, 48px);
+  align-items: center;
+}
+
+.oferta-right {
+  padding: 20px 26px;
+  min-width: 200px;
+}
+
+.oferta-precio {
+  font-size: clamp(2.4rem, 4vw, 3.2rem);
+  margin: 0 0 4px;
+}
+
+.oferta-label  { margin: 0 0 8px; }
+.oferta-periodo { margin: 0 0 10px; }
+
+.oferta-left > p {
+  font-size: 0.95rem;
+  margin-bottom: 22px;
+}
+
+@media (max-width: 760px) {
+  .oferta-right { padding: 18px 20px; }
+}
+
+/* ---- Nuevas posiciones de doodles -------------------------- */
+/* Historias */
+.stories { position: relative; }
+
+.doodle-stories-star {
+  top: 4%;
+  right: 1%;
+  color: var(--yellow);
+  opacity: 0.22;
+}
+
+/* Beneficios */
+.benefits { position: relative; }
+
+.doodle-benefits-flower {
+  bottom: 5%;
+  right: 1%;
+  color: var(--orange);
+  opacity: 0.12;
+}
+
+/* ---- Vida visual: benefit cards con acento de color -------- */
+/*
+  Pequeña línea de color en la parte superior de cada card.
+  Respeta el diseño existente sin alterar tipografía ni layout.
+*/
+.benefit:nth-child(1) { border-top: 3px solid var(--yellow);   }
+.benefit:nth-child(2) { border-top: 3px solid var(--blue);     }
+.benefit:nth-child(3) { border-top: 3px solid var(--orange);   }
+.benefit:nth-child(4) { border-top: 3px solid var(--whatsapp); }
+
+/* ---- Avatares de story cards con colores cálidos ----------- */
+/* Solo los 3 del grid principal (nth-child dentro de .stories-grid) */
+.stories-grid .story-card:nth-child(1) .avatar { background: #fff3c2; color: #6b4900; }
+.stories-grid .story-card:nth-child(2) .avatar { background: #c8f0df; color: #0a5c36; }
+.stories-grid .story-card:nth-child(3) .avatar { background: #ffe4cc; color: #7a3200; }
+
+/* ---- Patrón sutil de puntos en la sección de reseñas ------- */
+/*
+  Dos capas de radial-gradient con colores de la paleta existente.
+  Opacidad muy baja para no competir con el texto.
+*/
+.reviews {
+  background-image:
+    radial-gradient(circle, rgba(8,127,186,0.055) 1.5px, transparent 1.5px),
+    radial-gradient(circle, rgba(255,216,90,0.045) 1px,   transparent 1px);
+  background-size: 26px 26px, 40px 40px;
+  background-position: 0 0, 13px 13px;
+}
+
+/* ---- Marcador decorativo en eyebrow de secciones clave ----- */
+/*
+  Pequeño rombo antes del eyebrow en primera experiencia e historias.
+  CSS puro, sin imágenes.
+*/
+.first-experience .eyebrow::before,
+.stories-intro .eyebrow::before,
+.oferta-final .eyebrow::before {
+  content: '✦';
+  margin-right: 5px;
+  font-size: 0.6em;
+  opacity: 0.75;
+  vertical-align: middle;
+}
+
+/* ---- Línea de acento tipo "trazo" bajo el h2 de primera exp  */
+/*
+  Barra corta amarilla centrada bajo el h2 principal,
+  evoca trazo de crayón sin ser literal.
+*/
+.first-experience h2::after {
+  content: '';
+  display: block;
+  width: 44px;
+  height: 3.5px;
+  background: var(--yellow);
+  border-radius: 999px;
+  margin: 16px auto 0;
+}
+
+/* ---- Trust bar: separador de color sutil ------------------- */
+.trust-item strong {
+  letter-spacing: -0.02em;
+}
+
+/* Punto de color pequeño entre los trust items (solo desktop) */
+@media (min-width: 761px) {
+  .trust-item:not(:last-child) {
+    position: relative;
+  }
+  .trust-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--yellow);
+    opacity: 0.55;
+  }
+}
+
+/* ---- Gallery: sin rosana-cta encima, el director cierra solo */
+/* El space después del director se reduce para que fluya directo a la galería */
+.director.section-space { padding-bottom: 44px; }
