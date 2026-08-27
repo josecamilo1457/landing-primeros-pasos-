@@ -2,6 +2,28 @@
   window.dataLayer = window.dataLayer || [];
   const MAKE_WEBHOOK = 'https://hook.us2.make.com/742dgrpbco5isrihxjaunocmkq6hlig8';
 
+  // ── Genera ID corto de atribución (ej. "A7K3") ──────────────────────
+  function generateRefId() {
+    const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; // sin O,0,1,I para evitar ambigüedad
+    let id = '';
+    for (let i = 0; i < 4; i++) {
+      id += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return id;
+  }
+
+  // ── Añade "| Ref: XXXX" al final del parámetro `text` de una URL wa.me ─
+  function buildWaUrlWithRef(href, refId) {
+    try {
+      const url = new URL(href);
+      const originalText = url.searchParams.get('text') || '';
+      url.searchParams.set('text', originalText + ' | Ref: ' + refId);
+      return url.toString();
+    } catch {
+      return href; // fallback sin modificar si la URL fuera inválida
+    }
+  }
+
   // ── Menú hamburguesa ──────────────────────────────────────────────
   const menuButton = document.querySelector('.menu-toggle');
   const navigation = document.querySelector('.nav');
@@ -27,43 +49,44 @@
   // Un único disparo de fbq Lead por interacción.
   // (El listener del <head> que generaba el doble disparo fue eliminado.)
   document.querySelectorAll('[data-track]').forEach((element) => {
-    element.addEventListener('click', async () => {
+    element.addEventListener('click', (e) => {
+      e.preventDefault();
       const placement = element.dataset.track;
+      const refId = generateRefId();
 
-      // GTM dataLayer
+      // 1. Abrir WhatsApp de inmediato (antes de cualquier async)
+      const waUrlWithRef = buildWaUrlWithRef(element.href, refId);
+      window.open(waUrlWithRef, '_blank', 'noopener,noreferrer');
+
+      // 2. GTM dataLayer
       window.dataLayer.push({
         event: 'whatsapp_interview_request',
         placement
       });
 
-      // Meta Pixel — Lead (único disparo)
+      // 3. Meta Pixel — Lead (único disparo)
       if (typeof window.fbq === 'function') {
         window.fbq('track', 'Lead', { placement });
       }
 
-      // Webhook Make.com
-      const payload = {
-        whatsapp: element.href || '',
-        gclid: localStorage.getItem('gclid'),
-        utm_source: localStorage.getItem('utm_source'),
-        utm_medium: localStorage.getItem('utm_medium'),
-        utm_campaign: localStorage.getItem('utm_campaign'),
-        utm_term: localStorage.getItem('utm_term'),
-        utm_content: localStorage.getItem('utm_content'),
-        boton: placement,
-        fecha: new Date().toISOString()
-      };
-
-      try {
-        await fetch(MAKE_WEBHOOK, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload),
-          keepalive: true
-        });
-      } catch {
-        // fail silently en producción
-      }
+      // 4. Webhook Make.com — fire-and-forget con keepalive
+      fetch(MAKE_WEBHOOK, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          whatsapp: element.href || '',
+          gclid: localStorage.getItem('gclid'),
+          utm_source: localStorage.getItem('utm_source'),
+          utm_medium: localStorage.getItem('utm_medium'),
+          utm_campaign: localStorage.getItem('utm_campaign'),
+          utm_term: localStorage.getItem('utm_term'),
+          utm_content: localStorage.getItem('utm_content'),
+          boton: placement,
+          ref_id: refId,
+          fecha: new Date().toISOString()
+        }),
+        keepalive: true
+      }).catch(() => { /* fail silently en producción */ });
     });
   });
 
