@@ -124,42 +124,4 @@
 
   document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
 
-  // ── Modal de oferta ───────────────────────────────────────────────
-  function openModal() {
-    const modal = document.getElementById('promo-modal');
-    if (!modal) return;
-    modal.classList.add('is-visible');
-    modal.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-    document.body.classList.add('modal-open');
-    window.dataLayer.push({ event: 'banner_opened' });
-  }
-
-  function dismissModal() {
-    const modal = document.getElementById('promo-modal');
-    if (!modal) return;
-    modal.classList.remove('is-visible');
-    modal.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-    document.body.classList.remove('modal-open');
-    window.dataLayer.push({ event: 'banner_closed' });
-  }
-
-  // Cerrar con el botón ✕ y el overlay — event delegation sobre document
-  document.addEventListener('click', (e) => {
-    if (e.target.id === 'close-promo-modal') { dismissModal(); return; }
-    if (e.target.id === 'promo-modal') { dismissModal(); return; }
-  });
-
-  // Cerrar con Escape
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      const modal = document.getElementById('promo-modal');
-      if (modal?.classList.contains('is-visible')) dismissModal();
-    }
-  });
-
-  // ── Modal: abrir a los 20 s ──────────────────────────────────────────
-  setTimeout(openModal, 20000);
-
 })();

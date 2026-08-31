@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="es-AR">
   <head>
     <meta charset="UTF-8" />
@@ -56,8 +56,7 @@
     <!--
       Meta Pixel — PageView solamente en el <head>.
       El evento Lead se dispara UNA SOLA VEZ desde main.js,
-      en cada clic a [data-track]. El listener del head que
-      generaba el doble disparo fue eliminado.
+      en cada clic a [data-track].
     -->
     <script>
       !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -87,32 +86,7 @@
       src="https://www.facebook.com/tr?id=2817614701920348&ev=PageView&noscript=1"
     /></noscript>
 
-    <!-- ============================================================
-         MODAL DE OFERTA
-         Aparece a los 10 s de cargar la página, en cada visita.
-         Sin sessionStorage ni localStorage: reaparece siempre.
-         Manejado íntegramente en main.js.
-         ============================================================ -->
-    <div id="promo-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
-      <div class="modal-card">
-        <button class="modal-close" type="button" id="close-promo-modal" aria-label="Cerrar">✕</button>
-        <span class="modal-tag">🎒 Inscripciones abiertas</span>
-        <h2 class="modal-title" id="modal-title">Vení a conocer Primeros Pasos con tu hijo/a</h2>
-        <p class="modal-body">Que conozca su salita, sus seños y viva una primera experiencia en el jardín. Reservando la vacante durante la visita, el uniforme va de regalo.</p>
-        <a class="button button-primary modal-cta" href="https://wa.me/5491130011050?text=Hola%2C%20quiero%20conocer%20el%20jard%C3%ADn%20y%20coordinar%20una%20visita." target="_blank" rel="noopener" data-track="whatsapp_modal_visita">Agendar una visita <span aria-hidden="true">↗</span></a>
-        <p class="modal-legal">Uniforme sin cargo al reservar la vacante durante la visita. Sujeto a disponibilidad de vacantes por sala.</p>
-      </div>
-    </div>
-
     <a class="skip-link" href="#contenido">Ir al contenido principal</a>
-
-    <!-- ============================================================
-         BANNER SUPERIOR COMPACTO — inscripciones abiertas + uniforme
-         ============================================================ -->
-    <div class="top-banner" role="banner" aria-label="Inscripciones abiertas">
-      <p class="top-banner-text">🎒 Inscripciones abiertas · Reservá tu vacante durante la visita y llevate el uniforme sin cargo</p>
-      <a class="top-banner-cta" href="https://wa.me/5491130011050?text=Hola%2C%20quiero%20conocer%20el%20jard%C3%ADn%20y%20coordinar%20una%20visita." target="_blank" rel="noopener" data-track="whatsapp_top_banner">Agendar una visita ↗</a>
-    </div>
 
     <!-- ============================================================
          HEADER
@@ -128,7 +102,7 @@
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal"><span></span><span></span><span></span><span class="sr-only">Abrir menú</span></button>
       <nav id="menu-principal" class="nav" aria-label="Navegación principal">
         <a href="#experiencia">La experiencia</a><a href="#historias">Historias</a><a href="#acompanar">Cómo acompañamos</a><a href="#sedes">Sedes</a>
-        <a class="nav-cta" href="https://wa.me/5491130011050?text=Hola%21%20Quiero%20conocer%20el%20jard%C3%ADn." target="_blank" rel="noopener" data-track="whatsapp_header">Reservar mi entrevista</a>
+        <a class="nav-cta" href="https://wa.me/5491130011050?text=Hola%2C%20quiero%20conocer%20el%20jard%C3%ADn%20y%20coordinar%20una%20visita." target="_blank" rel="noopener" data-track="whatsapp_header">Agendar una visita</a>
       </nav>
     </header>
 
@@ -156,12 +130,12 @@
           <path d="M12 2 L14.4 9.5 L22 9.5 L16.2 14.5 L18.5 22 L12 17.5 L5.5 22 L7.8 14.5 L2 9.5 L9.6 9.5 Z" fill="currentColor"/>
         </svg>
         <div class="hero-copy reveal">
-          <p class="eyebrow">Jardín Maternal · San Miguel</p>
-          <h1>El mejor lugar después del <em>hogar.</em></h1>
-          <p class="hero-lead">Vení a conocer Primeros Pasos con tu hijo/a. Que conozca su salita, sus seños y viva una primera experiencia en el jardín.</p>
-          <div class="hero-beneficio">🎁 Reservando la vacante durante la visita, el uniforme va de regalo.</div>
-          <a class="button button-primary" href="https://wa.me/5491130011050?text=Hola%2C%20quiero%20conocer%20el%20jard%C3%ADn%20y%20coordinar%20una%20visita." target="_blank" rel="noopener" data-track="whatsapp_hero">Quiero conocer el jardín <span aria-hidden="true">↗</span></a>
-          <p class="microcopy">Una visita tranquila, sin compromiso. Mientras vos conocés el jardín, tu peque empieza a vivir su primera experiencia con nosotros.</p>
+          <p class="eyebrow">Jardín Maternal en San Miguel · 18 meses a 4 años</p>
+          <h1>El mejor lugar<br>después del <em>hogar.</em></h1>
+          <p class="hero-lead">Vení a conocer Primeros Pasos con tu hijo/a. Que conozca su salita, sus seños y empiece a vivir una primera experiencia en el jardín.</p>
+          <a class="button button-primary" href="https://wa.me/5491130011050?text=Hola%2C%20quiero%20conocer%20el%20jard%C3%ADn%20y%20coordinar%20una%20visita." target="_blank" rel="noopener" data-track="whatsapp_hero">Agendar una visita <span aria-hidden="true">↗</span></a>
+          <p class="microcopy">Una visita tranquila, sin compromiso.</p>
+          <p class="hero-gift-note"><span class="gift-icon" aria-hidden="true">🎁</span> Reservando la vacante durante la visita, el uniforme va de regalo.</p>
         </div>
         <figure class="hero-photo reveal">
           <picture>
@@ -182,6 +156,69 @@
       </section>
 
       <!-- ============================================================
+           DIFERENCIALES — Mucho más que jugar (bloque compacto y premium)
+           ============================================================ -->
+      <section class="differentials section-shell reveal" aria-label="Propuesta pedagógica integral">
+        <div class="differentials-card">
+          <div class="differentials-header">
+            <span class="differentials-tag">Propuesta integral</span>
+            <h2 class="differentials-title">Mucho más que jugar</h2>
+            <p class="differentials-sub">Estímulos diarios que potencian su curiosidad, expresión y desarrollo natural.</p>
+          </div>
+          <div class="differentials-grid">
+            <div class="diff-item">
+              <div class="diff-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              </div>
+              <span class="diff-label">Inglés</span>
+            </div>
+            <div class="diff-item">
+              <div class="diff-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+              </div>
+              <span class="diff-label">Música</span>
+            </div>
+            <div class="diff-item">
+              <div class="diff-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <span class="diff-label">Expresión corporal</span>
+            </div>
+            <div class="diff-item">
+              <div class="diff-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+              </div>
+              <span class="diff-label">Huerta</span>
+            </div>
+            <div class="diff-item">
+              <div class="diff-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="12" x="3" y="4" rx="2"/><line x1="2" x2="22" y1="20" y2="20"/></svg>
+              </div>
+              <span class="diff-label">Computación con PIPO</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           RESEÑAS GOOGLE (Prueba social inmediata)
+           ============================================================ -->
+      <section class="reviews section-space" aria-labelledby="resenas-titulo">
+        <div class="section-shell">
+          <div class="section-intro centered reveal">
+            <p class="eyebrow">Google también lo dice</p>
+            <h2 id="resenas-titulo">La tranquilidad se siente. Y se nota.</h2>
+            <p>Palabras reales de mamás y papás que alguna vez tuvieron las mismas preguntas que vos.</p>
+          </div>
+          <div class="reviews-grid">
+            <article class="review-card reveal"><span class="review-stars" aria-label="5 de 5 estrellas">★★★★★</span><p>«Su adaptación duró dos meses; siempre nos acompañaron con paciencia y contención. Logró entrar y salir contento e hizo amigos.»</p><div class="review-person"><span class="avatar">L</span><span><strong>Lara Sánchez</strong><small>Reseña de Google</small></span></div></article>
+            <article class="review-card featured reveal"><span class="review-stars" aria-label="5 de 5 estrellas">★★★★★</span><p>«Sale y entra re feliz todos los días. El tacto, la paciencia y el amor que manejan desde la directora hasta los auxiliares es increíble.»</p><div class="review-person"><span class="avatar">V</span><span><strong>Vale Contreras</strong><small>Reseña de Google</small></span></div></article>
+            <article class="review-card reveal"><span class="review-stars" aria-label="5 de 5 estrellas">★★★★★</span><p>«Elegimos el jardín para nuestra hija mayor y ahora lo volvemos a elegir para nuestra hija menor.»</p><div class="review-person"><span class="avatar">A</span><span><strong>Andrea Costantino</strong><small>Reseña de Google</small></span></div></article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
            PRIMERA EXPERIENCIA — 3 pasos
            ============================================================ -->
       <section id="experiencia" class="first-experience section-space" aria-labelledby="experiencia-titulo">
@@ -196,34 +233,34 @@
         <div class="section-shell">
           <div class="section-intro centered reveal">
             <p class="eyebrow">Tu primer encuentro con el jardín</p>
-            <h2 id="experiencia-titulo">La entrevista no es solo para los padres:<br>es la primera experiencia de tu hijo en el jardín.</h2>
-            <p>Un momento pensado para que tu peque empiece a descubrir el jardín jugando, mientras vos lo conocés con toda la calma del mundo.</p>
+            <h2 id="experiencia-titulo">La visita no es solo para los padres:<br>es la primera experiencia de tu hijo en el jardín.</h2>
+            <p>Vení a conocer Primeros Pasos con tu hijo/a. Que conozca su salita, sus seños y viva una primera experiencia en el jardín.</p>
           </div>
           <div class="experience-steps-grid">
             <article class="experience-step-card reveal">
               <span class="step-num">01</span>
               <div class="step-content">
-                <h3>Conoce a su seño</h3>
-                <p>Un primer acercamiento cálido y natural. Sin apuros ni protocolos. Una mano amiga desde el primer momento.</p>
+                <h3>Conoce a sus seños y su salita</h3>
+                <p>Un primer acercamiento cálido y natural. Sin apuros ni protocolos. Una mano amiga para que empiece a sentirse seguro.</p>
               </div>
             </article>
             <article class="experience-step-card reveal">
               <span class="step-num">02</span>
               <div class="step-content">
-                <h3>Tiene una actividad preparada para él</h3>
+                <h3>Participa de una actividad preparada para él</h3>
                 <p>Una propuesta adaptada a su edad para jugar, explorar y compartir. Descubre el espacio a su propio ritmo, sonriendo.</p>
               </div>
             </article>
             <article class="experience-step-card featured-step reveal">
               <span class="step-num">03</span>
               <div class="step-content">
-                <h3>Vos podés verlo desde la oficina</h3>
+                <h3>Vos observás cómo se siente desde la oficina</h3>
                 <p>Mientras conversás con Rosana y recorrés el jardín, podés observar cómo participa tu peque mediante las cámaras. Tranquilidad real.</p>
               </div>
             </article>
           </div>
           <div class="stories-cta reveal">
-            <a class="button button-primary" href="https://wa.me/5491130011050?text=Hola%20Rosana%21%20Me%20encantar%C3%ADa%20coordinar%20esa%20primera%20experiencia%20para%20que%20mi%20peque%20conozca%20el%20jard%C3%ADn%20junto%20a%20m%C3%AD." target="_blank" rel="noopener" data-track="whatsapp_experiencia">Quiero vivir esta experiencia <span aria-hidden="true">↗</span></a>
+            <a class="button button-primary" href="https://wa.me/5491130011050?text=Hola%2C%20quiero%20conocer%20el%20jard%C3%ADn%20y%20coordinar%20una%20visita." target="_blank" rel="noopener" data-track="whatsapp_experiencia">Agendar una visita <span aria-hidden="true">↗</span></a>
             <p class="microcopy">Escribinos por WhatsApp. Coordinamos el día y horario que mejor te quede.</p>
           </div>
         </div>
@@ -276,24 +313,6 @@
           </details>
           <div class="stories-cta reveal">
             <a class="button button-primary" href="https://wa.me/5491130011050?text=Hola%21%20Le%C3%AD%20las%20historias%20y%20me%20gustar%C3%ADa%20que%20mi%20peque%20viva%20su%20propia%20experiencia%20en%20Primeros%20Pasos." target="_blank" rel="noopener" data-track="whatsapp_historias">Quiero vivir esta experiencia <span aria-hidden="true">↗</span></a>
-          </div>
-        </div>
-      </section>
-
-      <!-- ============================================================
-           RESEÑAS GOOGLE
-           ============================================================ -->
-      <section class="reviews section-space" aria-labelledby="resenas-titulo">
-        <div class="section-shell">
-          <div class="section-intro centered reveal">
-            <p class="eyebrow">Google también lo dice</p>
-            <h2 id="resenas-titulo">La tranquilidad se siente. Y se nota.</h2>
-            <p>Palabras reales de mamás y papás que alguna vez tuvieron las mismas preguntas que vos.</p>
-          </div>
-          <div class="reviews-grid">
-            <article class="review-card reveal"><span class="review-stars" aria-label="5 de 5 estrellas">★★★★★</span><p>«Su adaptación duró dos meses; siempre nos acompañaron con paciencia y contención. Logró entrar y salir contento e hizo amigos.»</p><div class="review-person"><span class="avatar">L</span><span><strong>Lara Sánchez</strong><small>Reseña de Google</small></span></div></article>
-            <article class="review-card featured reveal"><span class="review-stars" aria-label="5 de 5 estrellas">★★★★★</span><p>«Sale y entra re feliz todos los días. El tacto, la paciencia y el amor que manejan desde la directora hasta los auxiliares es increíble.»</p><div class="review-person"><span class="avatar">V</span><span><strong>Vale Contreras</strong><small>Reseña de Google</small></span></div></article>
-            <article class="review-card reveal"><span class="review-stars" aria-label="5 de 5 estrellas">★★★★★</span><p>«Elegimos el jardín para nuestra hija mayor y ahora lo volvemos a elegir para nuestra hija menor.»</p><div class="review-person"><span class="avatar">A</span><span><strong>Andrea Costantino</strong><small>Reseña de Google</small></span></div></article>
           </div>
         </div>
       </section>
@@ -357,7 +376,6 @@
           </div>
         </div>
       </section>
-
 
       <!-- ============================================================
            GALERÍA — imágenes reales, compacta
@@ -446,7 +464,7 @@
               <h2 id="oferta-titulo">Un beneficio especial para tu familia</h2>
               <p>Reservá tu vacante durante la visita y llevate el uniforme sin cargo.</p>
               <p class="oferta-aclaracion">Sujeto a disponibilidad de vacantes por sala.</p>
-              <a class="button button-wsp-oferta" href="https://wa.me/5491130011050?text=Hola%2C%20quiero%20conocer%20el%20jard%C3%ADn%20y%20coordinar%20una%20visita." target="_blank" rel="noopener" data-track="whatsapp_oferta_final">Quiero agendar una visita <span aria-hidden="true">↗</span></a>
+              <a class="button button-wsp-oferta" href="https://wa.me/5491130011050?text=Hola%2C%20quiero%20conocer%20el%20jard%C3%ADn%20y%20coordinar%20una%20visita." target="_blank" rel="noopener" data-track="whatsapp_oferta_final">Agendar una visita <span aria-hidden="true">↗</span></a>
             </div>
             <div class="oferta-right oferta-right--uniforme">
               <span class="oferta-uniforme-icon" aria-hidden="true">🎒</span>
@@ -500,7 +518,7 @@
           <p class="eyebrow">Su primera hermosa experiencia empieza acá</p>
           <h2>A veces nuestros hijos eligen antes que nosotros.</h2>
           <p>Vení a conocer Primeros Pasos. Traé a tu peque, tomamos unos mates sin apuro, y dejamos que él descubra el jardín a su manera. Muchas veces, son ellos los que eligen primero.</p>
-          <a class="button button-light" href="https://wa.me/5491130011050?text=Hola%20Rosana%21%20Quisiera%20coordinar%20nuestro%20primer%20encuentro%20para%20conocer%20el%20jard%C3%ADn%20y%20que%20mi%20peque%20viva%20su%20primera%20experiencia." target="_blank" rel="noopener" data-track="whatsapp_cierre">Coordinar nuestro primer encuentro <span aria-hidden="true">↗</span></a>
+          <a class="button button-light" href="https://wa.me/5491130011050?text=Hola%2C%20quiero%20conocer%20el%20jard%C3%ADn%20y%20coordinar%20una%20visita." target="_blank" rel="noopener" data-track="whatsapp_cierre">Agendar una visita <span aria-hidden="true">↗</span></a>
           <p class="microcopy">Te responde Rosana o su equipo de seños. Cercano, sereno y a tu ritmo.</p>
         </div>
       </section>
@@ -508,10 +526,10 @@
     </main>
 
     <!-- WhatsApp flotante — desktop -->
-    <a class="whatsapp-float" href="https://wa.me/5491130011050?text=Hola%21%20Quiero%20conocer%20el%20jard%C3%ADn%20y%20que%20mi%20peque%20pueda%20vivir%20su%20primera%20experiencia%20en%20Primeros%20Pasos." target="_blank" rel="noopener" data-track="whatsapp_float" aria-label="Quiero conocer el jardín por WhatsApp"><span aria-hidden="true">💬</span><span>WhatsApp</span></a>
+    <a class="whatsapp-float" href="https://wa.me/5491130011050?text=Hola%2C%20quiero%20conocer%20el%20jard%C3%ADn%20y%20coordinar%20una%20visita." target="_blank" rel="noopener" data-track="whatsapp_float" aria-label="Quiero conocer el jardín por WhatsApp"><span aria-hidden="true">💬</span><span>WhatsApp</span></a>
 
     <!-- Barra sticky inferior — solo visible en mobile (CSS) -->
-    <a class="whatsapp-mobile-bar" href="https://wa.me/5491130011050?text=Hola%21%20Quiero%20conocer%20el%20jard%C3%ADn%20y%20que%20mi%20peque%20pueda%20vivir%20su%20primera%20experiencia%20en%20Primeros%20Pasos." target="_blank" rel="noopener" data-track="whatsapp_float_mobile" aria-label="Quiero conocer el jardín por WhatsApp">Agendar una visita ↗</a>
+    <a class="whatsapp-mobile-bar" href="https://wa.me/5491130011050?text=Hola%2C%20quiero%20conocer%20el%20jard%C3%ADn%20y%20coordinar%20una%20visita." target="_blank" rel="noopener" data-track="whatsapp_float_mobile" aria-label="Quiero conocer el jardín por WhatsApp">Agendar una visita ↗</a>
 
     <footer class="site-footer section-shell">
       <a class="brand" href="#inicio">
