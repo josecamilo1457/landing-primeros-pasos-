@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="es-AR">
   <head>
     <meta charset="UTF-8" />
@@ -95,21 +95,24 @@
          ============================================================ -->
     <div id="promo-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
       <div class="modal-card">
-        <button class="modal-close" type="button" id="close-promo-modal" aria-label="Cerrar oferta">✕</button>
-        <span class="modal-tag">Para familias que comienzan en septiembre</span>
-        <h2 class="modal-title" id="modal-title">Una nueva etapa puede empezar en septiembre</h2>
-        <div class="modal-price-block">
-          <p class="modal-price-label">Primer mes</p>
-          <p class="modal-price-amount">$95.000</p>
-          <p class="modal-price-sub">Reservando durante agosto · Sujeto a vacante</p>
-        </div>
-        <p class="modal-body">Una adaptación progresiva para que tu peque pueda empezar a compartir, jugar y crecer con sus nuevos amigos, mientras tu familia encuentra su ritmo.</p>
-        <a class="button button-primary modal-cta" href="https://wa.me/5491130011050?text=Hola%21%20Quiero%20conocer%20la%20propuesta%20del%20primer%20mes%20para%20comenzar%20en%20septiembre." target="_blank" rel="noopener" data-track="whatsapp_banner_oferta">Quiero consultar la promo de septiembre <span aria-hidden="true">↗</span></a>
-        <p class="modal-legal">Oferta válida para familias que reserven durante agosto de 2026 y comiencen en septiembre de 2026, siempre que exista vacante disponible.</p>
+        <button class="modal-close" type="button" id="close-promo-modal" aria-label="Cerrar">✕</button>
+        <span class="modal-tag">🎒 Inscripciones abiertas</span>
+        <h2 class="modal-title" id="modal-title">Vení a conocer Primeros Pasos con tu hijo/a</h2>
+        <p class="modal-body">Que conozca su salita, sus seños y viva una primera experiencia en el jardín. Reservando la vacante durante la visita, el uniforme va de regalo.</p>
+        <a class="button button-primary modal-cta" href="https://wa.me/5491130011050?text=Hola%2C%20quiero%20conocer%20el%20jard%C3%ADn%20y%20coordinar%20una%20visita." target="_blank" rel="noopener" data-track="whatsapp_modal_visita">Agendar una visita <span aria-hidden="true">↗</span></a>
+        <p class="modal-legal">Uniforme sin cargo al reservar la vacante durante la visita. Sujeto a disponibilidad de vacantes por sala.</p>
       </div>
     </div>
 
     <a class="skip-link" href="#contenido">Ir al contenido principal</a>
+
+    <!-- ============================================================
+         BANNER SUPERIOR COMPACTO — inscripciones abiertas + uniforme
+         ============================================================ -->
+    <div class="top-banner" role="banner" aria-label="Inscripciones abiertas">
+      <p class="top-banner-text">🎒 Inscripciones abiertas · Reservá tu vacante durante la visita y llevate el uniforme sin cargo</p>
+      <a class="top-banner-cta" href="https://wa.me/5491130011050?text=Hola%2C%20quiero%20conocer%20el%20jard%C3%ADn%20y%20coordinar%20una%20visita." target="_blank" rel="noopener" data-track="whatsapp_top_banner">Agendar una visita ↗</a>
+    </div>
 
     <!-- ============================================================
          HEADER
@@ -155,9 +158,9 @@
         <div class="hero-copy reveal">
           <p class="eyebrow">Jardín Maternal · San Miguel</p>
           <h1>El mejor lugar después del <em>hogar.</em></h1>
-          <p class="hero-lead">Jardín maternal en San Miguel para niños de 18 meses a 4 años. Un espacio donde cada niño crece acompañado con cariño.</p>
-          <div class="hero-price-badge"><strong>Beneficio de ingreso: Primer mes a $95.000</strong></div>
-          <a class="button button-primary" href="https://wa.me/5491130011050?text=Hola%21%20Quiero%20agendar%20una%20visita%20al%20jard%C3%ADn." target="_blank" rel="noopener" data-track="whatsapp_hero">Agendar una visita <span aria-hidden="true">↗</span></a>
+          <p class="hero-lead">Vení a conocer Primeros Pasos con tu hijo/a. Que conozca su salita, sus seños y viva una primera experiencia en el jardín.</p>
+          <div class="hero-beneficio">🎁 Reservando la vacante durante la visita, el uniforme va de regalo.</div>
+          <a class="button button-primary" href="https://wa.me/5491130011050?text=Hola%2C%20quiero%20conocer%20el%20jard%C3%ADn%20y%20coordinar%20una%20visita." target="_blank" rel="noopener" data-track="whatsapp_hero">Quiero conocer el jardín <span aria-hidden="true">↗</span></a>
           <p class="microcopy">Una visita tranquila, sin compromiso. Mientras vos conocés el jardín, tu peque empieza a vivir su primera experiencia con nosotros.</p>
         </div>
         <figure class="hero-photo reveal">
@@ -423,10 +426,7 @@
       </section>
 
       <!-- ============================================================
-           OFERTA FINAL
-           Visualmente diferente del modal: fondo turquesa profundo,
-           precio en card flotante, CTA WhatsApp verde.
-           Precios y condiciones exactamente como fueron aprobados.
+           BENEFICIO ESPECIAL — uniforme de regalo al reservar en visita
            ============================================================ -->
       <section class="oferta-final section-space" aria-labelledby="oferta-titulo">
         <!-- Doodles de estrellas sobre fondo oscuro -->
@@ -440,20 +440,19 @@
           <path d="M12 2 L14.4 9.5 L22 9.5 L16.2 14.5 L18.5 22 L12 17.5 L5.5 22 L7.8 14.5 L2 9.5 L9.6 9.5 Z" fill="currentColor"/>
         </svg>
         <div class="section-shell oferta-shell">
-          <div class="oferta-card reveal">
+          <div class="oferta-card oferta-card--uniforme reveal">
             <div class="oferta-left">
-              <p class="eyebrow oferta-eyebrow">Para familias que comienzan en septiembre</p>
-              <h2 id="oferta-titulo">Un beneficio especial para tu familia.</h2>
-              <p>Vení a conocer el jardín y preguntanos por el beneficio de ingreso disponible para tu hijo. Sujeto a disponibilidad de vacantes.</p>
-              <p>La adaptación siempre la hacemos a su tiempo, con acompañamiento de la familia. Sin apuros ni comparaciones.</p>
-              <a class="button button-wsp-oferta" href="https://wa.me/5491130011050?text=Hola%21%20Me%20gustar%C3%ADa%20agendar%20una%20visita%20y%20consultar%20por%20las%20vacantes." target="_blank" rel="noopener" data-track="whatsapp_oferta_final">Agendar una visita <span aria-hidden="true">↗</span></a>
-              <p class="microcopy oferta-microcopy">Reservando durante agosto · Sujeto a vacante disponible</p>
+              <p class="eyebrow oferta-eyebrow">🎁 Un beneficio para tu familia</p>
+              <h2 id="oferta-titulo">Un beneficio especial para tu familia</h2>
+              <p>Reservá tu vacante durante la visita y llevate el uniforme sin cargo.</p>
+              <p class="oferta-aclaracion">Sujeto a disponibilidad de vacantes por sala.</p>
+              <a class="button button-wsp-oferta" href="https://wa.me/5491130011050?text=Hola%2C%20quiero%20conocer%20el%20jard%C3%ADn%20y%20coordinar%20una%20visita." target="_blank" rel="noopener" data-track="whatsapp_oferta_final">Quiero agendar una visita <span aria-hidden="true">↗</span></a>
             </div>
-            <div class="oferta-right">
-              <p class="oferta-label">Primer mes</p>
-              <p class="oferta-precio">$95.000</p>
-              <p class="oferta-periodo">Agosto &rarr; Septiembre</p>
-              <p class="oferta-sub">Oferta válida para familias que reserven durante agosto de 2026 y comiencen en septiembre de 2026, siempre que exista vacante disponible.</p>
+            <div class="oferta-right oferta-right--uniforme">
+              <span class="oferta-uniforme-icon" aria-hidden="true">🎒</span>
+              <p class="oferta-uniforme-label">Uniforme</p>
+              <p class="oferta-uniforme-sub">sin cargo</p>
+              <p class="oferta-uniforme-detail">al reservar tu vacante durante la visita</p>
             </div>
           </div>
         </div>
@@ -485,7 +484,7 @@
                 <p>Sí. En la primera experiencia podés estar con tu peque y observar cómo interactúa. La adaptación se coordina con la familia según lo que necesite cada niño.</p>
               </details>
               <details>
-                <summary>¿Todavía hay lugar para septiembre? <span aria-hidden="true">+</span></summary>
+                <summary>¿Todavía hay vacantes disponibles? <span aria-hidden="true">+</span></summary>
                 <p>Depende de la sede y la sala. La mejor manera de saberlo es escribirnos: te respondemos rápido y, si hay lugar, coordinamos la visita sin compromiso.</p>
               </details>
             </div>

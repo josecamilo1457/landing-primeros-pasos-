@@ -1239,14 +1239,146 @@
 /* --- Ocultar sticky bar cuando hay modal abierto --- */
 body.modal-open .whatsapp-mobile-bar { display: none !important; }
 
- . h e r o - p r i c e - b a d g e   { 
-     d i s p l a y :   i n l i n e - b l o c k ; 
-     b a c k g r o u n d :   v a r ( - - s k y ) ; 
-     c o l o r :   v a r ( - - b l u e - d e e p ) ; 
-     p a d d i n g :   8 p x   1 6 p x ; 
-     b o r d e r - r a d i u s :   1 2 p x ; 
-     f o n t - w e i g h t :   7 0 0 ; 
-     f o n t - s i z e :   1 . 1 r e m ; 
-     m a r g i n - b o t t o m :   2 4 p x ; 
- }  
- 
+/* ============================================================
+   BANNER SUPERIOR COMPACTO — Inscripciones + uniforme
+   Mobile-first: franja delgada que no empuja el H1 fuera
+   del primer viewport en 375px/390px.
+   ============================================================ */
+.top-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  background: var(--blue-deep);
+  color: #fff;
+  padding: 9px clamp(16px, 4vw, 28px);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.top-banner-text {
+  margin: 0;
+  line-height: 1.4;
+  opacity: 0.92;
+}
+
+.top-banner-cta {
+  display: inline-block;
+  background: var(--whatsapp);
+  color: #fff;
+  border-radius: 999px;
+  padding: 5px 13px;
+  font-size: 0.72rem;
+  font-weight: 850;
+  white-space: nowrap;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: transform 0.18s, box-shadow 0.18s;
+}
+
+.top-banner-cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.38);
+}
+
+@media (max-width: 480px) {
+  .top-banner {
+    padding: 8px 14px;
+    gap: 6px 10px;
+    font-size: 0.70rem;
+  }
+  .top-banner-cta {
+    font-size: 0.70rem;
+    padding: 5px 11px;
+  }
+}
+
+/* ============================================================
+   HERO BENEFICIO — reemplaza hero-price-badge
+   ============================================================ */
+.hero-beneficio {
+  display: inline-block;
+  background: var(--yellow);
+  color: #25404d;
+  padding: 8px 16px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.92rem;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+@media (max-width: 760px) {
+  .hero-beneficio {
+    font-size: 0.85rem;
+    padding: 7px 13px;
+  }
+}
+
+/* ============================================================
+   OFERTA FINAL — variante uniforme (sin precio, con icono)
+   ============================================================ */
+.oferta-card--uniforme {
+  grid-template-columns: 1fr auto;
+}
+
+.oferta-right--uniforme {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 4px;
+  padding: 28px 36px;
+  min-width: 190px;
+}
+
+.oferta-uniforme-icon {
+  font-size: 2.8rem;
+  line-height: 1;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.oferta-uniforme-label {
+  font-size: 1.55rem;
+  font-weight: 850;
+  color: #fff;
+  letter-spacing: -0.04em;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.oferta-uniforme-sub {
+  font-size: 1rem;
+  font-weight: 850;
+  color: var(--yellow);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.oferta-uniforme-detail {
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 6px 0 0;
+  max-width: 160px;
+  line-height: 1.45;
+}
+
+.oferta-aclaracion {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0 0 20px;
+}
+
+@media (max-width: 760px) {
+  .oferta-card--uniforme {
+    grid-template-columns: 1fr;
+  }
+  .oferta-right--uniforme {
+    min-width: unset;
+    padding: 22px 20px;
+  }
+}
