@@ -86,6 +86,7 @@
         body: JSON.stringify({
           whatsapp: element.href || '',
           gclid: localStorage.getItem('gclid'),
+          fbclid: localStorage.getItem('fbclid'),
           utm_source: localStorage.getItem('utm_source'),
           utm_medium: localStorage.getItem('utm_medium'),
           utm_campaign: localStorage.getItem('utm_campaign'),
@@ -123,5 +124,68 @@
   }, { threshold: 0.08 });
 
   document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+
+  // ── Evita que los CTA flotantes tapen controles interactivos ─────
+  const floatingCtas = document.querySelectorAll('.whatsapp-float, .whatsapp-mobile-bar');
+  const collisionTargets = document.querySelectorAll(
+    'main a, main button, main summary, main input, main select, main textarea, main [role="button"]'
+  );
+
+  if (floatingCtas.length && collisionTargets.length) {
+    const rectsIntersect = (a, b) => (
+      a.left < b.right &&
+      a.right > b.left &&
+      a.top < b.bottom &&
+      a.bottom > b.top
+    );
+
+    const updateFloatingCtas = () => {
+      floatingCtas.forEach((floatingCta) => {
+        if (window.getComputedStyle(floatingCta).display === 'none') return;
+
+        const floatingRect = floatingCta.getBoundingClientRect();
+        const collides = Array.from(collisionTargets).some((target) => {
+          const targetStyle = window.getComputedStyle(target);
+          if (targetStyle.display === 'none' || targetStyle.visibility === 'hidden') return false;
+
+          const targetRect = target.getBoundingClientRect();
+          const isVisible = (
+            targetRect.width > 0 &&
+            targetRect.height > 0 &&
+            targetRect.bottom > 0 &&
+            targetRect.top < window.innerHeight
+          );
+
+          return isVisible && rectsIntersect(floatingRect, targetRect);
+        });
+
+        floatingCta.classList.toggle('is-collision-hidden', collides);
+      });
+    };
+
+    let collisionFrame = 0;
+    const scheduleCollisionCheck = () => {
+      if (collisionFrame) return;
+      collisionFrame = window.requestAnimationFrame(() => {
+        collisionFrame = 0;
+        updateFloatingCtas();
+      });
+    };
+
+    window.addEventListener('scroll', scheduleCollisionCheck, { passive: true });
+    window.addEventListener('resize', scheduleCollisionCheck);
+    window.addEventListener('load', scheduleCollisionCheck);
+    document.querySelectorAll('details').forEach((details) => {
+      details.addEventListener('toggle', scheduleCollisionCheck);
+    });
+    document.fonts?.ready.then(scheduleCollisionCheck);
+
+    if (typeof ResizeObserver === 'function') {
+      const collisionResizeObserver = new ResizeObserver(scheduleCollisionCheck);
+      collisionResizeObserver.observe(document.body);
+    }
+
+    scheduleCollisionCheck();
+  }
 
 })();
