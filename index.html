@@ -21,10 +21,6 @@
     <link rel="preconnect" href="https://api.whatsapp.com" />
     <link rel="preconnect" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://connect.facebook.net" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet" />
-
     <!-- Preload imagen hero (LCP) -->
     <link rel="preload" as="image" href="images/hero-patio-primeros-pasos.webp" fetchpriority="high" />
 
@@ -101,11 +97,7 @@
       </a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal"><span></span><span></span><span></span><span class="sr-only">Abrir menú</span></button>
       <nav id="menu-principal" class="nav" aria-label="Navegación principal">
-        <a href="#experiencia">La experiencia</a>
-        <a href="#promocion">Inscripción 2027</a>
         <a href="#rutina">Un día</a>
-        <a href="#actividades">Propuesta</a>
-        <a href="#historias">Historias</a>
         <a href="#rosana">Rosana</a>
         <a href="#sedes">Sedes</a>
         <a class="nav-cta" href="https://wa.me/5491130011050?text=Hola%21%20Quiero%20conocer%20el%20jard%C3%ADn%20y%20coordinar%20una%20visita%20presencial." target="_blank" rel="noopener" data-track="whatsapp_header">Agendar visita</a>
@@ -113,6 +105,8 @@
     </header>
 
     <main id="contenido">
+      <svg class="editorial-route editorial-route--desktop" viewBox="0 0 1440 6100" preserveAspectRatio="none" aria-hidden="true"><path class="editorial-route-soft" d="M-80 520 C230 430 260 940 610 1040 S1240 810 1390 1210 C1510 1530 1110 1720 1060 2110 S1320 2640 950 2940 C630 3200 180 2870 70 3410 S430 4120 820 4180 C1230 4240 1260 4860 850 5140 S290 5460 270 5920 C260 6100 520 6170 820 6280"/><path class="editorial-route-ink" d="M-80 520 C230 430 260 940 610 1040 S1240 810 1390 1210 C1510 1530 1110 1720 1060 2110 S1320 2640 950 2940 C630 3200 180 2870 70 3410 S430 4120 820 4180 C1230 4240 1260 4860 850 5140 S290 5460 270 5920 C260 6100 520 6170 820 6280"/><path class="editorial-route-branch" d="M990 2190 C720 2070 670 2360 445 2290 C310 2248 280 2130 180 2180"/></svg>
+      <svg class="editorial-route editorial-route--mobile" viewBox="0 0 390 7000" preserveAspectRatio="none" aria-hidden="true"><path class="editorial-route-soft" d="M-30 640 C175 540 82 1080 335 1200 S220 1810 55 2110 S305 2750 335 3070 S225 3680 35 4050 S180 4720 345 5000 S245 5650 45 6020 S180 6740 342 6960"/><path class="editorial-route-ink" d="M-30 640 C175 540 82 1080 335 1200 S220 1810 55 2110 S305 2750 335 3070 S225 3680 35 4050 S180 4720 345 5000 S245 5650 45 6020 S180 6740 342 6960"/><path class="editorial-route-branch" d="M305 2610 C215 2520 184 2780 82 2670 C48 2633 39 2565 7 2590"/></svg>
 
       <!-- ============================================================
            01. HERO WOW (Jardín Vivo Premium)
@@ -146,9 +140,10 @@
           </div>
 
           <!-- Teaser Promoción Septiembre (Inscripciones 2027) -->
-          <a class="hero-promo-teaser" href="#promocion">
-            <span class="teaser-tag">Inscripciones 2027</span>
-            <span class="teaser-text">Beneficio de Inscripción Anticipada 2027 — reservando hasta el 30/09 <span aria-hidden="true">→</span></span>
+          <a class="hero-promo-teaser" href="#promocion" aria-label="Sala de 2, matrícula 70% bonificada este mes">
+            <span class="teaser-tag">Inscripciones 2027 · Sala de 2</span>
+            <span class="teaser-price"><del>$400.000</del> <strong>$120.000</strong></span>
+            <span class="teaser-text">70% bonificada este mes <span aria-hidden="true">→</span></span>
           </a>
         </div>
 
@@ -375,7 +370,7 @@
       <!-- ============================================================
            05. UN DÍA EN PRIMEROS PASOS (Narrativa y Rutina Acompañada)
            ============================================================ -->
-          <details id="rutina" name="propuesta-primeros-pasos" class="chapter chapter--routine timeline-section" aria-labelledby="rutina-titulo">
+          <details id="rutina" open class="chapter chapter--routine timeline-section" aria-labelledby="rutina-titulo">
             <summary class="chapter-summary">
               <span class="chapter-number" aria-hidden="true">02</span>
               <span class="chapter-heading">
@@ -458,7 +453,7 @@
       <!-- ============================================================
            06. ACTIVIDADES — MUCHO MÁS QUE JUGAR (Bento Editorial)
            ============================================================ -->
-          <details id="actividades" name="propuesta-primeros-pasos" class="chapter chapter--activities activities-section" aria-labelledby="actividades-titulo">
+          <details id="actividades" open class="chapter chapter--activities activities-section" aria-labelledby="actividades-titulo">
             <summary class="chapter-summary">
               <span class="chapter-number" aria-hidden="true">03</span>
               <span class="chapter-heading">
@@ -565,6 +560,15 @@
               <p class="eyebrow promo-eyebrow">✨ Inscripciones 2027 · San Miguel</p>
               <h2 id="promocion-titulo" class="promo-title">Beneficio de Inscripción Anticipada 2027</h2>
               <p class="promo-lead">Asegurá la vacante de tu hijo con matrícula bonificada reservando durante septiembre.</p>
+            </div>
+
+            <div class="promo-sala2-editorial">
+              <div>
+                <span>Sala de 2</span>
+                <p>70% bonificada este mes para comenzar el ciclo 2027.</p>
+              </div>
+              <p class="promo-sala2-price"><del>$400.000</del><strong>$120.000</strong></p>
+              <p class="promo-sala2-note">Reservando durante la entrevista, uniforme oficial sin cargo.<br><small>Vigencia: 30/09/2026.</small></p>
             </div>
 
             <div class="promo-cards-grid">
@@ -841,6 +845,7 @@
               <a class="button button-light final-btn" href="https://wa.me/5491130011050?text=Hola%2C%20quiero%20conocer%20Primeros%20Pasos%20y%20coordinar%20una%20visita%20con%20mi%20hijo%2Fa." target="_blank" rel="noopener" data-track="whatsapp_cierre_final">Agendar una visita presencial por WhatsApp <span aria-hidden="true">↗</span></a>
               <p class="microcopy final-micro">Te responde Rosana o nuestro equipo de seños. Cercano, sereno y a tu ritmo.</p>
             </div>
+            <figure class="final-photo-editorial"><img src="images/galeria-patio-primeros-pasos.webp" alt="Niños de Primeros Pasos disfrutando el patio" width="1100" height="1465" loading="lazy"></figure>
           </div>
         </div>
       </section>
