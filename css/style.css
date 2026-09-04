@@ -6727,6 +6727,148 @@ dialog.offer-dialog::backdrop {
   }
 }
 
+/* 9. Ajuste Tipográfico Final — Centrado Editorial y Balance de Bloques */
+
+/* Regla 1: Párrafos cortos, emocionales, introductorios o de cierre centrados */
+#contenido .section-intro.centered,
+#contenido .promo-header.centered,
+#contenido .final-cta-card.centered,
+#contenido .experience-mosaic .section-intro,
+#contenido .locations-section .section-intro,
+#contenido .stories-section .section-intro,
+#contenido .reviews-section .section-intro {
+  display: block !important;
+  text-align: center !important;
+  max-width: 740px !important;
+  margin-inline: auto !important;
+  margin-bottom: 44px !important;
+}
+
+#contenido .section-intro.centered .eyebrow,
+#contenido .promo-header.centered .eyebrow,
+#contenido .final-cta-card.centered .eyebrow,
+#contenido .experience-mosaic .section-intro .eyebrow,
+#contenido .locations-section .section-intro .eyebrow,
+#contenido .stories-section .section-intro .eyebrow,
+#contenido .reviews-section .section-intro .eyebrow {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  margin-inline: auto !important;
+  margin-bottom: 12px !important;
+}
+
+#contenido .section-intro.centered h2,
+#contenido .promo-header.centered h2,
+#contenido .final-cta-card.centered h2,
+#contenido .experience-mosaic .section-intro h2,
+#contenido .locations-section .section-intro h2,
+#contenido .stories-section .section-intro h2,
+#contenido .reviews-section .section-intro h2 {
+  text-align: center !important;
+  max-width: 740px !important;
+  margin-inline: auto !important;
+  line-height: 1.14 !important;
+}
+
+#contenido .section-sub,
+#contenido .promo-lead,
+#contenido .final-lead,
+#contenido .promo-footer-note {
+  text-align: center !important;
+  max-width: 680px !important;
+  margin-inline: auto !important;
+  line-height: 1.6 !important;
+}
+
+/* Regla 2: Párrafos largos con text-align: left dentro de columna centrada y angosta */
+#contenido .letter-body,
+#contenido .director-letter .letter-body {
+  max-width: 680px !important;
+  margin-inline: auto !important;
+  text-align: left !important;
+}
+
+#contenido .letter-body p {
+  display: block !important;
+  text-align: left !important;
+  max-width: 680px !important;
+  line-height: 1.62 !important;
+  margin-bottom: 16px !important;
+}
+
+#contenido .director-letter {
+  max-width: 740px !important;
+  margin-inline: auto !important;
+  text-align: left !important;
+}
+
+#contenido .director-letter h2 {
+  text-align: left !important;
+  max-width: 740px !important;
+}
+
+#contenido .chapter-intro,
+#contenido .chapter-content {
+  max-width: 720px !important;
+  margin-inline: auto !important;
+  text-align: left !important;
+}
+
+#contenido .faq-list {
+  max-width: 740px !important;
+  margin-inline: auto !important;
+  text-align: left !important;
+}
+
+/* Regla 3: Prohibición de text-align justify */
+#contenido p,
+#contenido h1,
+#contenido h2,
+#contenido h3,
+#contenido span,
+#contenido summary {
+  text-justify: none !important;
+}
+
+/* Regla 4: Optimización Mobile (390px) para lectura cómoda sin pegarse a bordes */
+@media (max-width: 767px) {
+  #contenido .section-shell {
+    padding-inline: 18px !important;
+  }
+
+  #contenido .section-intro.centered,
+  #contenido .promo-header.centered,
+  #contenido .final-cta-card.centered,
+  #contenido .experience-mosaic .section-intro,
+  #contenido .locations-section .section-intro,
+  #contenido .stories-section .section-intro,
+  #contenido .reviews-section .section-intro {
+    max-width: 100% !important;
+    padding-inline: 8px !important;
+    margin-bottom: 32px !important;
+  }
+
+  #contenido .section-sub,
+  #contenido .promo-lead,
+  #contenido .final-lead {
+    max-width: 100% !important;
+    padding-inline: 4px !important;
+    font-size: 0.98rem !important;
+    line-height: 1.52 !important;
+  }
+
+  #contenido .director-card {
+    padding-inline: 16px !important;
+  }
+
+  #contenido .letter-body p {
+    font-size: 0.98rem !important;
+    line-height: 1.55 !important;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
