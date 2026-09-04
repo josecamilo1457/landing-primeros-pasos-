@@ -2,7 +2,7 @@
 <html lang="es-AR">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="description" content="Jardín Maternal Primeros Pasos en San Miguel. Más de 20 años acompañando con amor y paciencia los primeros años de cada niño. Recibimos niños de 18 meses a 4 años. Agendá tu visita." />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://www.jardinprimerospasos.com/" />
@@ -134,17 +134,10 @@
           <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> Jardín Maternal en San Miguel · 18 meses a 4 años</p>
           <h1>El mejor lugar<br>después del <em>hogar.</em></h1>
           <p class="hero-lead">Un espacio cálido y seguro donde tu peque aprende jugando con seños dedicadas, mientras vos trabajás con absoluta tranquilidad.</p>
-          <div class="hero-actions">
-            <a class="button button-primary hero-btn" href="https://wa.me/5491130011050?text=Hola%2C%20quiero%20conocer%20Primeros%20Pasos%20con%20mi%20hijo%2Fa%20y%20coordinar%20una%20visita." target="_blank" rel="noopener" data-track="whatsapp_hero">Agendar una visita <span aria-hidden="true">↗</span></a>
-            <p class="microcopy">Una visita tranquila, sin compromiso ni apuros.</p>
-          </div>
-
-          <!-- Teaser Promoción Septiembre (Inscripciones 2027) -->
-          <a class="hero-promo-teaser" href="#promocion" aria-label="Sala de 2, matrícula 70% bonificada este mes">
-            <span class="teaser-tag">Inscripciones 2027 · Sala de 2</span>
-            <span class="teaser-price"><del>$400.000</del> <strong>$120.000</strong></span>
-            <span class="teaser-text">70% bonificada este mes <span aria-hidden="true">→</span></span>
-          </a>
+            <div class="hero-actions">
+              <a class="button button-primary hero-btn" href="https://wa.me/5491130011050?text=Hola%2C%20quiero%20conocer%20Primeros%20Pasos%20con%20mi%20hijo%2Fa%20y%20coordinar%20una%20visita." target="_blank" rel="noopener" data-track="whatsapp_hero">Agendar una visita <span aria-hidden="true">↗</span></a>
+              <p class="microcopy">Una visita tranquila, sin compromiso ni apuros.</p>
+            </div>
         </div>
 
         <!-- Collage Hero Editorial con Fotografía Real Protagonista -->
@@ -275,7 +268,7 @@
 
             <div class="director-letter">
               <p class="eyebrow">Una palabra de Rosana</p>
-              <h2 id="directora-titulo">«No te pedimos que confíes de entrada. Nos ganamos esa tranquilidad día a día.»</h2>
+              <h2 id="directora-titulo">«Antes de elegir un jardín, vengan a vivirlo. Queremos conocerlos, recibir a su peque y que descubran en la entrevista la hermosa experiencia de crecer, jugar y aprender con amigos, en el Mejor lugar después del Hogar.»</h2>
               <div class="letter-body">
                 <p>En estos más de 20 años recibiendo familias en San Miguel, aprendí algo fundamental: confiar el cuidado de tu hijo por primera vez genera mil dudas y la necesidad profunda de saber que va a estar tan cuidado como en casa.</p>
                 <p>Primeros Pasos no se explica en un folleto frío: se siente cuando caminás por el patio arbolado, escuchás las risas en las salitas y ves la mirada atenta de nuestras seños.</p>
@@ -370,7 +363,7 @@
       <!-- ============================================================
            05. UN DÍA EN PRIMEROS PASOS (Narrativa y Rutina Acompañada)
            ============================================================ -->
-          <details id="rutina" open class="chapter chapter--routine timeline-section" aria-labelledby="rutina-titulo">
+          <details id="rutina" name="propuesta-primeros-pasos" class="chapter chapter--routine timeline-section" aria-labelledby="rutina-titulo">
             <summary class="chapter-summary">
               <span class="chapter-number" aria-hidden="true">02</span>
               <span class="chapter-heading">
@@ -453,7 +446,7 @@
       <!-- ============================================================
            06. ACTIVIDADES — MUCHO MÁS QUE JUGAR (Bento Editorial)
            ============================================================ -->
-          <details id="actividades" open class="chapter chapter--activities activities-section" aria-labelledby="actividades-titulo">
+          <details id="actividades" name="propuesta-primeros-pasos" class="chapter chapter--activities activities-section" aria-labelledby="actividades-titulo">
             <summary class="chapter-summary">
               <span class="chapter-number" aria-hidden="true">03</span>
               <span class="chapter-heading">
@@ -562,16 +555,25 @@
               <p class="promo-lead">Asegurá la vacante de tu hijo con matrícula bonificada reservando durante septiembre.</p>
             </div>
 
-            <div class="promo-sala2-editorial">
-              <div>
-                <span>Sala de 2</span>
-                <p>70% bonificada este mes para comenzar el ciclo 2027.</p>
-              </div>
-              <p class="promo-sala2-price"><del>$400.000</del><strong>$120.000</strong></p>
-              <p class="promo-sala2-note">Reservando durante la entrevista, uniforme oficial sin cargo.<br><small>Vigencia: 30/09/2026.</small></p>
-            </div>
-
             <div class="promo-cards-grid">
+              <!-- Tarjeta Sala de 2 -->
+              <article class="promo-card promo-card--featured">
+                <div class="promo-badge-pill">50% BONIFICADA</div>
+                <div class="promo-card-body">
+                  <span class="promo-sala-name">SALA DE 2 AÑOS</span>
+                  <p class="promo-regular-price">Matrícula habitual: <del>$400.000</del></p>
+                  <div class="promo-price-block">
+                    <span class="promo-currency">$</span>
+                    <span class="promo-amount">200.000</span>
+                  </div>
+                  <div class="promo-urgency-sticker">
+                    <span class="urgency-dot" aria-hidden="true"></span>
+                    <span>SOLO DURANTE SEPTIEMBRE</span>
+                  </div>
+                  <a class="button button-promo" href="https://wa.me/5491130011050?text=Hola%21%20Me%20interesa%20la%20vacante%202027%20para%20Sala%20de%202%20con%20el%20beneficio%20de%20Septiembre.%20Quisiera%20agendar%20una%20visita." target="_blank" rel="noopener" data-track="whatsapp_promo_sala2">Quiero conocer el jardín — Sala de 2 <span aria-hidden="true">↗</span></a>
+                </div>
+              </article>
+
               <!-- Tarjeta Sala de 3 -->
               <article class="promo-card">
                 <div class="promo-badge-pill">80% BONIFICADA</div>
@@ -582,12 +584,10 @@
                     <span class="promo-currency">$</span>
                     <span class="promo-amount">80.000</span>
                   </div>
-                  <p class="promo-tagline">Septiembre · Inscripción 2027</p>
-                  <ul class="promo-perks">
-                    <li><span class="check-icon" aria-hidden="true">✓</span> Vacante asegurada para el ciclo 2027</li>
-                    <li><span class="check-icon" aria-hidden="true">✓</span> Valor de ingreso congelado</li>
-                    <li><span class="check-icon" aria-hidden="true">✓</span> Válido reservando hasta el 30/09/2026</li>
-                  </ul>
+                  <div class="promo-urgency-sticker">
+                    <span class="urgency-dot" aria-hidden="true"></span>
+                    <span>SOLO DURANTE SEPTIEMBRE</span>
+                  </div>
                   <a class="button button-promo" href="https://wa.me/5491130011050?text=Hola%21%20Me%20interesa%20la%20vacante%202027%20para%20Sala%20de%203%20con%20el%20beneficio%20de%20Septiembre.%20Quisiera%20agendar%20una%20visita." target="_blank" rel="noopener" data-track="whatsapp_promo_sala3">Quiero conocer el jardín — Sala de 3 <span aria-hidden="true">↗</span></a>
                 </div>
               </article>
@@ -602,12 +602,10 @@
                     <span class="promo-currency">$</span>
                     <span class="promo-amount">60.000</span>
                   </div>
-                  <p class="promo-tagline">Septiembre · Inscripción 2027</p>
-                  <ul class="promo-perks">
-                    <li><span class="check-icon" aria-hidden="true">✓</span> Vacante asegurada para el ciclo 2027</li>
-                    <li><span class="check-icon" aria-hidden="true">✓</span> Valor de ingreso congelado</li>
-                    <li><span class="check-icon" aria-hidden="true">✓</span> Válido reservando hasta el 30/09/2026</li>
-                  </ul>
+                  <div class="promo-urgency-sticker">
+                    <span class="urgency-dot" aria-hidden="true"></span>
+                    <span>SOLO DURANTE SEPTIEMBRE</span>
+                  </div>
                   <a class="button button-promo button-promo--gold" href="https://wa.me/5491130011050?text=Hola%21%20Me%20interesa%20la%20vacante%202027%20para%20Sala%20de%204%20con%20el%20beneficio%20de%20Septiembre.%20Quisiera%20agendar%20una%20visita." target="_blank" rel="noopener" data-track="whatsapp_promo_sala4">Quiero conocer el jardín — Sala de 4 <span aria-hidden="true">↗</span></a>
                 </div>
               </article>
@@ -884,6 +882,20 @@
         <p>© <span data-year></span> Primeros Pasos. Todos los derechos reservados.</p>
       </div>
     </footer>
+
+    <!-- Dialog / Popup: Beneficio Exclusivo -->
+    <dialog id="offer-dialog" class="offer-dialog" aria-labelledby="offer-dialog-title" aria-describedby="offer-dialog-description">
+      <div class="offer-dialog-content">
+        <button type="button" class="offer-dialog-close" aria-label="Cerrar beneficio">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+        <p class="offer-dialog-kicker">✨ Beneficio exclusivo</p>
+        <h2 id="offer-dialog-title">Hasta el próximo jueves</h2>
+        <p id="offer-dialog-description">Reservando durante tu entrevista presencial, te llevás el <strong>uniforme oficial de regalo</strong> para comenzar el ciclo 2027.</p>
+        <p class="offer-dialog-legal">No acumulable con otras promociones.</p>
+        <a class="button button-primary offer-dialog-cta" href="https://wa.me/5491130011050?text=Hola%2C%20quiero%20conocer%20el%20jard%C3%ADn%20y%20aprovechar%20el%20beneficio%20del%20uniforme%20de%20regalo." target="_blank" rel="noopener" data-track="whatsapp_popup_jueves">Agendar visita con uniforme de regalo <span aria-hidden="true">↗</span></a>
+      </div>
+    </dialog>
 
     <script src="js/tracking.js" defer></script>
     <script src="js/main.js" defer></script>

@@ -50,6 +50,21 @@
     })
   );
 
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape' || !navigation?.classList.contains('is-open')) return;
+    navigation.classList.remove('is-open');
+    menuButton?.setAttribute('aria-expanded', 'false');
+    menuButton?.focus();
+  });
+
+  // En mobile, la propuesta se presenta por capítulos. El contenido
+  // completo sigue disponible desde cada resumen nativo de details.
+  if (window.matchMedia('(max-width: 767px)').matches) {
+    document.querySelectorAll('.learning-chapters details').forEach((details) => {
+      details.open = false;
+    });
+  }
+
   // ── Año dinámico en footer ─────────────────────────────────────────
   document.querySelectorAll('[data-year]').forEach((el) => {
     el.textContent = new Date().getFullYear();
@@ -186,6 +201,57 @@
     }
 
     scheduleCollisionCheck();
+  }
+
+  // ── Popup de 20 segundos (Beneficio Exclusivo "Hasta el próximo jueves") ──
+  const offerDialog = document.getElementById('offer-dialog');
+  if (offerDialog) {
+    const closeButton = offerDialog.querySelector('.offer-dialog-close');
+
+    const openOffer = () => {
+      if (offerDialog.open) return;
+      if (sessionStorage.getItem('offer_dialog_dismissed')) return;
+      try {
+        if (typeof offerDialog.showModal === 'function') {
+          offerDialog.showModal();
+        } else {
+          offerDialog.setAttribute('open', '');
+        }
+        document.body.classList.add('is-offer-open');
+      } catch (err) {
+        console.warn('No se pudo abrir el popup de oferta:', err);
+      }
+    };
+
+    const closeOffer = () => {
+      sessionStorage.setItem('offer_dialog_dismissed', 'true');
+      document.body.classList.remove('is-offer-open');
+      if (offerDialog.open) {
+        offerDialog.close();
+      }
+    };
+
+    closeButton?.addEventListener('click', closeOffer);
+
+    offerDialog.addEventListener('click', (e) => {
+      const rect = offerDialog.getBoundingClientRect();
+      const isInDialog = (
+        rect.top <= e.clientY && e.clientY <= rect.top + rect.height &&
+        rect.left <= e.clientX && e.clientX <= rect.left + rect.width
+      );
+      if (!isInDialog) {
+        closeOffer();
+      }
+    });
+
+    offerDialog.addEventListener('cancel', () => {
+      closeOffer();
+    });
+
+    // Disparar a los 35 segundos de sesión para permitir explorar primero la web
+    if (!sessionStorage.getItem('offer_dialog_dismissed')) {
+      window.setTimeout(openOffer, 35000);
+    }
   }
 
 })();

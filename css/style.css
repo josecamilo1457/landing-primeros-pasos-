@@ -302,7 +302,8 @@ a {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line-subtle);
-  transition: all 0.25s ease;
+  transition: background-color 0.25s ease, border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .brand {
@@ -1553,7 +1554,8 @@ a {
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
   padding: 20px 24px;
-  transition: all 0.2s ease;
+  transition: background-color 0.2s ease, border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .accordion details[open] {
@@ -4761,3 +4763,1978 @@ main .accordion details > p {
     transform: none;
   }
 }
+
+/* ================================================================
+   PREMIUM CONVERSION REFINEMENT — hero limpio, promos y entrevista
+   ================================================================ */
+
+#contenido > .promo-section { order: 3; }
+#contenido > .experience-mosaic { order: 4; }
+
+body {
+  color: #143c4d;
+  font-family: "Editorial Manrope", Manrope, sans-serif;
+  letter-spacing: -0.008em;
+}
+
+body p,
+body li {
+  text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+.chapter-title,
+.signature-name {
+  font-family: "Editorial Lora", Lora, serif;
+  letter-spacing: -0.035em;
+}
+
+.button,
+.nav-cta,
+.whatsapp-float,
+.whatsapp-mobile-bar {
+  letter-spacing: -0.012em;
+}
+
+.button:focus-visible,
+.nav a:focus-visible,
+.whatsapp-float:focus-visible,
+.whatsapp-mobile-bar:focus-visible,
+.offer-dialog button:focus-visible {
+  outline: 3px solid #f2b934;
+  outline-offset: 4px;
+}
+
+#contenido .hero {
+  min-height: 780px;
+  padding-bottom: 26px;
+}
+
+#contenido .hero-promo-teaser {
+  display: none !important;
+}
+
+#contenido .hero-media-wrap {
+  height: 620px;
+}
+
+#contenido .hero-photo-main img {
+  object-position: 50% 42%;
+}
+
+#contenido .hero-photo-main figcaption {
+  right: 54px;
+  bottom: 48px;
+  max-width: 330px;
+  padding: 13px 16px 14px;
+  color: #fff;
+  background: rgba(5, 48, 65, 0.82);
+  border-radius: 14px;
+  box-shadow: 0 12px 28px rgba(5, 36, 48, 0.22);
+  line-height: 1.35;
+  text-align: left;
+  text-shadow: none;
+  backdrop-filter: blur(5px);
+}
+
+#contenido .trust {
+  margin-top: -22px;
+}
+
+/* La oportunidad comercial aparece después de la primera prueba de valor. */
+#contenido .promo-section {
+  padding: 72px 0 78px;
+  background: linear-gradient(180deg, rgba(238, 247, 242, 0.84), rgba(255, 249, 237, 0.28));
+}
+
+#contenido .promo-section::before {
+  right: -330px;
+  top: -300px;
+  opacity: 0.14;
+  transform: rotate(14deg);
+}
+
+#contenido .promo-container {
+  max-width: 1180px;
+  margin-inline: auto;
+}
+
+#contenido .promo-header {
+  grid-template-columns: minmax(0, 1.18fr) minmax(280px, 0.82fr);
+  gap: 64px;
+}
+
+#contenido .promo-title {
+  max-width: 720px;
+  font-size: clamp(3.1rem, 4.6vw, 4.2rem);
+  text-wrap: balance;
+}
+
+#contenido .promo-lead {
+  max-width: 430px;
+  color: #425f68;
+  font-size: 1.08rem;
+  line-height: 1.6;
+}
+
+#contenido .promo-sala2-editorial {
+  isolation: isolate;
+  grid-template-columns: minmax(0, 0.9fr) minmax(210px, 0.62fr) minmax(0, 1fr);
+  gap: 42px;
+  margin-top: 44px;
+  padding: 34px 38px;
+  overflow: hidden;
+  background: #f8d9cf;
+  border-radius: 28px;
+  box-shadow: 0 24px 52px rgba(75, 55, 45, 0.12);
+}
+
+#contenido .promo-sala2-editorial::before {
+  inset: auto -8% -86% 42%;
+  width: 70%;
+  height: 190%;
+  background: url("../images/editorial/crayon-journey-overlay-transparent.png") center / 620px auto no-repeat;
+  opacity: 0.16;
+  mask: none;
+  -webkit-mask: none;
+  transform: rotate(-7deg);
+}
+
+#contenido .promo-sala2-editorial > div,
+#contenido .promo-sala2-price,
+#contenido .promo-sala2-note {
+  position: relative;
+  z-index: 1;
+}
+
+#contenido .promo-sala2-editorial > div > span {
+  color: #10384c;
+  font-size: clamp(2.35rem, 3.4vw, 3.15rem);
+  line-height: 1;
+}
+
+#contenido .promo-sala2-editorial > div > p {
+  max-width: 330px;
+  color: #445b62;
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+#contenido .promo-sala2-price {
+  gap: 3px;
+  margin: 0;
+}
+
+#contenido .promo-sala2-price del {
+  color: #7f574e;
+  font-size: 1rem;
+}
+
+#contenido .promo-sala2-price strong {
+  color: #10384c;
+  font-size: clamp(3rem, 4.4vw, 4.15rem);
+  letter-spacing: -0.04em;
+}
+
+#contenido .promo-sala2-note {
+  margin: 0;
+  color: #243f4a;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+#contenido .promo-sala2-note small {
+  display: inline-block;
+  margin-top: 8px;
+  color: #6d463d;
+  font-size: 0.92rem;
+  font-weight: 800;
+}
+
+#contenido .promo-cards-grid {
+  gap: 24px;
+  margin-top: 26px;
+}
+
+#contenido .promo-card,
+#contenido .promo-card--accent {
+  min-height: 290px;
+  padding: 28px 30px 30px;
+  overflow: hidden;
+  background: #dceff0;
+  border-radius: 22px;
+  box-shadow: 0 18px 42px rgba(22, 71, 82, 0.1);
+}
+
+#contenido .promo-card--accent {
+  background: #e7e2f3;
+}
+
+#contenido .promo-badge-pill,
+#contenido .promo-regular-price {
+  display: inline-flex;
+}
+
+#contenido .promo-badge-pill {
+  width: auto;
+  margin: 0 0 14px;
+  padding: 7px 10px;
+  color: #164b57;
+  background: rgba(255, 255, 255, 0.65);
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+#contenido .promo-badge-pill--gold {
+  color: #4d426a;
+  background: rgba(255, 255, 255, 0.68);
+}
+
+#contenido .promo-card-body {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px 24px;
+  align-items: end;
+}
+
+#contenido .promo-sala-name,
+#contenido .promo-regular-price,
+#contenido .promo-tagline {
+  grid-column: 1;
+}
+
+#contenido .promo-sala-name {
+  color: #174b59;
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.055em;
+}
+
+#contenido .promo-regular-price {
+  margin: 6px 0 0;
+  color: #52686f;
+  font-size: 1rem;
+}
+
+#contenido .promo-price-block {
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  align-self: center;
+  margin: 0;
+}
+
+#contenido .promo-currency,
+#contenido .promo-amount {
+  color: #10384c;
+}
+
+#contenido .promo-amount {
+  font-size: 3.4rem;
+  letter-spacing: -0.04em;
+}
+
+#contenido .promo-tagline {
+  margin: 10px 0 0;
+  color: #405f67;
+  font-size: 0.96rem;
+  font-weight: 700;
+}
+
+#contenido .button-promo,
+#contenido .button-promo--gold {
+  grid-column: 1 / -1;
+  justify-self: start;
+  margin-top: 20px;
+  color: #fff;
+  background: #216f62;
+  box-shadow: 0 10px 24px rgba(24, 91, 78, 0.17);
+}
+
+#contenido .promo-card--accent .button-promo {
+  background: #665289;
+  box-shadow: 0 10px 24px rgba(75, 59, 111, 0.16);
+}
+
+/* Fotografías protagonistas con encuadre y contraste controlados. */
+#contenido .experience-mosaic {
+  padding-top: 68px;
+}
+
+#contenido .mosaic-card,
+#contenido .mosaic-card.mosaic-featured {
+  height: 310px;
+}
+
+#contenido .mosaic-card:nth-child(2),
+#contenido .mosaic-card:nth-child(3) {
+  height: 275px;
+  margin-top: 24px;
+}
+
+#contenido .mosaic-card:nth-child(1) img { object-position: 50% 38%; }
+#contenido .mosaic-card:nth-child(2) img { object-position: 50% 34%; }
+#contenido .mosaic-card:nth-child(3) img { object-position: 50% 30%; }
+
+#contenido .mosaic-caption {
+  inset: auto 14px 14px;
+  padding: 13px 15px 14px;
+  color: #fff;
+  background: rgba(5, 51, 67, 0.86);
+  border-radius: 14px;
+  box-shadow: 0 12px 28px rgba(6, 42, 54, 0.2);
+  backdrop-filter: blur(5px);
+}
+
+#contenido .mosaic-tag {
+  color: #bdebf0;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.055em;
+}
+
+#contenido .mosaic-caption h3 {
+  color: #fff;
+  font-family: "Editorial Lora", Lora, serif;
+  font-size: 1.22rem;
+  line-height: 1.18;
+}
+
+#contenido .director-photo img,
+#contenido .timeline-media img,
+#contenido .story-card img,
+#contenido .final-photo-editorial img {
+  object-position: 50% 32%;
+}
+
+/* Popup de entrevista: fuerte, breve y una vez por sesión. */
+.offer-dialog {
+  width: min(660px, calc(100% - 36px));
+  max-height: calc(100dvh - 36px);
+  padding: 0;
+  overflow: hidden auto;
+  color: #123b4c;
+  background: #fff9ed;
+  border: 0;
+  border-radius: 28px;
+  box-shadow: 0 34px 90px rgba(4, 38, 51, 0.34);
+}
+
+.offer-dialog::backdrop {
+  background: rgba(5, 35, 47, 0.68);
+  backdrop-filter: blur(6px);
+}
+
+.offer-dialog-content {
+  position: relative;
+  isolation: isolate;
+  padding: 46px 48px 48px;
+  overflow: hidden;
+}
+
+.offer-dialog-content::before {
+  content: "";
+  position: absolute;
+  right: -220px;
+  top: -210px;
+  z-index: -1;
+  width: 520px;
+  height: 480px;
+  background: url("../images/editorial/gouache-washes-transparent.png") center / contain no-repeat;
+  opacity: 0.22;
+  transform: rotate(18deg);
+}
+
+.offer-dialog h2 {
+  max-width: 560px;
+  margin: 0;
+  color: #10384c;
+  font-size: clamp(2.3rem, 4.8vw, 3.65rem);
+  line-height: 1;
+  text-wrap: balance;
+}
+
+.offer-dialog #offer-dialog-description {
+  max-width: 550px;
+  margin: 18px 0 22px;
+  color: #49636d;
+  font-size: 1.08rem;
+  line-height: 1.55;
+}
+
+.offer-dialog-kicker {
+  margin: 0 0 9px;
+  color: #936044;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+}
+
+.offer-dialog-offer {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 5px 18px;
+  align-items: center;
+  margin: 0 0 24px;
+  padding: 18px 20px;
+  color: #10384c;
+  background: #f8d9cf;
+  border-radius: 16px;
+}
+
+.offer-dialog-offer span {
+  font-weight: 800;
+}
+
+.offer-dialog-offer strong {
+  font-family: "Editorial Lora", Lora, serif;
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+.offer-dialog-offer del {
+  margin-right: 6px;
+  color: #815d53;
+  font-family: "Editorial Manrope", Manrope, sans-serif;
+  font-size: 0.92rem;
+}
+
+.offer-dialog-offer small {
+  grid-column: 1 / -1;
+  color: #684c45;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.offer-dialog-cta {
+  min-height: 54px;
+  color: #fff;
+  background: #2f963d;
+  border: 0;
+  box-shadow: 0 14px 28px rgba(31, 105, 48, 0.2);
+}
+
+.offer-dialog-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  color: #244a58;
+  background: rgba(255, 255, 255, 0.84);
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+body.is-offer-open .whatsapp-float,
+body.is-offer-open .whatsapp-mobile-bar {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  #contenido .hero-photo-main img {
+    animation: editorial-breathe 10s cubic-bezier(0.16, 1, 0.3, 1) infinite alternate;
+  }
+
+  #contenido .mosaic-card img,
+  #contenido .director-photo img,
+  #contenido .final-photo-editorial img {
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  #contenido .mosaic-card:hover img,
+  #contenido .director-photo:hover img,
+  #contenido .final-photo-editorial:hover img {
+    transform: scale(1.025) rotate(0.25deg);
+    filter: saturate(1.06) drop-shadow(0 20px 30px rgba(20, 57, 68, 0.16));
+  }
+
+  #contenido .button,
+  .site-header .nav-cta,
+  .offer-dialog-cta {
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, background-color 0.35s ease;
+  }
+
+  #contenido .button:hover,
+  .site-header .nav-cta:hover,
+  .offer-dialog-cta:hover {
+    transform: translateY(-2px);
+  }
+
+  @keyframes editorial-breathe {
+    from { transform: scale(1); }
+    to { transform: scale(1.018) translate3d(0, -3px, 0); }
+  }
+}
+
+@media (max-width: 767px) {
+  #contenido .hero {
+    min-height: 760px;
+    padding-bottom: 16px;
+  }
+
+  #contenido .hero-media-wrap {
+    height: 326px;
+    margin-top: 16px;
+  }
+
+  #contenido .hero-photo-main img {
+    object-position: 50% 42%;
+  }
+
+  #contenido .trust {
+    margin-top: 0;
+  }
+
+  #contenido .promo-section {
+    padding: 48px 0 52px;
+  }
+
+  #contenido .promo-header {
+    display: block;
+  }
+
+  #contenido .promo-title {
+    font-size: 2.55rem;
+    line-height: 0.98;
+  }
+
+  #contenido .promo-lead {
+    display: block;
+    margin-top: 14px;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  #contenido .promo-sala2-editorial {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 26px;
+    padding: 24px 22px;
+    border-radius: 22px;
+  }
+
+  #contenido .promo-sala2-editorial::before {
+    inset: auto -48% -78% 20%;
+    width: 130%;
+  }
+
+  #contenido .promo-sala2-editorial > div > span {
+    font-size: 2.45rem;
+  }
+
+  #contenido .promo-sala2-editorial > div > p,
+  #contenido .promo-sala2-note {
+    font-size: 1rem;
+  }
+
+  #contenido .promo-sala2-price {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  #contenido .promo-sala2-price strong {
+    font-size: 3rem;
+  }
+
+  #contenido .promo-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 16px;
+  }
+
+  #contenido .promo-card,
+  #contenido .promo-card--accent {
+    min-height: 0;
+    padding: 22px;
+    border-radius: 18px;
+  }
+
+  #contenido .promo-card-body {
+    grid-template-columns: 1fr auto;
+  }
+
+  #contenido .promo-amount {
+    font-size: 2.7rem;
+  }
+
+  #contenido .button-promo,
+  #contenido .button-promo--gold {
+    width: 100%;
+    min-height: 48px;
+    font-size: 0.9rem;
+  }
+
+  #contenido .experience-mosaic {
+    padding: 48px 0 54px;
+  }
+
+  #contenido .mosaic-grid {
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-columns: auto;
+    gap: 16px;
+    margin: 22px 0 0;
+    padding: 0;
+    overflow: visible;
+    scroll-snap-type: none;
+  }
+
+  #contenido .mosaic-card,
+  #contenido .mosaic-card.mosaic-featured,
+  #contenido .mosaic-card:nth-child(2),
+  #contenido .mosaic-card:nth-child(3) {
+    display: block;
+    width: auto;
+    height: 210px;
+    min-height: 0;
+    margin: 0;
+  }
+
+  #contenido .mosaic-card:first-child {
+    grid-column: 1 / -1;
+    height: 275px;
+  }
+
+  #contenido .mosaic-card:nth-child(2) picture,
+  #contenido .mosaic-card:nth-child(3) picture {
+    display: block;
+    height: 100%;
+  }
+
+  #contenido .mosaic-card:nth-child(2) .mosaic-caption,
+  #contenido .mosaic-card:nth-child(3) .mosaic-caption,
+  #contenido .mosaic-caption {
+    position: absolute;
+    inset: auto 9px 9px;
+    padding: 10px 11px;
+    color: #fff;
+    background: rgba(5, 51, 67, 0.88);
+    border: 0;
+    border-radius: 12px;
+  }
+
+  #contenido .mosaic-caption h3 {
+    color: #fff;
+    font-size: 0.98rem;
+    line-height: 1.14;
+  }
+
+  #contenido .mosaic-tag {
+    color: #bdebf0;
+    font-size: 0.67rem;
+  }
+
+  .offer-dialog {
+    width: calc(100% - 24px);
+    max-height: calc(100dvh - 24px);
+    border-radius: 22px;
+  }
+
+  .offer-dialog-content {
+    padding: 42px 22px 24px;
+  }
+
+  .offer-dialog h2 {
+    font-size: 2.15rem;
+    line-height: 1.02;
+  }
+
+  .offer-dialog #offer-dialog-description {
+    margin: 14px 0 18px;
+    font-size: 1rem;
+  }
+
+  .offer-dialog-offer {
+    display: block;
+    padding: 15px 16px;
+  }
+
+  .offer-dialog-offer strong,
+  .offer-dialog-offer small {
+    display: block;
+    margin-top: 7px;
+  }
+
+  .offer-dialog-cta {
+    width: 100%;
+    min-height: 52px;
+    padding-inline: 16px;
+    font-size: 0.94rem;
+  }
+
+  .offer-dialog-close {
+    top: 10px;
+    right: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #contenido .hero-photo-main img,
+  #contenido .mosaic-card img,
+  #contenido .director-photo img,
+  #contenido .final-photo-editorial img,
+  .offer-dialog,
+  .offer-dialog::backdrop {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* Landing 2.1 — ritmo compacto y popup editorial de entrevista */
+#contenido .activities-section .bento-grid {
+  margin-top: 13px;
+}
+
+#contenido .activities-section .chapter-summary {
+  min-height: 156px;
+}
+
+.offer-dialog {
+  position: fixed;
+  inset: 0;
+  width: min(680px, calc(100% - 40px));
+  max-height: calc(100dvh - 40px);
+  margin: auto;
+  overflow: hidden auto;
+  color: #123b4c;
+  background: #fff8e9;
+  border: 0;
+  border-radius: 16px;
+  box-shadow: 0 36px 96px rgba(4, 38, 51, 0.38);
+}
+
+.offer-dialog[open] {
+  animation: offer-dialog-enter 460ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.offer-dialog::backdrop {
+  background: rgba(5, 35, 47, 0.72);
+  animation: offer-backdrop-enter 460ms ease-out both;
+}
+
+.offer-dialog-content {
+  position: relative;
+  isolation: isolate;
+  padding: 54px 56px 42px;
+  overflow: hidden;
+}
+
+.offer-dialog-content::before {
+  right: -176px;
+  top: -188px;
+  width: 500px;
+  height: 470px;
+  opacity: 0.18;
+}
+
+.offer-dialog-content::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  z-index: -1;
+  width: 10px;
+  background: #d4a62a;
+}
+
+.offer-dialog-kicker {
+  max-width: 500px;
+  margin: 0 0 14px;
+  color: #9a6e12;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.075em;
+  line-height: 1.35;
+}
+
+.offer-dialog h2 {
+  max-width: 560px;
+  margin: 0;
+  color: #0b4051;
+  font-family: "Editorial Lora", Lora, serif;
+  font-size: clamp(2.7rem, 5vw, 4rem);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+.offer-dialog #offer-dialog-description {
+  max-width: 560px;
+  margin: 22px 0 26px;
+  color: #3f5b64;
+  font-family: "Editorial Manrope", Manrope, sans-serif;
+  font-size: 1.08rem;
+  line-height: 1.58;
+}
+
+.offer-dialog-cta {
+  min-height: 56px;
+  padding: 16px 28px;
+  color: #fff;
+  background: #0b5265;
+  border: 0;
+  border-radius: 999px;
+  box-shadow: 0 16px 32px rgba(7, 69, 85, 0.24);
+  font-size: 1rem;
+}
+
+.offer-dialog-cta:hover {
+  background: #083f4e;
+}
+
+.offer-dialog-legal {
+  margin: 16px 0 0;
+  color: #6c7e82;
+  font-size: 0.84rem;
+  line-height: 1.4;
+}
+
+.offer-dialog-close {
+  top: 16px;
+  right: 16px;
+  color: #0b5265;
+  background: #fff8e9;
+  box-shadow: 0 8px 22px rgba(6, 55, 69, 0.12);
+}
+
+@keyframes offer-dialog-enter {
+  from { opacity: 0; transform: translateY(22px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes offer-backdrop-enter {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 767px) {
+  #contenido .activities-section .chapter-summary {
+    min-height: 0;
+  }
+
+  #contenido .activities-section .bento-grid {
+    margin-top: 9px;
+  }
+
+  .offer-dialog {
+    inset: auto 0 0;
+    width: 100%;
+    max-width: none;
+    max-height: calc(100dvh - 20px);
+    margin: 0;
+    border-radius: 24px 24px 0 0;
+  }
+
+  .offer-dialog[open] {
+    animation-name: offer-sheet-enter;
+  }
+
+  .offer-dialog-content {
+    padding: 42px 24px calc(24px + env(safe-area-inset-bottom));
+  }
+
+  .offer-dialog-content::after {
+    inset: 0 0 auto;
+    width: auto;
+    height: 7px;
+  }
+
+  .offer-dialog-kicker {
+    margin-bottom: 11px;
+    padding-right: 36px;
+    font-size: 0.7rem;
+  }
+
+  .offer-dialog h2 {
+    font-size: clamp(2.15rem, 10.4vw, 2.75rem);
+    line-height: 1;
+  }
+
+  .offer-dialog #offer-dialog-description {
+    margin: 16px 0 20px;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .offer-dialog-cta {
+    width: 100%;
+    min-height: 54px;
+    padding-inline: 16px;
+    font-size: 0.96rem;
+  }
+
+  .offer-dialog-legal {
+    margin-top: 12px;
+    text-align: center;
+  }
+
+  .offer-dialog-close {
+    top: 12px;
+    right: 12px;
+  }
+
+  @keyframes offer-sheet-enter {
+    from { opacity: 0; transform: translateY(42px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .offer-dialog[open],
+  .offer-dialog::backdrop {
+    animation: none !important;
+  }
+}
+
+/* ================================================================
+   UPGRADE INTEGRADO 2026-09-04 — foco Sala de 2, confianza y visita
+   ================================================================ */
+
+::selection {
+  color: #fff;
+  background: #0b5265;
+}
+
+a,
+button,
+summary {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: rgba(8, 127, 186, 0.16);
+}
+
+html {
+  scrollbar-color: #1598b4 #fff8e9;
+}
+
+.site-header .nav > a:not(.nav-cta):focus-visible,
+.menu-toggle:focus-visible,
+.location-map-link:focus-visible,
+summary:focus-visible {
+  outline: 3px solid #f2b934;
+  outline-offset: 4px;
+}
+
+#contenido > .promo-section { order: 3; }
+#contenido > .experience-mosaic { order: 4; }
+#contenido > .director-section { order: 5; }
+#contenido > .learning-chapters { order: 6; }
+#contenido > .stories-section { order: 7; }
+#contenido > .reviews-section { order: 8; }
+#contenido > .locations-section { order: 9; }
+
+/* La fotografía y el recorrido vectorial sostienen la profundidad sin
+   descargar 3,6 MB de texturas ornamentales. */
+#contenido .hero::before,
+#contenido .hero::after,
+#contenido .experience-mosaic::before,
+#contenido .promo-section::before,
+#contenido .reviews-section::before,
+#contenido .final-cta::before,
+#contenido .final-cta::after,
+#contenido .promo-sala2-editorial::before,
+.offer-dialog-content::before {
+  background-image: none !important;
+}
+
+#contenido .hero {
+  min-height: 740px;
+  padding-bottom: 18px;
+}
+
+#contenido .hero-media-wrap {
+  height: 570px;
+}
+
+#contenido .hero-photo-main figcaption {
+  right: 46px;
+  bottom: 42px;
+  max-width: 320px;
+}
+
+#contenido .hero-promo-teaser {
+  position: relative;
+  left: auto;
+  bottom: auto;
+  z-index: 7;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto;
+  width: min(520px, 94%);
+  margin: 24px 0 0;
+  padding: 17px 20px 18px;
+  overflow: hidden;
+  color: #10384c;
+  background: #f6c945;
+  border-radius: 16px;
+  box-shadow: 0 16px 34px rgba(132, 94, 14, 0.16);
+}
+
+#contenido .hero-promo-teaser::before {
+  display: none;
+}
+
+#contenido .teaser-tag {
+  align-self: end;
+  font-size: 0.72rem;
+}
+
+#contenido .teaser-price {
+  grid-row: span 2;
+  gap: 8px;
+}
+
+#contenido .teaser-price strong {
+  font-size: 2.25rem;
+}
+
+#contenido .teaser-text {
+  margin-top: 3px;
+  font-size: 0.9rem;
+}
+
+#contenido .trust {
+  margin-top: -10px;
+}
+
+#contenido .promo-section {
+  padding: 58px 0 60px;
+  background: #eef7f2;
+}
+
+#contenido .promo-header {
+  grid-template-columns: minmax(0, 1.18fr) minmax(260px, 0.82fr);
+  gap: 48px;
+}
+
+#contenido .promo-title {
+  font-size: clamp(3rem, 4.4vw, 4rem);
+}
+
+#contenido .promo-sala2-editorial {
+  grid-template-columns: minmax(0, 0.88fr) minmax(220px, 0.6fr) minmax(0, 1fr);
+  gap: 32px;
+  margin-top: 34px;
+  padding: 28px 32px;
+  background: #f7cf4c;
+  border-radius: 24px;
+  box-shadow: 0 22px 48px rgba(108, 80, 18, 0.13);
+}
+
+#contenido .promo-sala2-editorial > div > span {
+  font-size: clamp(2.45rem, 3.4vw, 3.1rem);
+}
+
+#contenido .promo-sala2-price strong {
+  font-size: clamp(3.1rem, 4.5vw, 4.2rem);
+}
+
+#contenido .promo-cards-grid {
+  gap: 18px;
+  margin-top: 20px;
+}
+
+#contenido .promo-card,
+#contenido .promo-card--accent {
+  min-height: 0;
+  padding: 22px 24px 24px;
+}
+
+#contenido .promo-perks {
+  display: none;
+}
+
+#contenido .promo-footer-note {
+  margin-top: 16px;
+}
+
+#contenido .experience-mosaic,
+#contenido .director-section,
+#contenido .stories-section,
+#contenido .reviews-section,
+#contenido .locations-section,
+#contenido .faq-section {
+  padding-top: 58px;
+  padding-bottom: 58px;
+}
+
+#contenido .mosaic-card,
+#contenido .mosaic-card.mosaic-featured {
+  height: 292px;
+}
+
+#contenido .learning-chapters {
+  padding-top: 38px;
+  padding-bottom: 44px;
+}
+
+#contenido .chapter-summary {
+  min-height: 132px;
+  pointer-events: auto;
+}
+
+#contenido .chapter--journey {
+  display: block;
+}
+
+.site-header .nav-cta {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#contenido .reviews-grid,
+#contenido .locations-grid {
+  gap: 22px;
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  #contenido .hero-photo-main img {
+    animation: none;
+  }
+
+  #contenido .hero-promo-teaser {
+    transition: transform 180ms ease-out, box-shadow 180ms ease-out;
+  }
+
+  #contenido .hero-promo-teaser:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px rgba(108, 80, 18, 0.2);
+  }
+}
+
+@media (max-width: 767px) {
+  .site-header {
+    padding-top: max(10px, env(safe-area-inset-top));
+  }
+
+  #contenido .hero {
+    min-height: 0;
+    padding-top: max(82px, calc(70px + env(safe-area-inset-top)));
+    padding-bottom: 12px;
+  }
+
+  #contenido .hero h1 {
+    font-size: clamp(2.9rem, 13vw, 3.35rem);
+  }
+
+  #contenido .hero-lead {
+    margin: 12px 0 18px;
+  }
+
+  #contenido .hero-promo-teaser {
+    width: 100%;
+    margin-top: 16px;
+    padding: 15px 16px;
+    border-radius: 14px;
+  }
+
+  #contenido .teaser-price {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0;
+  }
+
+  #contenido .teaser-price strong {
+    font-size: 2rem;
+  }
+
+  #contenido .hero-media-wrap {
+    height: 292px;
+    margin-top: 12px;
+  }
+
+  #contenido .hero-photo-main figcaption {
+    right: 18px;
+    bottom: 24px;
+    max-width: 250px;
+    font-size: 0.88rem;
+  }
+
+  #contenido .trust {
+    margin-top: 0;
+    padding-bottom: 10px;
+  }
+
+  #contenido .promo-section {
+    padding: 42px 0 46px;
+  }
+
+  #contenido .promo-title {
+    font-size: 2.3rem;
+    line-height: 1;
+  }
+
+  #contenido .promo-sala2-editorial {
+    gap: 10px;
+    margin-top: 22px;
+    padding: 21px 20px;
+    border-radius: 19px;
+  }
+
+  #contenido .promo-sala2-editorial > div > span {
+    font-size: 2.35rem;
+  }
+
+  #contenido .promo-sala2-price strong {
+    font-size: 2.85rem;
+  }
+
+  #contenido .promo-cards-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  #contenido .promo-card,
+  #contenido .promo-card--accent {
+    padding: 16px 13px;
+    border-radius: 16px;
+  }
+
+  #contenido .promo-card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #contenido .promo-price-block {
+    align-self: flex-start;
+    margin-top: 5px;
+  }
+
+  #contenido .promo-amount {
+    font-size: 2.15rem;
+  }
+
+  #contenido .promo-tagline {
+    min-height: 34px;
+    font-size: 0.76rem;
+  }
+
+  #contenido .button-promo,
+  #contenido .button-promo--gold {
+    min-height: 48px;
+    margin-top: 12px;
+    padding: 10px 9px;
+    font-size: 0.76rem;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  #contenido .promo-footer-note {
+    font-size: 0.82rem;
+  }
+
+  #contenido .experience-mosaic,
+  #contenido .director-section,
+  #contenido .stories-section,
+  #contenido .reviews-section,
+  #contenido .locations-section,
+  #contenido .faq-section {
+    padding-top: 44px;
+    padding-bottom: 44px;
+  }
+
+  #contenido .director-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  #contenido .director-photo {
+    width: 100%;
+    max-width: none;
+    height: 260px;
+    margin: 0;
+  }
+
+  #contenido .director-letter {
+    position: relative;
+    z-index: 1;
+    padding-top: 0;
+  }
+
+  #contenido .director-letter h2 {
+    font-size: 2.15rem;
+    line-height: 1;
+  }
+
+  #contenido .learning-chapters {
+    padding: 20px 0 28px;
+  }
+
+  #contenido .learning-chapters .chapter-summary {
+    min-height: 0;
+    padding-top: 22px;
+    padding-bottom: 22px;
+  }
+
+  #contenido .learning-chapters .chapter-title {
+    font-size: 2rem;
+    line-height: 1.02;
+  }
+
+  #contenido .learning-chapters .chapter-intro {
+    margin-top: 8px;
+    line-height: 1.45;
+  }
+
+  #contenido .mosaic-grid {
+    gap: 10px;
+  }
+
+  #contenido .mosaic-card,
+  #contenido .mosaic-card.mosaic-featured,
+  #contenido .mosaic-card:nth-child(2),
+  #contenido .mosaic-card:nth-child(3) {
+    height: 190px;
+  }
+
+  #contenido .mosaic-card:first-child {
+    height: 245px;
+  }
+
+  .whatsapp-mobile-bar {
+    bottom: max(10px, env(safe-area-inset-bottom));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ============================================================
+   AJUSTES DEFINITIVOS: FOTOS REALES, PROMOS UNIFICADAS Y POPUP
+   ============================================================ */
+
+/* 1. Reset estricto de máscaras destructivas en fotografías */
+#contenido .hero-photo-main img,
+#contenido .mosaic-card img,
+#contenido .director-photo img,
+#contenido .timeline-media img,
+#contenido .final-photo-editorial img {
+  mask: none !important;
+  -webkit-mask: none !important;
+  border-radius: 20px !important;
+}
+
+/* 2. Hero: Fotografía protagonista sin cortes ni overlay invasivo */
+#contenido .hero-photo-main {
+  position: relative !important;
+  inset: auto !important;
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 24px !important;
+  overflow: hidden !important;
+  box-shadow: 0 20px 44px rgba(16, 56, 76, 0.12) !important;
+}
+
+#contenido .hero-photo-main picture,
+#contenido .hero-photo-main img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center 26% !important;
+}
+
+#contenido .hero-photo-main figcaption {
+  position: absolute !important;
+  right: 18px !important;
+  bottom: 18px !important;
+  max-width: 280px !important;
+  margin: 0 !important;
+  padding: 8px 14px !important;
+  font-size: 0.8rem !important;
+  line-height: 1.35 !important;
+  color: #ffffff !important;
+  background: rgba(14, 46, 62, 0.78) !important;
+  backdrop-filter: blur(8px) !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  z-index: 2 !important;
+}
+
+/* Teaser Hero Sala 2 */
+#contenido .hero-promo-teaser {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  align-items: center !important;
+  gap: 6px 14px !important;
+  width: min(500px, 100%) !important;
+  background: #f7ca45 !important;
+  color: #10384c !important;
+  border-radius: 16px !important;
+  padding: 14px 18px !important;
+  box-shadow: 0 12px 28px rgba(108, 80, 18, 0.14) !important;
+  text-decoration: none !important;
+}
+
+#contenido .hero-promo-teaser .teaser-tag {
+  font-size: 0.74rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+  color: #644a0e !important;
+}
+
+#contenido .hero-promo-teaser .teaser-price {
+  grid-row: span 2 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-end !important;
+  gap: 0 !important;
+}
+
+#contenido .hero-promo-teaser .teaser-price del {
+  font-size: 0.82rem !important;
+  color: #7d601a !important;
+}
+
+#contenido .hero-promo-teaser .teaser-price strong {
+  font-family: var(--serif, "Editorial Lora", serif) !important;
+  font-size: 2.1rem !important;
+  line-height: 1 !important;
+  color: #10384c !important;
+}
+
+#contenido .hero-promo-teaser .teaser-text {
+  font-size: 0.88rem !important;
+  font-weight: 700 !important;
+  color: #1a4230 !important;
+}
+
+/* 3. Mosaico de fotos: sin caras cortadas y sin overlay opaco gigante */
+#contenido .mosaic-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 22px !important;
+  margin-top: 36px !important;
+}
+
+#contenido .mosaic-card,
+#contenido .mosaic-card.mosaic-featured,
+#contenido .mosaic-card:nth-child(2),
+#contenido .mosaic-card:nth-child(3) {
+  display: block !important;
+  position: relative !important;
+  height: 380px !important;
+  margin: 0 !important;
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  box-shadow: 0 16px 36px rgba(16, 56, 76, 0.1) !important;
+  border: 1px solid rgba(16, 56, 76, 0.08) !important;
+}
+
+#contenido .mosaic-card picture,
+#contenido .mosaic-card img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+#contenido .mosaic-card:nth-child(1) img { object-position: center 25% !important; }
+#contenido .mosaic-card:nth-child(2) img { object-position: center 20% !important; }
+#contenido .mosaic-card:nth-child(3) img { object-position: center 18% !important; }
+
+#contenido .mosaic-caption {
+  position: absolute !important;
+  inset: auto 0 0 0 !important;
+  padding: 34px 18px 16px !important;
+  background: linear-gradient(to top, rgba(10, 36, 48, 0.9) 0%, rgba(10, 36, 48, 0.55) 60%, transparent 100%) !important;
+  border-radius: 0 0 20px 20px !important;
+  border: 0 !important;
+  z-index: 2 !important;
+}
+
+#contenido .mosaic-tag {
+  display: inline-block !important;
+  color: #ffd85a !important;
+  font-size: 0.72rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  margin-bottom: 3px !important;
+}
+
+#contenido .mosaic-caption h3 {
+  color: #ffffff !important;
+  font-size: 1.02rem !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  margin: 0 !important;
+}
+
+/* 4. Carta de Rosana: retrato limpio y texto en su columna */
+#contenido .director-card {
+  display: grid !important;
+  grid-template-columns: 360px minmax(0, 1fr) !important;
+  gap: 56px !important;
+  align-items: center !important;
+  padding: 0 !important;
+}
+
+#contenido .director-photo {
+  height: 420px !important;
+  max-width: 100% !important;
+  border-radius: 22px !important;
+  overflow: hidden !important;
+  box-shadow: 0 20px 42px rgba(18, 58, 85, 0.12) !important;
+  margin: 0 !important;
+}
+
+#contenido .director-photo picture,
+#contenido .director-photo img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center 15% !important;
+}
+
+#contenido .director-letter {
+  position: static !important;
+  padding: 0 !important;
+}
+
+#contenido .director-letter h2 {
+  font-family: var(--serif, "Editorial Lora", serif) !important;
+  font-size: clamp(1.6rem, 2.3vw, 2.1rem) !important;
+  line-height: 1.3 !important;
+  color: #10384c !important;
+  font-style: italic !important;
+  margin: 0 0 20px !important;
+}
+
+/* 5. Sección Promoción: Paleta cálida y Unificación Sala 2, 3 y 4 */
+#contenido .promo-section {
+  background: #faf6ef !important;
+  padding: 72px 0 76px !important;
+  border-top: 1px solid rgba(16, 56, 76, 0.06) !important;
+  border-bottom: 1px solid rgba(16, 56, 76, 0.06) !important;
+}
+
+#contenido .promo-header {
+  display: block !important;
+  max-width: 760px !important;
+  margin: 0 auto 36px !important;
+}
+
+#contenido .promo-cards-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 24px !important;
+  max-width: 1140px !important;
+  margin: 0 auto !important;
+  padding-top: 18px !important;
+}
+
+#contenido .promo-card {
+  display: flex !important;
+  flex-direction: column !important;
+  position: relative !important;
+  background: #ffffff !important;
+  border: 1.5px solid rgba(16, 56, 76, 0.10) !important;
+  border-radius: 22px !important;
+  padding: 34px 22px 24px !important;
+  box-shadow: 0 14px 34px rgba(16, 56, 76, 0.05) !important;
+  overflow: visible !important;
+  min-height: 310px !important;
+  transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.24s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+#contenido .promo-card:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 20px 42px rgba(16, 56, 76, 0.09) !important;
+}
+
+#contenido .promo-card--featured {
+  border-color: #d49b42 !important;
+  box-shadow: 0 16px 38px rgba(212, 155, 66, 0.14) !important;
+}
+
+#contenido .promo-badge-pill {
+  position: absolute !important;
+  top: -13px !important;
+  left: 22px !important;
+  padding: 5px 14px !important;
+  border-radius: 999px !important;
+  font-size: 0.74rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  background: #1c6b54 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(28, 107, 84, 0.24) !important;
+  transition: transform 0.2s ease !important;
+}
+
+#contenido .promo-card:hover .promo-badge-pill {
+  transform: translateY(-1px) !important;
+}
+
+#contenido .promo-card--featured .promo-badge-pill {
+  background: #d49b42 !important;
+  color: #1a2f3a !important;
+  box-shadow: 0 4px 12px rgba(212, 155, 66, 0.28) !important;
+}
+
+#contenido .promo-badge-pill--gold {
+  background: #cb7516 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(203, 117, 22, 0.25) !important;
+}
+
+#contenido .promo-card-body {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  flex-grow: 1 !important;
+}
+
+#contenido .promo-sala-name {
+  display: block !important;
+  font-size: 0.88rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  color: #10384c !important;
+  margin-top: 4px !important;
+}
+
+#contenido .promo-regular-price {
+  font-size: 0.88rem !important;
+  color: #728792 !important;
+  margin: 8px 0 2px !important;
+}
+
+#contenido .promo-regular-price del {
+  color: #92a4ad !important;
+}
+
+#contenido .promo-price-block {
+  display: flex !important;
+  align-items: baseline !important;
+  gap: 3px !important;
+  margin: 4px 0 14px !important;
+}
+
+#contenido .promo-currency {
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+  color: #10384c !important;
+}
+
+#contenido .promo-amount {
+  font-family: var(--serif, "Editorial Lora", serif) !important;
+  font-size: 2.8rem !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  color: #10384c !important;
+}
+
+#contenido .promo-urgency-sticker {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 7px !important;
+  margin: 0 0 18px !important;
+  padding: 6px 12px !important;
+  background: #fdf7ee !important;
+  border: 1px solid #ebd5b5 !important;
+  border-radius: 8px !important;
+  font-size: 0.74rem !important;
+  font-weight: 800 !important;
+  color: #8f581e !important;
+  letter-spacing: 0.04em !important;
+  box-shadow: 0 2px 8px rgba(184, 105, 38, 0.08) !important;
+  animation: urgency-pulse 3.8s ease-in-out infinite !important;
+}
+
+#contenido .promo-urgency-sticker .urgency-dot {
+  display: inline-block !important;
+  width: 6px !important;
+  height: 6px !important;
+  border-radius: 50% !important;
+  background: #d47e24 !important;
+  box-shadow: 0 0 0 2px rgba(212, 126, 36, 0.25) !important;
+  flex-shrink: 0 !important;
+}
+
+@keyframes urgency-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 2px 8px rgba(184, 105, 38, 0.08);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 4px 14px rgba(184, 105, 38, 0.18);
+    border-color: #e0be8e;
+  }
+}
+
+#contenido .button-promo,
+#contenido .button-promo--gold {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  min-height: 48px !important;
+  padding: 12px 16px !important;
+  margin-top: auto !important;
+  background: #239c56 !important;
+  color: #ffffff !important;
+  font-size: 0.88rem !important;
+  font-weight: 700 !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 18px rgba(35, 156, 86, 0.22) !important;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+#contenido .button-promo:hover,
+#contenido .button-promo--gold:hover {
+  background: #1b8546 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 10px 22px rgba(35, 156, 86, 0.30) !important;
+}
+
+#contenido .promo-footer-note {
+  margin-top: 24px !important;
+  font-size: 0.86rem !important;
+  color: #728792 !important;
+}
+
+/* 6. Popup ("Hasta el próximo jueves") */
+dialog.offer-dialog {
+  display: none;
+  width: min(520px, calc(100% - 32px)) !important;
+  max-height: calc(100dvh - 36px) !important;
+  padding: 0 !important;
+  overflow: hidden auto !important;
+  background: #fffdfa !important;
+  color: #10384c !important;
+  border: 0 !important;
+  border-radius: 24px !important;
+  box-shadow: 0 28px 75px rgba(6, 32, 44, 0.30) !important;
+  z-index: 9999 !important;
+}
+
+dialog.offer-dialog[open] {
+  display: block !important;
+  animation: offer-dialog-enter 380ms cubic-bezier(0.16, 1, 0.3, 1) both !important;
+}
+
+dialog.offer-dialog::backdrop {
+  background: rgba(6, 26, 36, 0.58) !important;
+  backdrop-filter: blur(5px) !important;
+  animation: offer-backdrop-enter 300ms ease both !important;
+}
+
+@keyframes offer-dialog-enter {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes offer-backdrop-enter {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.offer-dialog-content {
+  position: relative !important;
+  padding: 40px 34px 34px !important;
+  text-align: left !important;
+}
+
+.offer-dialog-close {
+  position: absolute !important;
+  top: 16px !important;
+  right: 16px !important;
+  width: 38px !important;
+  height: 38px !important;
+  border: 0 !important;
+  border-radius: 50% !important;
+  background: rgba(16, 56, 76, 0.07) !important;
+  color: #10384c !important;
+  display: grid !important;
+  place-items: center !important;
+  cursor: pointer !important;
+  transition: background 0.2s ease, transform 0.2s ease !important;
+}
+
+.offer-dialog-close:hover {
+  background: rgba(16, 56, 76, 0.13) !important;
+  transform: rotate(90deg) !important;
+}
+
+.offer-dialog-kicker {
+  margin: 0 0 10px !important;
+  font-size: 0.78rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  color: #b86926 !important;
+}
+
+.offer-dialog h2 {
+  font-family: var(--serif, "Editorial Lora", serif) !important;
+  font-size: clamp(2rem, 4vw, 2.5rem) !important;
+  line-height: 1.1 !important;
+  color: #10384c !important;
+  margin: 0 0 14px !important;
+}
+
+#offer-dialog-description {
+  font-size: 1.02rem !important;
+  line-height: 1.55 !important;
+  color: #4a6370 !important;
+  margin: 0 0 12px !important;
+}
+
+.offer-dialog-legal {
+  font-size: 0.82rem !important;
+  color: #879ba5 !important;
+  margin: 0 0 22px !important;
+}
+
+.offer-dialog-cta {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  min-height: 52px !important;
+  padding: 14px 20px !important;
+  background: #239c56 !important;
+  color: #ffffff !important;
+  font-size: 0.98rem !important;
+  font-weight: 700 !important;
+  border-radius: 14px !important;
+  text-decoration: none !important;
+  text-align: center !important;
+  box-shadow: 0 10px 24px rgba(35, 156, 86, 0.28) !important;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.offer-dialog-cta:hover {
+  background: #1b8546 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 12px 28px rgba(35, 156, 86, 0.34) !important;
+}
+
+/* 7. Motion Premium: Microinteracciones Sutiles */
+.button,
+.nav-cta,
+.hero-btn {
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease !important;
+}
+
+.button:hover,
+.nav-cta:hover,
+.hero-btn:hover {
+  transform: translateY(-2px) !important;
+}
+
+@keyframes ambient-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+.doodle-float-slow,
+.hero-sun-shape {
+  animation: ambient-float 5s ease-in-out infinite !important;
+}
+
+/* 8. Optimizaciones específicas Mobile (390px) */
+@media (max-width: 767px) {
+  .site-header {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .site-header .nav-cta {
+    padding: 7px 12px !important;
+    font-size: 0.8rem !important;
+    min-height: 38px !important;
+    white-space: nowrap !important;
+  }
+
+  #contenido .hero {
+    min-height: 0 !important;
+    padding-top: 76px !important;
+    padding-bottom: 24px !important;
+  }
+
+  #contenido .hero-media-wrap {
+    height: 330px !important;
+    margin-top: 20px !important;
+  }
+
+  #contenido .hero-photo-main figcaption {
+    display: none !important;
+  }
+
+  #contenido .promo-cards-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+    padding-top: 18px !important;
+  }
+
+  #contenido .promo-card {
+    padding: 30px 18px 22px !important;
+    min-height: auto !important;
+  }
+
+  .offer-dialog-content {
+    padding: 34px 20px 24px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
