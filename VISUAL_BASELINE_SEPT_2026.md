@@ -3,7 +3,7 @@
 
 **STATUS:** APPROVED  
 **DIRECCIÓN ARTÍSTICA:** Jardín Vivo Premium  
-**REFERENCE COMMIT:** 1b71caeb0674491b2899550b8c5e043708fdbd46  
+**REFERENCE COMMIT:** e46f94a4592cca269bcf8d248be8f2f5e1b5f375  
 
 ---
 
@@ -39,10 +39,14 @@ Debe evitar estrictamente:
   - Fotografía real del patio arbolado con niños y docentes como elemento protagonista.
   - CTA primario destacado a WhatsApp para agendar visita presencial.
 
-- **Tipografía y Escala Modular:**
+- **Tipografía, Alineación y Escala Modular:**
   - Encabezados editoriales en serif refinada (*Editorial Lora*).
   - Textos de cuerpo y etiquetas en sans-serif legible (*Manrope*).
   - Ningún texto de lectura por debajo de 14px (0.875rem).
+  - **Párrafos cortos, emocionales, introductorios o de cierre:** centrados (`text-align: center`), en contenedor centrado con `max-width: 680–740px` y `margin-inline: auto`.
+  - **Párrafos largos y narrativos (carta de dirección, testimonios):** alineación izquierda natural (`text-align: left`) dentro de columna centrada y angosta (`max-width: 680–740px`, `margin-inline: auto`).
+  - **Prohibición estricta de `text-align: justify`.**
+  - **Mobile 390px:** lectura cómoda con `padding-inline: 18px`, sin líneas excesivamente largas ni textos pegados a bordes de pantalla.
 
 - **Paleta y Fondos:**
   - Fondos marfil cálido (`#fffef9` / `#faf6ef` / `#fbf8f3`).
