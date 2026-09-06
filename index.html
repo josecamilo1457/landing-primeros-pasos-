@@ -251,6 +251,15 @@
               </div>
             </figure>
           </div>
+
+          <div class="mosaic-mobile-nav" aria-hidden="true">
+            <span class="mosaic-hint">← Deslizá para recorrer el patio →</span>
+            <div class="mosaic-dots">
+              <span class="mosaic-dot is-active"></span>
+              <span class="mosaic-dot"></span>
+              <span class="mosaic-dot"></span>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -559,9 +568,24 @@
               <p class="promo-lead">Asegurá la vacante de tu hijo con matrícula bonificada reservando durante septiembre.</p>
             </div>
 
+            <div class="promo-mobile-chips" role="tablist" aria-label="Elegir salita">
+              <button type="button" class="promo-chip is-active" data-promo-target="0" role="tab" aria-selected="true" aria-controls="promo-card-sala2">
+                <span class="promo-chip-name">Sala de 2</span>
+                <span class="promo-chip-discount">50% BONIFICADA</span>
+              </button>
+              <button type="button" class="promo-chip" data-promo-target="1" role="tab" aria-selected="false" aria-controls="promo-card-sala3">
+                <span class="promo-chip-name">Sala de 3</span>
+                <span class="promo-chip-discount">80% BONIFICADA</span>
+              </button>
+              <button type="button" class="promo-chip" data-promo-target="2" role="tab" aria-selected="false" aria-controls="promo-card-sala4">
+                <span class="promo-chip-name">Sala de 4</span>
+                <span class="promo-chip-discount">85% BONIFICADA</span>
+              </button>
+            </div>
+
             <div class="promo-cards-grid">
               <!-- Tarjeta Sala de 2 -->
-              <article class="promo-card promo-card--featured">
+              <article id="promo-card-sala2" class="promo-card promo-card--featured">
                 <div class="promo-badge-pill">50% BONIFICADA</div>
                 <div class="promo-card-body">
                   <span class="promo-sala-name">SALA DE 2 AÑOS</span>
@@ -579,7 +603,7 @@
               </article>
 
               <!-- Tarjeta Sala de 3 -->
-              <article class="promo-card">
+              <article id="promo-card-sala3" class="promo-card">
                 <div class="promo-badge-pill">80% BONIFICADA</div>
                 <div class="promo-card-body">
                   <span class="promo-sala-name">SALA DE 3 AÑOS</span>
@@ -597,7 +621,7 @@
               </article>
 
               <!-- Tarjeta Sala de 4 -->
-              <article class="promo-card promo-card--accent">
+              <article id="promo-card-sala4" class="promo-card promo-card--accent">
                 <div class="promo-badge-pill promo-badge-pill--gold">85% BONIFICADA</div>
                 <div class="promo-card-body">
                   <span class="promo-sala-name">SALA DE 4 AÑOS</span>
@@ -613,6 +637,14 @@
                   <a class="button button-promo button-promo--gold" href="https://wa.me/5491130011050?text=Hola%21%20Me%20interesa%20la%20vacante%202027%20para%20Sala%20de%204%20con%20el%20beneficio%20de%20Septiembre.%20Quisiera%20agendar%20una%20visita." target="_blank" rel="noopener" data-track="whatsapp_promo_sala4">Quiero conocer el jardín — Sala de 4 <span aria-hidden="true">↗</span></a>
                 </div>
               </article>
+            </div>
+
+            <div class="promo-mobile-nav" aria-hidden="true">
+              <div class="promo-dots">
+                <span class="promo-dot is-active"></span>
+                <span class="promo-dot"></span>
+                <span class="promo-dot"></span>
+              </div>
             </div>
 
             <p class="promo-footer-note">Beneficio aplicable reservando la vacante durante el mes de septiembre de 2026 para el ciclo lectivo 2027.</p>
@@ -631,9 +663,21 @@
             <p class="section-sub">Cada peque tiene sus propios tiempos. Así acompañamos los primeros días de adaptación.</p>
           </div>
 
+          <div class="stories-mobile-chips" role="tablist" aria-label="Historias de familias">
+            <button type="button" class="story-chip is-active" data-story-target="0" role="tab" aria-selected="true" aria-controls="story-card-0">
+              Lara · Sala de 2
+            </button>
+            <button type="button" class="story-chip" data-story-target="1" role="tab" aria-selected="false" aria-controls="story-card-1">
+              Vale · Afecto
+            </button>
+            <button type="button" class="story-chip" data-story-target="2" role="tab" aria-selected="false" aria-controls="story-card-2">
+              Andrea · Familia
+            </button>
+          </div>
+
           <div class="stories-grid">
             <!-- Historia 1: Lara Sánchez (Adaptación respetuosa) -->
-            <article class="story-card reveal">
+            <article id="story-card-0" class="story-card reveal">
               <div class="story-header">
                 <div class="story-person-info">
                   <span class="story-avatar" aria-hidden="true">L</span>
@@ -664,7 +708,7 @@
             </article>
 
             <!-- Historia 2: Vale Contreras (Calidez y tacto docente) -->
-            <article class="story-card reveal">
+            <article id="story-card-1" class="story-card reveal">
               <div class="story-header">
                 <div class="story-person-info">
                   <span class="story-avatar" aria-hidden="true">V</span>
@@ -695,7 +739,7 @@
             </article>
 
             <!-- Historia 3: Andrea Costantino (Confianza familiar) -->
-            <article class="story-card reveal">
+            <article id="story-card-2" class="story-card reveal">
               <div class="story-header">
                 <div class="story-person-info">
                   <span class="story-avatar" aria-hidden="true">A</span>
@@ -726,6 +770,27 @@
             </article>
           </div>
 
+          <div class="stories-mobile-nav" aria-hidden="true">
+            <div class="stories-dots">
+              <span class="story-dot is-active"></span>
+              <span class="story-dot"></span>
+              <span class="story-dot"></span>
+            </div>
+          </div>
+
+          <!-- Google Reviews integrado en Historias (mobile only) -->
+          <div class="reviews-inline-strip">
+            <div class="reviews-strip-header">
+              <span class="reviews-strip-stars" aria-label="5 estrellas">★★★★★</span>
+              <strong>5.0 en Google Reviews</strong>
+              <span class="reviews-strip-badge">Familias reales de San Miguel</span>
+            </div>
+            <blockquote class="reviews-strip-quote">
+              <p>«Sale y entra re feliz todos los días. El tacto, la paciencia y el amor que manejan desde la directora hasta los auxiliares es increíble.»</p>
+              <cite>— Vale Contreras, familia de San Miguel</cite>
+            </blockquote>
+          </div>
+
           <div class="section-action centered reveal">
             <a class="button button-primary" href="https://wa.me/5491130011050?text=Hola%21%20Le%C3%AD%20las%20experiencias%20de%20adaptaci%C3%B3n%20y%20me%20gustar%C3%ADa%20conocer%20el%20jard%C3%ADn." target="_blank" rel="noopener" data-track="whatsapp_historias">Quiero conocer el jardín <span aria-hidden="true">↗</span></a>
           </div>
@@ -737,7 +802,19 @@
            ============================================================ -->
       <section class="reviews-section section-space" aria-labelledby="resenas-titulo">
         <div class="section-shell">
-          <div class="section-intro centered reveal">
+          <div class="reviews-mobile-strip">
+            <div class="reviews-strip-header">
+              <span class="reviews-strip-stars" aria-label="5 estrellas">★★★★★</span>
+              <strong>5.0 en Google Reviews</strong>
+              <span class="reviews-strip-badge">Familias reales de San Miguel</span>
+            </div>
+            <blockquote class="reviews-strip-quote">
+              <p>«Sale y entra re feliz todos los días. El tacto, la paciencia y el amor que manejan desde la directora hasta los auxiliares es increíble.»</p>
+              <cite>— Vale Contreras, familia de San Miguel</cite>
+            </blockquote>
+          </div>
+
+          <div class="section-intro centered reveal reviews-desktop-intro">
             <p class="eyebrow">Familias de San Miguel en Google</p>
             <h2 id="resenas-titulo">La tranquilidad se siente. Y se nota.</h2>
             <p class="section-sub">Palabras reales de mamás y papás que confiaron en Primeros Pasos.</p>

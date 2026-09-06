@@ -140,68 +140,136 @@
 
   document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
 
-  // ── Evita que los CTA flotantes tapen controles interactivos ─────
-  const floatingCtas = document.querySelectorAll('.whatsapp-float, .whatsapp-mobile-bar');
-  const collisionTargets = document.querySelectorAll(
-    'main a, main button, main summary, main input, main select, main textarea, main [role="button"]'
-  );
+  // ── Sincronización de carruseles táctiles mobile ─────────────────
+  function initMobileCarousel(containerSelector, chipSelector, dotSelector) {
+    const container = document.querySelector(containerSelector);
+    if (!container) return;
+    const chips = chipSelector ? document.querySelectorAll(chipSelector) : [];
+    const dots = dotSelector ? document.querySelectorAll(dotSelector) : [];
+    const cards = container.children;
 
-  if (floatingCtas.length && collisionTargets.length) {
-    const rectsIntersect = (a, b) => (
-      a.left < b.right &&
-      a.right > b.left &&
-      a.top < b.bottom &&
-      a.bottom > b.top
-    );
-
-    const updateFloatingCtas = () => {
-      floatingCtas.forEach((floatingCta) => {
-        if (window.getComputedStyle(floatingCta).display === 'none') return;
-
-        const floatingRect = floatingCta.getBoundingClientRect();
-        const collides = Array.from(collisionTargets).some((target) => {
-          const targetStyle = window.getComputedStyle(target);
-          if (targetStyle.display === 'none' || targetStyle.visibility === 'hidden') return false;
-
-          const targetRect = target.getBoundingClientRect();
-          const isVisible = (
-            targetRect.width > 0 &&
-            targetRect.height > 0 &&
-            targetRect.bottom > 0 &&
-            targetRect.top < window.innerHeight
-          );
-
-          return isVisible && rectsIntersect(floatingRect, targetRect);
-        });
-
-        floatingCta.classList.toggle('is-collision-hidden', collides);
+    function updateActiveIndex(index) {
+      chips.forEach((chip, i) => {
+        const active = i === index;
+        chip.classList.toggle('is-active', active);
+        chip.setAttribute('aria-selected', String(active));
       });
-    };
-
-    let collisionFrame = 0;
-    const scheduleCollisionCheck = () => {
-      if (collisionFrame) return;
-      collisionFrame = window.requestAnimationFrame(() => {
-        collisionFrame = 0;
-        updateFloatingCtas();
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('is-active', i === index);
       });
-    };
-
-    window.addEventListener('scroll', scheduleCollisionCheck, { passive: true });
-    window.addEventListener('resize', scheduleCollisionCheck);
-    window.addEventListener('load', scheduleCollisionCheck);
-    document.querySelectorAll('details').forEach((details) => {
-      details.addEventListener('toggle', scheduleCollisionCheck);
-    });
-    document.fonts?.ready.then(scheduleCollisionCheck);
-
-    if (typeof ResizeObserver === 'function') {
-      const collisionResizeObserver = new ResizeObserver(scheduleCollisionCheck);
-      collisionResizeObserver.observe(document.body);
     }
 
-    scheduleCollisionCheck();
+    chips.forEach((chip) => {
+      chip.addEventListener('click', () => {
+        const targetIdx = parseInt(chip.dataset.promoTarget || chip.dataset.storyTarget || '0', 10);
+        if (cards[targetIdx]) {
+          cards[targetIdx].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+          updateActiveIndex(targetIdx);
+        }
+      });
+    });
+
+    let scrollTimeout = null;
+    container.addEventListener('scroll', () => {
+      if (scrollTimeout) clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        const scrollCenter = container.scrollLeft + container.clientWidth / 2;
+        let closestIdx = 0;
+        let minDiff = Infinity;
+        Array.from(cards).forEach((card, i) => {
+          const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+          const diff = Math.abs(scrollCenter - cardCenter);
+          if (diff < minDiff) {
+            minDiff = diff;
+            closestIdx = i;
+          }
+        });
+        updateActiveIndex(closestIdx);
+      }, 50);
+    }, { passive: true });
   }
+
+  initMobileCarousel('.promo-cards-grid', '.promo-chip', '.promo-dot');
+  initMobileCarousel('.stories-grid', '.story-chip', '.story-dot');
+  initMobileCarousel('.mosaic-grid', null, '.mosaic-dot');
+
+  // ── Controlador Inteligente del Sticky CTA Mobile ────────────────
+  const mobileStickyBar = document.querySelector('.whatsapp-mobile-bar');
+  const heroSection = document.getElementById('inicio');
+  const finalCtaSection = document.querySelector('.final-cta');
+  const siteFooter = document.querySelector('.site-footer');
+  const offerModal = document.getElementById('offer-dialog');
+
+  // Elementos CTA principales que al ser visibles ocultan el sticky bar para no duplicar ni tapar
+  const primaryCtas = document.querySelectorAll(
+    '.hero-actions a, .director-cta a, .timeline-section a.button, .activities-section a.button, .promo-card a.button, .stories-section a.button, .faq-cta, .final-btn, .reviews-inline-strip'
+  );
+
+  function checkStickyBarVisibility() {
+    if (!mobileStickyBar || window.innerWidth >= 768) return;
+
+    // 1. Mostrar sólo tras haber superado el Hero
+    const heroRect = heroSection ? heroSection.getBoundingClientRect() : null;
+    const pastHero = heroRect ? heroRect.bottom < 120 : window.scrollY > 400;
+
+    if (!pastHero) {
+      mobileStickyBar.classList.remove('vivo-ready');
+      mobileStickyBar.classList.add('is-collision-hidden');
+      return;
+    }
+
+    // 2. Ocultar si el popup modal está abierto
+    const isPopupOpen = offerModal?.open || document.body.classList.contains('is-offer-open');
+    if (isPopupOpen) {
+      mobileStickyBar.classList.add('is-collision-hidden');
+      return;
+    }
+
+    // 3. Ocultar si el cierre final o el footer están visibles
+    const viewportH = window.innerHeight;
+    const finalRect = finalCtaSection ? finalCtaSection.getBoundingClientRect() : null;
+    const footerRect = siteFooter ? siteFooter.getBoundingClientRect() : null;
+
+    const inFinal = finalRect && finalRect.top < viewportH && finalRect.bottom > 0;
+    const inFooter = footerRect && footerRect.top < viewportH && footerRect.bottom > 0;
+
+    if (inFinal || inFooter) {
+      mobileStickyBar.classList.add('is-collision-hidden');
+      return;
+    }
+
+    // 4. Ocultar si algún CTA principal o strip de reseñas está en pantalla
+    const isAnyPrimaryCtaVisible = Array.from(primaryCtas).some((btn) => {
+      const rect = btn.getBoundingClientRect();
+      return rect.width > 0 && rect.height > 0 && rect.top < viewportH + 80 && rect.bottom > -20;
+    });
+
+    if (isAnyPrimaryCtaVisible) {
+      mobileStickyBar.classList.add('is-collision-hidden');
+      return;
+    }
+
+    // Si todo está libre, mostrar con elegancia
+    mobileStickyBar.classList.add('vivo-ready');
+    mobileStickyBar.classList.remove('is-collision-hidden');
+  }
+
+  let stickyTick = 0;
+  function scheduleStickyCheck() {
+    if (stickyTick) return;
+    stickyTick = window.requestAnimationFrame(() => {
+      stickyTick = 0;
+      checkStickyBarVisibility();
+    });
+  }
+
+  window.addEventListener('scroll', scheduleStickyCheck, { passive: true });
+  window.addEventListener('resize', scheduleStickyCheck);
+  window.addEventListener('load', scheduleStickyCheck);
+  document.querySelectorAll('details').forEach((details) => {
+    details.addEventListener('toggle', scheduleStickyCheck);
+  });
+  scheduleStickyCheck();
 
   // ── Popup Beneficio Exclusivo ("Hasta el próximo jueves") ──
   // Trigger: 20–25 s o 50% de scroll, lo que ocurra primero, una vez por sesión
