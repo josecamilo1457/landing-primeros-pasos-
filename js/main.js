@@ -159,6 +159,18 @@
       });
     }
 
+    const initialIndex = Number(container.dataset.initialIndex || 0);
+    if (initialIndex && window.matchMedia('(max-width: 767px)').matches) {
+      const selectInitialCard = () => {
+        const card = cards[initialIndex];
+        if (!card) return;
+        const offset = card.getBoundingClientRect().left - container.getBoundingClientRect().left;
+        container.scrollTo({ left: container.scrollLeft + offset - (container.clientWidth - card.offsetWidth) / 2, behavior: 'instant' });
+        updateActiveIndex(initialIndex);
+      };
+      selectInitialCard();
+    }
+
     chips.forEach((chip) => {
       chip.addEventListener('click', () => {
         const targetIdx = parseInt(chip.dataset.promoTarget || chip.dataset.storyTarget || '0', 10);
@@ -272,11 +284,16 @@
   scheduleStickyCheck();
 
   // ── Popup Beneficio Exclusivo ("Hasta el próximo jueves") ──
-  // Trigger: 20–25 s o 50% de scroll, lo que ocurra primero, una vez por sesión
+  // Espera mínima de 44 s y señal de salida; una vez por sesión.
   const offerDialog = document.getElementById('offer-dialog');
   if (offerDialog) {
     const closeButton = offerDialog.querySelector('.offer-dialog-close');
     let triggerTimer = null;
+    let eligible = false;
+    let lastScrollY = window.scrollY;
+    let upwardDistance = 0;
+    let maxProgress = 0;
+    const hasMouse = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
     const cleanupTriggers = () => {
       if (triggerTimer) {
@@ -284,6 +301,7 @@
         triggerTimer = null;
       }
       window.removeEventListener('scroll', checkScrollTrigger);
+      document.removeEventListener('mouseleave', checkExitIntent);
     };
 
     const openOffer = () => {
@@ -314,9 +332,19 @@
     const checkScrollTrigger = () => {
       const scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
       const maxScroll = (document.documentElement.scrollHeight || document.body.scrollHeight) - window.innerHeight;
-      if (maxScroll > 100 && (scrollY / maxScroll) >= 0.5) {
+      const progress = maxScroll > 100 ? scrollY / maxScroll : 0;
+      maxProgress = Math.max(maxProgress, progress);
+      upwardDistance = scrollY < lastScrollY ? upwardDistance + lastScrollY - scrollY : 0;
+      lastScrollY = scrollY;
+      // En touch no hay salida detectable: regreso hacia arriba tras leer,
+      // o final del recorrido, siempre después de la espera mínima.
+      if (eligible && !hasMouse && (progress >= 0.9 || (maxProgress >= 0.5 && upwardDistance >= 140))) {
         openOffer();
       }
+    };
+
+    const checkExitIntent = (event) => {
+      if (eligible && hasMouse && event.clientY <= 0 && !event.relatedTarget) openOffer();
     };
 
     closeButton?.addEventListener('click', closeOffer);
@@ -336,10 +364,15 @@
       closeOffer();
     });
 
-    // Disparador: 22 segundos (20–25 s) o 50% de scroll, lo que ocurra primero
+    // El tiempo habilita los disparadores, no interrumpe por sí solo.
     if (!sessionStorage.getItem('offer_dialog_dismissed')) {
-      triggerTimer = window.setTimeout(openOffer, 22000);
+      triggerTimer = window.setTimeout(() => {
+        eligible = true;
+        upwardDistance = 0;
+        checkScrollTrigger();
+      }, 44000);
       window.addEventListener('scroll', checkScrollTrigger, { passive: true });
+      document.addEventListener('mouseleave', checkExitIntent);
     }
   }
 

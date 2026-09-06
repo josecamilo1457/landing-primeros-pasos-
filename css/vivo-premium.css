@@ -807,7 +807,7 @@ body.vivo-premium .hero-lead {
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
-    object-position: center 25% !important;
+    object-position: center 75% !important;
     border-radius: 22px !important;
   }
   #contenido .hero-photo-main figcaption {
