@@ -203,12 +203,23 @@
     scheduleCollisionCheck();
   }
 
-  // ── Popup de 20 segundos (Beneficio Exclusivo "Hasta el próximo jueves") ──
+  // ── Popup Beneficio Exclusivo ("Hasta el próximo jueves") ──
+  // Trigger: 20–25 s o 50% de scroll, lo que ocurra primero, una vez por sesión
   const offerDialog = document.getElementById('offer-dialog');
   if (offerDialog) {
     const closeButton = offerDialog.querySelector('.offer-dialog-close');
+    let triggerTimer = null;
+
+    const cleanupTriggers = () => {
+      if (triggerTimer) {
+        clearTimeout(triggerTimer);
+        triggerTimer = null;
+      }
+      window.removeEventListener('scroll', checkScrollTrigger);
+    };
 
     const openOffer = () => {
+      cleanupTriggers();
       if (offerDialog.open) return;
       if (sessionStorage.getItem('offer_dialog_dismissed')) return;
       try {
@@ -224,10 +235,19 @@
     };
 
     const closeOffer = () => {
+      cleanupTriggers();
       sessionStorage.setItem('offer_dialog_dismissed', 'true');
       document.body.classList.remove('is-offer-open');
       if (offerDialog.open) {
         offerDialog.close();
+      }
+    };
+
+    const checkScrollTrigger = () => {
+      const scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
+      const maxScroll = (document.documentElement.scrollHeight || document.body.scrollHeight) - window.innerHeight;
+      if (maxScroll > 100 && (scrollY / maxScroll) >= 0.5) {
+        openOffer();
       }
     };
 
@@ -248,9 +268,10 @@
       closeOffer();
     });
 
-    // Disparar a los 35 segundos de sesión para permitir explorar primero la web
+    // Disparador: 22 segundos (20–25 s) o 50% de scroll, lo que ocurra primero
     if (!sessionStorage.getItem('offer_dialog_dismissed')) {
-      window.setTimeout(openOffer, 35000);
+      triggerTimer = window.setTimeout(openOffer, 22000);
+      window.addEventListener('scroll', checkScrollTrigger, { passive: true });
     }
   }
 

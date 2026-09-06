@@ -64,12 +64,335 @@ body.vivo-premium{background:var(--vivo-paper);color:var(--vivo-ink);font-family
 #contenido .faq-cta,body.vivo-premium .faq-cta{background:#fff!important;color:var(--vivo-ink)!important;border:1.5px solid rgba(7,59,84,.2)!important;border-radius:16px!important;box-shadow:0 4px 0 rgba(7,59,84,.14),0 8px 18px rgba(7,59,84,.08)!important;font-weight:800!important}
 #contenido .faq-cta:hover{transform:translateY(-2px)!important;border-color:var(--vivo-green)!important;color:var(--vivo-green)!important;box-shadow:0 6px 0 rgba(23,110,68,.2),0 10px 22px rgba(23,110,68,.14)!important}
 
-/* 6. Contraste tipográfico */
-.vivo-premium .eyebrow{color:#065f75!important}
-.vivo-premium .section-sub{color:#214856!important}
-.vivo-premium .review-card>p{color:#123746!important}
-.vivo-premium .review-stars{color:#b57d00!important}
-.vivo-premium .microcopy{color:#224956!important}
+/* 6. Elevación UI Premium: Contraste, Tipografía y Fotografía */
+
+/* Hero H1: El Mejor lugar después del Hogar */
+#contenido .hero h1,
+body.vivo-premium .hero h1 {
+  font-family: 'Bree Serif', Georgia, serif !important;
+  font-size: clamp(3.4rem, 5.4vw, 5.2rem) !important;
+  line-height: 1.02 !important;
+  color: var(--vivo-ink) !important;
+  letter-spacing: -.025em !important;
+  max-width: 630px !important;
+}
+#contenido .hero h1 em,
+body.vivo-premium .hero h1 em {
+  color: var(--vivo-coral) !important;
+  font-style: normal !important;
+  position: relative !important;
+  display: inline-block !important;
+}
+#contenido .hero h1 em::after,
+body.vivo-premium .hero h1 em::after {
+  content: '' !important;
+  position: absolute !important;
+  height: 12px !important;
+  left: -2% !important;
+  right: 0 !important;
+  bottom: 4px !important;
+  background: var(--vivo-yellow) !important;
+  z-index: -1 !important;
+  transform: rotate(-1.5deg) !important;
+  border-radius: 99px !important;
+}
+
+/* Tira de Certezas Institucionales: fondo ink con contraste perfecto */
+#contenido .trust-grid,
+body.vivo-premium .trust-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  background: var(--vivo-ink) !important;
+  color: #ffffff !important;
+  border-radius: 24px !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 12px 30px rgba(7, 59, 84, 0.12) !important;
+  overflow: hidden !important;
+}
+#contenido .trust-item,
+body.vivo-premium .trust-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 14px !important;
+  padding: 20px 22px !important;
+  border: 0 !important;
+  background: transparent !important;
+}
+#contenido .trust-item + .trust-item {
+  border-left: 1px solid rgba(255, 255, 255, 0.14) !important;
+}
+#contenido .trust-item strong {
+  display: block !important;
+  font-family: 'Bree Serif', Georgia, serif !important;
+  font-size: 20px !important;
+  line-height: 1.15 !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+}
+#contenido .trust-item span {
+  display: block !important;
+  font-size: 12.5px !important;
+  line-height: 1.4 !important;
+  color: #d6ecf1 !important;
+  font-weight: 500 !important;
+  margin-top: 3px !important;
+}
+#contenido .trust-badge-icon {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: var(--vivo-yellow) !important;
+  flex: 0 0 28px !important;
+}
+
+/* Mosaico fotográfico limpio: sin degradé oscuro que tape a los chicos */
+#contenido .mosaic-caption,
+body.vivo-premium .mosaic-caption {
+  position: absolute !important;
+  inset: auto 12px 12px !important;
+  padding: 8px 14px !important;
+  background: rgba(255, 255, 255, 0.94) !important;
+  backdrop-filter: blur(8px) !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(7, 59, 84, 0.1) !important;
+  box-shadow: 0 4px 14px rgba(7, 59, 84, 0.12) !important;
+  text-align: center !important;
+}
+#contenido .mosaic-caption .mosaic-tag {
+  display: inline-block !important;
+  color: #065f75 !important;
+  font-size: 10.5px !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  letter-spacing: .05em !important;
+  margin-bottom: 2px !important;
+}
+#contenido .mosaic-caption h3 {
+  font-family: 'Bree Serif', Georgia, serif !important;
+  font-size: 15px !important;
+  line-height: 1.25 !important;
+  color: var(--vivo-ink) !important;
+  margin: 0 !important;
+}
+
+/* Patio limpio: eliminar bloque oscuro que tapa la imagen */
+#contenido .hero-photo-main figcaption,
+body.vivo-premium .hero-photo-main figcaption {
+  position: absolute !important;
+  top: auto !important;
+  right: auto !important;
+  bottom: 16px !important;
+  left: 16px !important;
+  max-width: 230px !important;
+  width: auto !important;
+  height: auto !important;
+  padding: 8px 14px !important;
+  font-family: 'Editorial Manrope', Manrope, Arial, sans-serif !important;
+  font-size: 12px !important;
+  line-height: 1.35 !important;
+  font-weight: 700 !important;
+  color: var(--vivo-ink) !important;
+  background: rgba(255, 255, 255, 0.94) !important;
+  backdrop-filter: blur(10px) !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(7, 59, 84, 0.12) !important;
+  box-shadow: 0 4px 14px rgba(7, 59, 84, 0.12) !important;
+  transform: none !important;
+  z-index: 3 !important;
+}
+
+/* Foto de los chicos vertical, estética y en escala natural */
+#contenido .final-photo-editorial,
+body.vivo-premium .final-photo-editorial {
+  display: block !important;
+  width: 100% !important;
+  max-width: 310px !important;
+  height: auto !important;
+  margin: 28px auto 0 !important;
+  border-radius: 22px !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35) !important;
+  overflow: hidden !important;
+}
+
+#contenido .final-photo-editorial img,
+body.vivo-premium .final-photo-editorial img {
+  display: block !important;
+  width: 100% !important;
+  max-width: 310px !important;
+  height: auto !important;
+  max-height: 410px !important;
+  aspect-ratio: 3 / 4 !important;
+  object-fit: cover !important;
+  object-position: center 25% !important;
+  border-radius: 22px !important;
+  border: 5px solid rgba(255, 255, 255, 0.95) !important;
+  mask: none !important;
+  -webkit-mask: none !important;
+}
+
+/* Eliminar fondo azul oscuro en FAQ y dejarlo limpio sobre papel marfil */
+#contenido .faq-section,
+body.vivo-premium .faq-section {
+  background: transparent !important;
+  color: var(--vivo-ink) !important;
+}
+#contenido .faq-intro .eyebrow {
+  color: #065f75 !important;
+  font-weight: 800 !important;
+}
+#contenido .faq-intro h2 {
+  color: var(--vivo-ink) !important;
+}
+#contenido .faq-intro .section-sub {
+  color: #173f4e !important;
+  font-weight: 500 !important;
+}
+#contenido .accordion details {
+  border-color: #b3d7de !important;
+}
+#contenido .accordion summary {
+  color: var(--vivo-ink) !important;
+  font-weight: 800 !important;
+}
+#contenido .accordion details p {
+  color: #1a3f4e !important;
+  font-weight: 500 !important;
+  line-height: 1.6 !important;
+}
+#contenido .faq-cta,
+body.vivo-premium .faq-cta {
+  background: var(--vivo-green) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 0 #105232, 0 8px 18px rgba(23, 110, 68, 0.25) !important;
+  border: 0 !important;
+}
+#contenido .faq-cta:hover {
+  background: #125b37 !important;
+  color: #ffffff !important;
+}
+
+/* Contraste en bloques oscuros (Historias y Cierre Final) */
+#contenido .final-cta-card,
+body.vivo-premium .final-cta-card {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  max-width: 780px !important;
+  margin: 0 auto !important;
+  gap: 16px !important;
+}
+#contenido .final-cta-card h2 {
+  font-size: clamp(2.6rem, 4.3vw, 4.3rem) !important;
+  line-height: 1.05 !important;
+  color: #ffffff !important;
+}
+#contenido .final-cta .final-eyebrow,
+body.vivo-premium .final-eyebrow {
+  color: #79d4e4 !important;
+  font-weight: 800 !important;
+  letter-spacing: .05em !important;
+  text-transform: uppercase !important;
+}
+#contenido .final-lead,
+body.vivo-premium .final-lead {
+  color: #e8f7fa !important;
+  font-size: 17px !important;
+  line-height: 1.62 !important;
+  font-weight: 500 !important;
+  max-width: 620px !important;
+}
+#contenido .final-actions {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 10px !important;
+  margin-top: 6px !important;
+}
+#contenido .final-micro,
+body.vivo-premium .final-micro {
+  color: #ccecf2 !important;
+  font-size: 13.5px !important;
+  font-weight: 600 !important;
+}
+
+/* Tipografía y Contraste General en bloques claros */
+#contenido .site-header .nav a {
+  color: var(--vivo-ink) !important;
+  font-weight: 800 !important;
+}
+#contenido .site-header .nav a:hover {
+  color: var(--vivo-green) !important;
+}
+#contenido .hero-lead,
+body.vivo-premium .hero-lead {
+  color: #173d4c !important;
+  font-size: 18px !important;
+  line-height: 1.6 !important;
+}
+#contenido .hero-lead strong {
+  color: var(--vivo-ink) !important;
+  font-weight: 800 !important;
+}
+#contenido .hero .microcopy {
+  color: #1a4352 !important;
+  font-weight: 600 !important;
+}
+#contenido .trust-item strong {
+  color: #ffffff !important;
+  font-size: 21px !important;
+}
+#contenido .trust-item span {
+  color: #d6ecf1 !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+}
+#contenido .section-sub,
+.vivo-premium .section-sub {
+  color: #173d4c !important;
+  font-weight: 500 !important;
+}
+#contenido .review-card > p,
+.vivo-premium .review-card > p {
+  color: #0d2f3d !important;
+  font-size: 18.5px !important;
+  line-height: 1.55 !important;
+  font-weight: 500 !important;
+}
+#contenido .review-card strong {
+  color: var(--vivo-ink) !important;
+  font-weight: 800 !important;
+}
+#contenido .review-card small {
+  color: #264e5d !important;
+  font-weight: 600 !important;
+}
+#contenido .location-description {
+  color: #194050 !important;
+  font-size: 14.5px !important;
+  line-height: 1.5 !important;
+}
+#contenido .locations-section {
+  position: relative !important;
+  z-index: 2 !important;
+}
+#contenido .location-map-link {
+  color: #086a82 !important;
+  font-weight: 700 !important;
+  position: relative !important;
+  z-index: 3 !important;
+}
+#contenido .final-cta::before {
+  pointer-events: none !important;
+}
+.vivo-premium .eyebrow {
+  color: #065f75 !important;
+  font-weight: 800 !important;
+}
+.vivo-premium .review-stars {
+  color: #b57d00 !important;
+}
+
 
 /* 7. Mobile First (390px) */
 @media(max-width:767px){
@@ -82,6 +405,14 @@ body.vivo-premium{background:var(--vivo-paper);color:var(--vivo-ink);font-family
   #contenido .stories-section{padding:36px 0 28px!important}
   #contenido .reviews-section,#contenido .locations-section{padding:32px 0 24px!important}
   #contenido .faq-section{padding:28px 0 20px!important}
+  #contenido .hero h1,
+  body.vivo-premium .hero h1{font-size:clamp(32px,8.8vw,44px)!important;line-height:1.08!important}
+  #contenido .trust-grid,
+  body.vivo-premium .trust-grid{grid-template-columns:1fr 1fr!important;border-radius:20px!important;margin:12px 0 20px!important}
+  #contenido .trust-item,
+  body.vivo-premium .trust-item{padding:14px 15px!important}
+  #contenido .trust-item strong{font-size:17px!important}
+  #contenido .trust-item span{font-size:11.5px!important}
   #contenido .final-cta{padding:36px 0 30px!important}
   #contenido .director-card{display:flex!important;flex-direction:column!important;gap:20px!important;padding:24px 18px!important;border-radius:26px!important}
   #contenido .director-photo{width:200px!important;height:290px!important;margin:0 auto!important}
@@ -93,6 +424,12 @@ body.vivo-premium{background:var(--vivo-paper);color:var(--vivo-ink);font-family
   #contenido .chapter-intro{font-size:12px!important;line-height:1.4!important;color:#2f5360!important}
   #contenido .chapter-toggle{width:34px!important;height:34px!important}
   #contenido .chapter-content{padding:3px 15px 18px!important}
+  #contenido .hero-photo-main figcaption,
+  body.vivo-premium .hero-photo-main figcaption{display:none!important}
+  #contenido .final-photo-editorial,
+  body.vivo-premium .final-photo-editorial{max-width:260px!important;margin:22px auto 0!important;border-radius:18px!important}
+  #contenido .final-photo-editorial img,
+  body.vivo-premium .final-photo-editorial img{max-width:260px!important;max-height:340px!important;aspect-ratio:3/4!important;border-radius:18px!important;border:4px solid rgba(255,255,255,.95)!important;object-position:center 25%!important}
   #contenido .stories-section h2,#contenido .stories-section .stories-title{font-size:30px!important}
   #contenido .final-cta-card h2{font-size:38px!important;line-height:1.05!important}
   body.vivo-premium .whatsapp-mobile-bar{display:flex!important;align-items:center!important;justify-content:center!important;background:var(--vivo-green)!important;color:#fff!important;border-radius:16px!important;left:16px!important;right:16px!important;bottom:12px!important;width:auto!important;min-height:48px!important;box-shadow:0 3px 0 #105232,0 8px 21px rgba(23,110,68,.32)!important;font-weight:800!important;font-size:15px!important;opacity:0!important;pointer-events:none!important;transform:translateY(14px)!important;transition:opacity .25s ease,transform .25s ease!important}
@@ -105,4 +442,246 @@ body.vivo-premium{background:var(--vivo-paper);color:var(--vivo-ink);font-family
   body.vivo-premium .nav.is-open a{display:block!important;padding:11px 8px!important;color:var(--vivo-ink)!important}
   body.vivo-premium .nav.is-open .nav-cta{display:flex!important;justify-content:center!important;color:#fff!important;background:var(--vivo-green)!important;border-radius:12px!important}
 }
+
+/* ============================================================
+   8. CIERRE DE CONVERSIÓN EMOCIONAL FINAL (Historias + CTA Máximo)
+   ============================================================ */
+
+/* Historias Reales: 3 Tarjetas Editoriales Premium */
+#contenido .stories-section {
+  background: linear-gradient(180deg, #073b54 0%, #04293a 100%) !important;
+  padding: 68px 0 60px !important;
+  position: relative !important;
+}
+#contenido .stories-section .section-intro h2,
+#contenido .stories-section h2 {
+  color: #ffffff !important;
+  font-family: 'Bree Serif', Georgia, serif !important;
+  font-size: clamp(2.3rem, 4vw, 3.8rem) !important;
+  line-height: 1.1 !important;
+}
+#contenido .stories-section .section-sub {
+  color: #d6ecf1 !important;
+  font-size: 16.5px !important;
+  line-height: 1.6 !important;
+}
+#contenido .stories-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 24px !important;
+  margin: 36px 0 0 !important;
+}
+#contenido .story-card,
+#contenido .story-card:nth-child(n + 2) {
+  display: flex !important;
+  flex-direction: column !important;
+  background: #ffffff !important;
+  border-radius: 22px !important;
+  padding: 26px 24px 22px !important;
+  box-shadow: 0 14px 34px rgba(4, 38, 51, 0.16) !important;
+  border: 1px solid rgba(214, 236, 241, 0.75) !important;
+  position: relative !important;
+  transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+}
+#contenido .story-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 18px 44px rgba(4, 38, 51, 0.24) !important;
+}
+#contenido .story-header {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  margin-bottom: 16px !important;
+  padding-bottom: 12px !important;
+  border-bottom: 1px solid #edf5f7 !important;
+}
+#contenido .story-person-info {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+#contenido .story-avatar {
+  display: flex !important;
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
+  background: #e0f2f5 !important;
+  color: #073b54 !important;
+  font-weight: 800 !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 16px !important;
+}
+#contenido .story-person-info strong {
+  display: block !important;
+  font-size: 16px !important;
+  color: var(--vivo-ink) !important;
+  font-weight: 800 !important;
+}
+#contenido .story-person-info small {
+  display: block !important;
+  font-size: 12px !important;
+  color: #4a6c79 !important;
+  font-weight: 600 !important;
+}
+#contenido .story-stars {
+  color: #d49b42 !important;
+  font-size: 15px !important;
+  letter-spacing: 2px !important;
+}
+#contenido .story-narrative {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 11px !important;
+  flex-grow: 1 !important;
+}
+#contenido .story-moment {
+  padding: 10px 14px !important;
+  border-radius: 12px !important;
+  font-size: 13.5px !important;
+  line-height: 1.5 !important;
+}
+#contenido .story-moment p {
+  margin: 0 !important;
+  font-style: normal !important;
+}
+#contenido .story-moment--doubt {
+  background: #fbfcfd !important;
+  color: #45626e !important;
+  border-left: 3px solid #9dc0cb !important;
+}
+#contenido .story-moment--care {
+  background: #f1f8fa !important;
+  color: #09374c !important;
+  border-left: 3px solid #087eaf !important;
+  font-weight: 600 !important;
+}
+#contenido .story-moment--happy {
+  background: #edf7f2 !important;
+  color: #0d512e !important;
+  border-left: 3px solid #1fa35c !important;
+  font-weight: 700 !important;
+}
+#contenido .story-phase-tag {
+  display: block !important;
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  margin-bottom: 4px !important;
+  opacity: 0.85 !important;
+}
+#contenido .story-footer {
+  margin-top: 16px !important;
+  padding-top: 12px !important;
+  border-top: 1px dashed #deedf1 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+#contenido .story-tag {
+  color: #156d3e !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+}
+
+/* Cierre Emocional Final: Headline Protagonista y CTA de Máxima Jerarquía */
+#contenido .final-cta {
+  background: linear-gradient(180deg, #073b54 0%, #03212f 100%) !important;
+  padding: 76px 0 68px !important;
+}
+#contenido .final-cta-card {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  max-width: 820px !important;
+  margin: 0 auto !important;
+}
+#contenido .final-cta-card .final-eyebrow {
+  color: #72d2e3 !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  margin-bottom: 12px !important;
+}
+#contenido .final-cta-card h2 {
+  font-family: 'Bree Serif', Georgia, serif !important;
+  font-size: clamp(34px, 4.8vw, 56px) !important;
+  color: #ffffff !important;
+  line-height: 1.08 !important;
+  margin: 0 0 18px !important;
+  text-wrap: balance !important;
+}
+#contenido .final-cta-card .final-lead {
+  font-size: clamp(16px, 1.8vw, 20px) !important;
+  line-height: 1.62 !important;
+  color: #d6ecf2 !important;
+  max-width: 660px !important;
+  margin: 0 0 28px !important;
+}
+#contenido .final-actions {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+#contenido .final-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 64px !important;
+  padding: 18px 44px !important;
+  font-size: 18px !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.01em !important;
+  border-radius: 24px !important;
+  background: linear-gradient(135deg, #24a15f 0%, #136a3b 100%) !important;
+  color: #ffffff !important;
+  border: 2px solid rgba(255, 255, 255, 0.45) !important;
+  box-shadow: 0 6px 0 #0c3e22, 0 16px 36px rgba(19, 106, 59, 0.48), 0 0 0 6px rgba(255, 255, 255, 0.16) !important;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1), filter 0.22s ease !important;
+}
+#contenido .final-btn:hover {
+  transform: translateY(-4px) scale(1.02) !important;
+  box-shadow: 0 8px 0 #0c3e22, 0 22px 46px rgba(19, 106, 59, 0.6), 0 0 0 8px rgba(255, 255, 255, 0.25) !important;
+}
+#contenido .final-btn:active {
+  transform: translateY(2px) scale(0.99) !important;
+  box-shadow: 0 2px 0 #0c3e22, 0 6px 16px rgba(19, 106, 59, 0.35) !important;
+}
+#contenido .final-micro {
+  color: #c7ebf2 !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  margin-top: 14px !important;
+}
+#contenido .final-photo-editorial {
+  margin: 32px auto 0 !important;
+  max-width: 320px !important;
+}
+
+/* Mobile específico para Historias y Cierre */
+@media (max-width: 767px) {
+  #contenido .stories-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 18px !important;
+    margin-top: 22px !important;
+  }
+  #contenido .story-card,
+  #contenido .story-card:nth-child(n + 2) {
+    padding: 22px 18px 18px !important;
+    border-radius: 20px !important;
+  }
+  #contenido .final-btn {
+    width: 100% !important;
+    padding: 16px 20px !important;
+    font-size: 16.5px !important;
+    text-align: center !important;
+    justify-content: center !important;
+  }
+}
+
 
