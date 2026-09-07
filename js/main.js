@@ -284,30 +284,120 @@
   scheduleStickyCheck();
 
   // ── Popup Beneficio Exclusivo ("Hasta el próximo jueves") ──
-  // Espera mínima de 44 s y señal de salida; una vez por sesión.
+  // 1ª Aparición: apertura AUTOMÁTICA a los 35 segundos (sin depender de exit-intent ni de scroll).
+  // 2ª Aparición: únicamente si cerró la 1ª sin clic, al alcanzar 80% de scroll, y mínimo 60s después del primer cierre.
+  // Reglas: máx 2 veces por sesión, no volver a mostrar si hizo clic en CTA o cualquier WhatsApp, persistir al recargar.
   const offerDialog = document.getElementById('offer-dialog');
   if (offerDialog) {
     const closeButton = offerDialog.querySelector('.offer-dialog-close');
-    let triggerTimer = null;
-    let eligible = false;
-    let lastScrollY = window.scrollY;
-    let upwardDistance = 0;
-    let maxProgress = 0;
-    const hasMouse = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    const offerCta = offerDialog.querySelector('.offer-dialog-cta');
+
+    const STORAGE_KEY_PERMANENT = 'offer_dismissed_permanently';
+    const STORAGE_KEY_COUNT     = 'offer_show_count';
+    const STORAGE_KEY_CLOSED_AT = 'offer_first_closed_at';
+    const STORAGE_KEY_START     = 'offer_session_start';
+    const STORAGE_KEY_SCROLL    = 'offer_max_scroll';
+
+    const getShowCount = () => parseInt(sessionStorage.getItem(STORAGE_KEY_COUNT) || '0', 10);
+    const getSessionStart = () => {
+      let start = parseInt(sessionStorage.getItem(STORAGE_KEY_START) || '0', 10);
+      if (!start) {
+        start = Date.now();
+        sessionStorage.setItem(STORAGE_KEY_START, start.toString());
+      }
+      return start;
+    };
+    const getFirstClosedAt = () => parseInt(sessionStorage.getItem(STORAGE_KEY_CLOSED_AT) || '0', 10);
+
+    const isPermanentlyDismissed = () => {
+      const isPerm = sessionStorage.getItem(STORAGE_KEY_PERMANENT) === 'true';
+      const isLegacyDismissed = sessionStorage.getItem('offer_dialog_dismissed') === 'true';
+      return isPerm || isLegacyDismissed || getShowCount() >= 2;
+    };
+
+    const setPermanentlyDismissed = () => {
+      sessionStorage.setItem(STORAGE_KEY_PERMANENT, 'true');
+      sessionStorage.setItem('offer_dialog_dismissed', 'true');
+      cleanupTriggers();
+      if (offerDialog.open) {
+        document.body.classList.remove('is-offer-open');
+        offerDialog.close();
+        scheduleStickyCheck?.();
+      }
+    };
+
+    // No volver a mostrar si hace clic en el CTA del popup o en cualquier enlace de WhatsApp
+    document.addEventListener('click', (e) => {
+      const target = e.target.closest('a, button');
+      if (!target) return;
+      const href = target.getAttribute('href') || '';
+      const track = target.getAttribute('data-track') || '';
+      if (
+        target === offerCta ||
+        target.classList.contains('offer-dialog-cta') ||
+        href.includes('wa.me') ||
+        href.includes('whatsapp') ||
+        track.startsWith('whatsapp_')
+      ) {
+        setPermanentlyDismissed();
+      }
+    }, true);
+
+    // Inicializar inicio de sesión
+    getSessionStart();
+
+    let maxScrollReached = parseFloat(sessionStorage.getItem(STORAGE_KEY_SCROLL) || '0');
+    let firstTimer = null;
+    let secondTimer = null;
 
     const cleanupTriggers = () => {
-      if (triggerTimer) {
-        clearTimeout(triggerTimer);
-        triggerTimer = null;
+      if (firstTimer) {
+        clearTimeout(firstTimer);
+        firstTimer = null;
       }
-      window.removeEventListener('scroll', checkScrollTrigger);
-      document.removeEventListener('mouseleave', checkExitIntent);
+      if (secondTimer) {
+        clearTimeout(secondTimer);
+        secondTimer = null;
+      }
+      window.removeEventListener('scroll', handleScroll);
+    };
+
+    const getScrollRatio = () => {
+      const scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
+      const docHeight = Math.max(
+        document.documentElement.scrollHeight,
+        document.body.scrollHeight,
+        document.documentElement.offsetHeight,
+        document.body.offsetHeight
+      );
+      const winHeight = window.innerHeight || document.documentElement.clientHeight || 0;
+      const maxScroll = docHeight - winHeight;
+      if (maxScroll <= 0) return 0;
+      return Math.min(Math.max(scrollY / maxScroll, 0), 1);
+    };
+
+    const updateMaxScroll = () => {
+      const current = getScrollRatio();
+      if (current > maxScrollReached) {
+        maxScrollReached = current;
+        sessionStorage.setItem(STORAGE_KEY_SCROLL, maxScrollReached.toFixed(4));
+      }
     };
 
     const openOffer = () => {
-      cleanupTriggers();
+      if (isPermanentlyDismissed()) return;
       if (offerDialog.open) return;
-      if (sessionStorage.getItem('offer_dialog_dismissed')) return;
+
+      const newCount = getShowCount() + 1;
+      sessionStorage.setItem(STORAGE_KEY_COUNT, newCount.toString());
+
+      if (newCount >= 2) {
+        sessionStorage.setItem(STORAGE_KEY_PERMANENT, 'true');
+        sessionStorage.setItem('offer_dialog_dismissed', 'true');
+      }
+
+      cleanupTriggers();
+
       try {
         if (typeof offerDialog.showModal === 'function') {
           offerDialog.showModal();
@@ -315,64 +405,116 @@
           offerDialog.setAttribute('open', '');
         }
         document.body.classList.add('is-offer-open');
+        scheduleStickyCheck?.();
       } catch (err) {
         console.warn('No se pudo abrir el popup de oferta:', err);
       }
     };
 
-    const closeOffer = () => {
-      cleanupTriggers();
-      sessionStorage.setItem('offer_dialog_dismissed', 'true');
+    const closeOffer = (wasClicked = false) => {
+      if (wasClicked) {
+        setPermanentlyDismissed();
+      } else {
+        // Cerró la primera aparición sin hacer clic
+        const count = getShowCount();
+        if (count === 1 && !getFirstClosedAt()) {
+          sessionStorage.setItem(STORAGE_KEY_CLOSED_AT, Date.now().toString());
+          scheduleSecondAppearance();
+        } else if (count >= 2) {
+          setPermanentlyDismissed();
+        }
+      }
+
       document.body.classList.remove('is-offer-open');
       if (offerDialog.open) {
         offerDialog.close();
       }
+      scheduleStickyCheck?.();
     };
 
-    const checkScrollTrigger = () => {
-      const scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
-      const maxScroll = (document.documentElement.scrollHeight || document.body.scrollHeight) - window.innerHeight;
-      const progress = maxScroll > 100 ? scrollY / maxScroll : 0;
-      maxProgress = Math.max(maxProgress, progress);
-      upwardDistance = scrollY < lastScrollY ? upwardDistance + lastScrollY - scrollY : 0;
-      lastScrollY = scrollY;
-      // En touch no hay salida detectable: regreso hacia arriba tras leer,
-      // o final del recorrido, siempre después de la espera mínima.
-      if (eligible && !hasMouse && (progress >= 0.9 || (maxProgress >= 0.5 && upwardDistance >= 140))) {
+    function checkSecondTrigger() {
+      if (isPermanentlyDismissed() || getShowCount() !== 1) return;
+      const closedAt = getFirstClosedAt();
+      if (!closedAt) return;
+
+      updateMaxScroll();
+
+      const timeSinceFirstClose = Date.now() - closedAt;
+      const timeReady = timeSinceFirstClose >= 60000;
+      const scrollReady = maxScrollReached >= 0.80;
+
+      if (timeReady && scrollReady) {
         openOffer();
       }
-    };
+    }
 
-    const checkExitIntent = (event) => {
-      if (eligible && hasMouse && event.clientY <= 0 && !event.relatedTarget) openOffer();
-    };
+    function handleScroll() {
+      updateMaxScroll();
+      if (getShowCount() === 1) {
+        checkSecondTrigger();
+      }
+    }
 
-    closeButton?.addEventListener('click', closeOffer);
+    function scheduleFirstAppearance() {
+      if (isPermanentlyDismissed() || getShowCount() > 0) return;
+      const start = getSessionStart();
+      const elapsed = Date.now() - start;
+      const remainingTime = Math.max(0, 35000 - elapsed);
+
+      if (firstTimer) clearTimeout(firstTimer);
+      if (remainingTime === 0) {
+        openOffer();
+      } else {
+        firstTimer = window.setTimeout(() => {
+          firstTimer = null;
+          openOffer();
+        }, remainingTime);
+      }
+    }
+
+    function scheduleSecondAppearance() {
+      if (isPermanentlyDismissed() || getShowCount() !== 1 || !getFirstClosedAt()) return;
+      const closedAt = getFirstClosedAt();
+      const elapsed = Date.now() - closedAt;
+      const remainingTime = Math.max(0, 60000 - elapsed);
+
+      if (secondTimer) clearTimeout(secondTimer);
+      secondTimer = window.setTimeout(() => {
+        secondTimer = null;
+        checkSecondTrigger();
+      }, remainingTime);
+
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      checkSecondTrigger();
+    }
+
+    closeButton?.addEventListener('click', () => closeOffer(false));
 
     offerDialog.addEventListener('click', (e) => {
       const rect = offerDialog.getBoundingClientRect();
       const isInDialog = (
         rect.top <= e.clientY && e.clientY <= rect.top + rect.height &&
-        rect.left <= e.clientX && e.clientX <= rect.left + rect.width
+        rect.left <= e.clientX && e.clientX <= rect.width + rect.left
       );
       if (!isInDialog) {
-        closeOffer();
+        closeOffer(false);
       }
     });
 
     offerDialog.addEventListener('cancel', () => {
-      closeOffer();
+      closeOffer(false);
     });
 
-    // El tiempo habilita los disparadores, no interrumpe por sí solo.
-    if (!sessionStorage.getItem('offer_dialog_dismissed')) {
-      triggerTimer = window.setTimeout(() => {
-        eligible = true;
-        upwardDistance = 0;
-        checkScrollTrigger();
-      }, 44000);
-      window.addEventListener('scroll', checkScrollTrigger, { passive: true });
-      document.addEventListener('mouseleave', checkExitIntent);
+    // Iniciar según el estado de la sesión
+    window.addEventListener('scroll', updateMaxScroll, { passive: true });
+    updateMaxScroll();
+
+    if (!isPermanentlyDismissed()) {
+      if (getShowCount() === 0) {
+        scheduleFirstAppearance();
+      } else if (getShowCount() === 1 && getFirstClosedAt()) {
+        scheduleSecondAppearance();
+      }
     }
   }
 
