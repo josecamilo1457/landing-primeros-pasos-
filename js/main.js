@@ -284,7 +284,7 @@
   scheduleStickyCheck();
 
   // ── Popup Beneficio Exclusivo ("Hasta el próximo jueves") ──
-  // 1ª Aparición: apertura AUTOMÁTICA a los 35 segundos (sin depender de exit-intent ni de scroll).
+  // 1ª Aparición: apertura AUTOMÁTICA a los 30 segundos (sin depender de exit-intent ni de scroll).
   // 2ª Aparición: únicamente si cerró la 1ª sin clic, al alcanzar 80% de scroll, y mínimo 60s después del primer cierre.
   // Reglas: máx 2 veces por sesión, no volver a mostrar si hizo clic en CTA o cualquier WhatsApp, persistir al recargar.
   const offerDialog = document.getElementById('offer-dialog');
@@ -459,7 +459,7 @@
       if (isPermanentlyDismissed() || getShowCount() > 0) return;
       const start = getSessionStart();
       const elapsed = Date.now() - start;
-      const remainingTime = Math.max(0, 35000 - elapsed);
+      const remainingTime = Math.max(0, 30000 - elapsed);
 
       if (firstTimer) clearTimeout(firstTimer);
       if (remainingTime === 0) {
