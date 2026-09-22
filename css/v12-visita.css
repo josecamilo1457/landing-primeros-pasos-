@@ -58,8 +58,9 @@ button,a{-webkit-tap-highlight-color:transparent}
 .hero__primary-action>span{max-width:390px;color:var(--muted);font-size:13px;line-height:1.45}
 .hero__plain{font-weight:800;color:var(--petrol);font-size:14px}
 .hero__plain span{display:inline-block;margin-left:4px}
-.trust-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:680px}
-.trust-row span{padding:15px;background:rgba(255,255,255,.82);border:1px solid var(--line);border-radius:18px;font-size:13px;line-height:1.5;color:#59727a}
+.trust-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;max-width:620px}
+.trust-row span{padding:17px;background:rgba(255,255,255,.82);border:1px solid var(--line);border-radius:18px;font-size:13px;line-height:1.5;color:#59727a;text-align:center}
+.trust-row span:last-child{grid-column:1/-1;width:calc(50% - 5px);justify-self:center}
 .trust-row b{display:block;color:var(--ink);font-size:14px;line-height:1.3;margin-bottom:3px}
 .hero__art{position:relative;min-height:580px}
 .hero__sun{position:absolute;right:1%;top:5%;width:150px;height:150px;border-radius:50%;background:var(--sun);opacity:.78;filter:blur(.2px)}
@@ -138,27 +139,28 @@ button,a{-webkit-tap-highlight-color:transparent}
 .experience-card span{display:block;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#d6f1ee;margin-bottom:6px}
 .experience-card h3{font-family:var(--display);font-size:30px;line-height:1.05;margin:0;font-weight:400}
 .experience-card--large h3{font-size:46px;max-width:480px}
-.experience-card--act{display:flex;align-items:flex-end;min-height:0;padding:28px;background:#fff;border:1px solid rgba(9,77,88,.12);box-shadow:0 12px 30px rgba(9,57,67,.06)}
-.experience-card--act:before{content:"";position:absolute;left:28px;top:28px;width:42px;height:7px;border-radius:999px;background:var(--aqua)}
-.experience-card--act:nth-child(2):before{background:var(--sun)}
-.experience-card--act:nth-child(3):before{background:#79b84a}
+.experience-card--act{display:grid;grid-template-columns:42% 1fr;align-items:stretch;min-height:0;background:#fff;border:1px solid rgba(9,77,88,.12);box-shadow:0 12px 30px rgba(9,57,67,.06)}
 .experience-card--act:after{content:none}
-.experience-card--act>div{position:relative;left:auto;right:auto;bottom:auto;color:var(--petrol)}
+.experience-card--act>img{width:100%;height:100%;min-height:0;object-fit:cover;object-position:center 35%}
+.experience-card--act>.experience-card__copy{position:relative;left:auto;right:auto;bottom:auto;display:flex;flex-direction:column;justify-content:center;padding:22px;color:var(--petrol);text-align:center;pointer-events:none}
 .experience-card--act h3{font-size:31px;margin-bottom:8px}
 .experience-card--act p{margin:0;color:var(--muted);font-size:15px;line-height:1.45}
 
-.faq{padding:96px 0;background:#eaf6f7;overflow:hidden;position:relative}
-.faq__grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;align-items:start}
-.faq__aside{position:sticky;top:110px;min-height:430px}
-.faq__aside h2{font-family:var(--display);font-size:clamp(52px,6vw,78px);font-weight:400;line-height:.94;letter-spacing:-.05em;margin:0;max-width:450px}
-.mascot--think{position:relative;width:220px;margin:26px 0 0 40px}
-.faq__list{display:grid;gap:12px}
-.faq details{background:#fff;border:1px solid var(--line);border-radius:22px;padding:0 22px;box-shadow:0 12px 30px rgba(9,57,67,.05)}
-.faq summary{list-style:none;cursor:pointer;padding:22px 38px 22px 0;font-weight:800;position:relative}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary:after{content:"+";position:absolute;right:0;top:17px;font:400 30px/1 var(--display);color:var(--petrol)}
-.faq details[open] summary:after{content:"–"}
-.faq details p{margin:0 0 22px;color:var(--muted);line-height:1.65;font-size:14px;max-width:650px}
+.promo-backdrop{position:fixed;inset:0;z-index:109;background:rgba(3,31,37,.5);backdrop-filter:blur(5px);opacity:0;transition:opacity .25s ease}
+.promo-backdrop.is-visible{opacity:1}
+.promo-banner{position:fixed;left:50%;bottom:26px;z-index:110;width:min(560px,calc(100% - 32px));padding:30px 32px 28px;border:1px solid rgba(255,255,255,.45);border-radius:30px;background:linear-gradient(145deg,#fffdf6 0%,#fff5cf 100%);color:var(--ink);box-shadow:0 28px 90px rgba(3,31,37,.34);text-align:center;transform:translate(-50%,30px);opacity:0;transition:opacity .28s ease,transform .28s ease}
+.promo-banner.is-visible{opacity:1;transform:translate(-50%,0)}
+.promo-banner__close{position:absolute;right:14px;top:12px;width:38px;height:38px;border:0;border-radius:50%;background:rgba(10,82,96,.09);color:var(--petrol);font:400 28px/1 var(--sans);cursor:pointer}
+.promo-banner__eyebrow{display:inline-flex;padding:7px 12px;border-radius:999px;background:var(--petrol);color:#fff;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+.promo-banner h2{max-width:470px;margin:14px auto 10px;font:400 42px/.98 var(--display);letter-spacing:-.035em}
+.promo-banner p{max-width:470px;margin:0 auto;color:var(--muted);font-size:15px;line-height:1.55}
+.promo-banner__deadline{margin-top:16px;font-size:13px;font-weight:800;color:var(--petrol)}
+.promo-countdown{display:flex;justify-content:center;gap:8px;margin:12px 0 18px}
+.promo-countdown span{width:67px;padding:9px 6px 8px;border-radius:15px;background:#fff;border:1px solid var(--line)}
+.promo-countdown b,.promo-countdown small{display:block}
+.promo-countdown b{font-size:21px;line-height:1;color:var(--petrol)}
+.promo-countdown small{margin-top:4px;color:var(--muted);font-size:10px;text-transform:uppercase}
+.promo-banner__cta{width:100%}
 
 .closing{position:relative;min-height:690px;display:grid;align-items:center;overflow:hidden;background:var(--petrol-2);color:#fff}
 .closing__photo{position:absolute;inset:0}
@@ -211,7 +213,7 @@ button,a{-webkit-tap-highlight-color:transparent}
 }
 
 @media(max-width:980px){
-  .hero__grid,.visit__head,.reviews__head,.interview__grid,.faq__grid{grid-template-columns:1fr}
+  .hero__grid,.visit__head,.reviews__head,.interview__grid{grid-template-columns:1fr}
   .hero__art{min-height:520px}
   .visit__grid{grid-template-columns:repeat(2,1fr)}
   .visit__cta{grid-template-columns:120px 1fr;padding-left:120px}
@@ -224,9 +226,8 @@ button,a{-webkit-tap-highlight-color:transparent}
   .experience__grid{grid-template-columns:1fr;gap:16px}
   .experience-card--large{min-height:360px;aspect-ratio:16/10}
   .experience__track{grid-template-columns:repeat(3,1fr);grid-template-rows:none;gap:12px;height:auto}
-  .experience-card--act{min-height:210px}
-  .faq__aside{position:relative;top:auto;min-height:0}
-  .mascot--think{position:absolute;right:4%;top:-30px;width:160px;margin:0}
+  .experience-card--act{grid-template-columns:1fr;min-height:390px}
+  .experience-card--act>img{height:280px}
   .closing__content{grid-template-columns:1fr 260px}
   .mascot--jump{width:270px}
 }
@@ -292,16 +293,14 @@ button,a{-webkit-tap-highlight-color:transparent}
   .experience-card--large h3{font-size:32px}
   .experience__track{display:flex;gap:12px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:4px 12px 14px;margin:0 -12px;scrollbar-width:none;-ms-overflow-style:none}
   .experience__track::-webkit-scrollbar{display:none}
-  .experience-card--act{flex:0 0 clamp(270px,80vw,310px);width:clamp(270px,80vw,310px);scroll-snap-align:start;min-height:210px;padding:24px}
-  .experience-card--act:before{left:24px;top:24px}
+  .experience-card--act{flex:0 0 clamp(270px,80vw,310px);width:clamp(270px,80vw,310px);scroll-snap-align:start;min-height:430px;display:flex;flex-direction:column}
+  .experience-card--act>img{height:320px;flex:0 0 320px;object-position:center 30%}
+  .experience-card--act>.experience-card__copy{flex:1;padding:18px}
   .experience-card--act h3{font-size:28px}
-  .faq{padding:64px 0}
-  .faq__grid{gap:28px}
-  .faq__aside h2{font-size:46px;max-width:280px}
-  .mascot--think{right:0;top:0;width:120px}
-  .faq details{padding:0 18px}
-  .faq summary{font-size:14px;padding:20px 34px 20px 0}
-  .faq details p{font-size:15px}
+  .promo-banner{bottom:12px;width:calc(100% - 20px);padding:24px 18px 20px;border-radius:24px}
+  .promo-banner h2{font-size:35px;padding:0 20px}
+  .promo-banner p{font-size:14px}
+  .promo-countdown span{width:60px}
   .closing{min-height:650px}
   .closing__photo:after{background:linear-gradient(180deg,rgba(4,47,56,.46),rgba(4,47,56,.95) 58%)}
   .closing__content{display:block;padding-top:160px;padding-bottom:84px}
