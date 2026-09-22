@@ -310,9 +310,9 @@ button,a{-webkit-tap-highlight-color:transparent}
   .promo-banner h2{font-size:35px;padding:0 20px}
   .promo-banner p{font-size:14px}
   .promo-countdown span{width:60px}
-  .closing{min-height:880px}
+  .closing{min-height:650px}
   .closing__photo:after{background:linear-gradient(180deg,rgba(4,47,56,.46),rgba(4,47,56,.95) 58%)}
-  .closing__content{display:block;padding-top:340px;padding-bottom:84px}
+  .closing__content{display:block;padding-top:160px;padding-bottom:84px}
   .closing__copy h2{font-size:clamp(48px,13vw,54px)}
   .closing__copy>p:not(.kicker){font-size:16px}
   .closing__offer{margin-bottom:18px;padding:14px 15px}
@@ -320,7 +320,7 @@ button,a{-webkit-tap-highlight-color:transparent}
   .closing__offer span{font-size:12px}
   .closing__microcopy{text-align:center}
   .closing__copy .button{width:100%}
-  .mascot--jump{position:absolute;right:4px;top:8px;width:118px;margin:0;opacity:.98}
+  .mascot--jump{position:absolute;right:8px;top:8px;width:145px;height:auto;margin:0;opacity:.98}
   .footer{padding:24px 0 calc(92px + env(safe-area-inset-bottom))}
   .footer__inner{display:block;text-align:center}
   .footer__brand{justify-content:center}
