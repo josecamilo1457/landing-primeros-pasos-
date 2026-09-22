@@ -4,6 +4,11 @@
   const closeButton = banner?.querySelector('.promo-banner__close');
   const storageKey = 'pp_v12_promo_uniforme_seen';
   let countdownTimer;
+  const minimumDelayMs = 45000;
+  const hesitationDelayMs = 75000;
+  const engagementScrollRatio = 0.55;
+  let minimumDelayReached = false;
+  let hesitationTimer;
 
   if (!banner || !backdrop || !closeButton) return;
 
@@ -35,8 +40,14 @@
     });
   }
 
+  function stopTriggerListeners() {
+    window.clearTimeout(hesitationTimer);
+    window.removeEventListener('scroll', maybeShowAfterEngagement);
+  }
+
   function showPromo() {
     if (sessionStorage.getItem(storageKey)) return;
+    stopTriggerListeners();
     sessionStorage.setItem(storageKey, '1');
     banner.hidden = false;
     backdrop.hidden = false;
@@ -47,6 +58,16 @@
       backdrop.classList.add('is-visible');
       closeButton.focus({ preventScroll: true });
     });
+  }
+
+  function scrollProgress() {
+    const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+    if (scrollableHeight <= 0) return 1;
+    return Math.min(1, window.scrollY / scrollableHeight);
+  }
+
+  function maybeShowAfterEngagement() {
+    if (minimumDelayReached && scrollProgress() >= engagementScrollRatio) showPromo();
   }
 
   function closePromo() {
@@ -65,11 +86,21 @@
     if (event.key === 'Escape' && !banner.hidden) closePromo();
   });
 
-  window.setTimeout(showPromo, 25000);
+  window.addEventListener('scroll', maybeShowAfterEngagement, { passive: true });
+  window.setTimeout(() => {
+    minimumDelayReached = true;
+    maybeShowAfterEngagement();
+  }, minimumDelayMs);
+  hesitationTimer = window.setTimeout(showPromo, hesitationDelayMs);
 
   window.__PP_PROMO = {
     showPromo,
     closePromo,
-    nextThursdayDeadline
+    nextThursdayDeadline,
+    triggerConfig: {
+      minimumDelayMs,
+      hesitationDelayMs,
+      engagementScrollRatio
+    }
   };
 })();
