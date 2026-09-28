@@ -2,11 +2,11 @@
   const banner = document.getElementById('promo-banner');
   const backdrop = document.getElementById('promo-backdrop');
   const closeButton = banner?.querySelector('.promo-banner__close');
-  const storageKey = 'pp_v12_promo_uniforme_seen';
+  const storageKey = 'pp_v12_promo_empezar_ahora_seen';
   let countdownTimer;
-  const minimumDelayMs = 45000;
-  const hesitationDelayMs = 75000;
-  const engagementScrollRatio = 0.55;
+  const minimumDelayMs = 25000;
+  const hesitationDelayMs = 50000;
+  const engagementScrollRatio = 0.35;
   let minimumDelayReached = false;
   let hesitationTimer;
 
