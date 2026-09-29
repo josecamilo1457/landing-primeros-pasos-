@@ -68,6 +68,7 @@
     element.addEventListener('click', (e) => {
       e.preventDefault();
       const placement = element.dataset.track;
+      sessionStorage.setItem('pp_october_whatsapp_clicked', '1');
       const refId = generateRefId();
 
       // 1. Abrir WhatsApp de inmediato (antes de cualquier llamada asíncrona)
@@ -81,6 +82,9 @@
         placement,
         ref_id: refId
       });
+      if (['promo_empezar_ahora', 'oferta_empezar_ahora', 'cierre'].includes(placement)) {
+        window.dataLayer.push({ event: 'landing_offer_click', offer: 'octubre_blois_95000', placement, ref_id: refId });
+      }
 
       // 3. Meta Pixel — Lead (disparo único por click)
       if (typeof window.fbq === 'function') {

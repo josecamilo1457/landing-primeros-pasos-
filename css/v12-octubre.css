@@ -1,0 +1,75 @@
+/* Octubre 2026: recorrido centrado y compacto, conservando fotografía y profundidad. */
+.hero{padding-block:48px 62px}
+.hero__copy,.entry-offer__copy,.visit__head,.reviews__head,.interview__copy,.experience__head,.closing__copy{text-align:center}
+.hero__copy h1{font-size:clamp(56px,5.9vw,82px);line-height:1.02;text-wrap:balance}
+.hero__lead,.hero-urgency,.trust-row,.entry-offer__copy>p,.experience__head>p:last-child,.interview__lead,.closing__copy>p:not(.kicker){margin-left:auto;margin-right:auto}
+.hero__actions,.entry-offer__benefits,.interview__facts{justify-content:center}
+.hero__primary-action{align-items:center}
+.hero-urgency{padding:18px 22px}
+.hero-urgency strong{font-size:clamp(30px,3vw,39px)}
+.hero-urgency__benefit{font-size:14px!important}
+.entry-offer,.visit,.reviews,.interview,.experience{padding-block:68px}
+.entry-offer__copy h2,.visit__head h2,.reviews__head h2,.experience__head h2{font-size:clamp(48px,5vw,68px);line-height:1.04}
+.entry-offer__copy>p{max-width:720px}
+.entry-offer__value{display:block;max-width:570px;margin:8px auto 20px;text-align:center}
+.entry-offer__value>span,.entry-offer__value>strong,.entry-offer__value>small{display:block}
+.entry-offer__value>strong{font-size:clamp(54px,5.5vw,72px);line-height:1;margin:4px 0}
+.entry-offer__value>small{font-size:12px}
+.entry-offer__deadline{max-width:650px;margin-inline:auto}
+.visit__head,.reviews__head{display:block;max-width:820px;margin:0 auto 28px}
+.visit__head>p,.reviews__head>p{max-width:650px;margin:14px auto 0}
+.visit-step{text-align:center;padding:24px 20px}
+.visit-step>span{margin:0 auto 16px}
+.visit-step__badge{position:static;display:inline-block;margin-bottom:10px}
+.reviews__carousel{max-width:820px;margin-inline:auto}
+.review-grid{display:flex;position:relative;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:5%;scrollbar-width:none;overscroll-behavior-inline:contain;margin-top:0;padding:12px 5%}
+.review-grid::-webkit-scrollbar{display:none}
+.review-card,.review-card:last-child{flex:0 0 90%;min-height:350px;scroll-snap-align:center;text-align:center;border:2px solid rgba(218,164,0,.3);background:linear-gradient(155deg,#fff,#fff9e9);box-shadow:0 18px 48px rgba(9,57,67,.12)}
+.review-card__top{justify-content:center;gap:20px}
+.review-card blockquote{font-size:clamp(28px,3vw,38px);line-height:1.24;text-wrap:pretty}
+.reviews__controls{display:flex;align-items:center;justify-content:center;gap:22px;margin-top:15px;font-weight:800;color:var(--petrol)}
+.reviews__controls button{width:48px;height:48px;border:1px solid var(--line);border-radius:50%;background:#fff;color:var(--petrol);font:700 24px/1 var(--sans);cursor:pointer;box-shadow:0 8px 20px rgba(9,57,67,.1)}
+.reviews__controls button:hover,.reviews__controls button:focus-visible{background:var(--sun)}
+.interview__checks{max-width:520px;margin-inline:auto;text-align:left}
+.interview__facts{justify-content:center}
+.experience__head{margin-inline:auto;margin-bottom:28px}
+.closing{min-height:570px}
+.closing__photo:after{background:rgba(4,47,56,.82)}
+.closing__content{display:block;padding-block:70px}
+.closing__copy h2{max-width:850px;margin-inline:auto;font-size:clamp(56px,6vw,82px);line-height:1.04;text-wrap:balance}
+.closing__copy>p:not(.kicker){max-width:650px;margin:20px auto}
+.closing__offer{display:block;max-width:540px;margin:18px auto 24px;padding:20px 24px;background:rgba(255,250,240,.97);border:2px solid var(--sun);border-radius:26px;color:var(--ink);box-shadow:0 20px 50px rgba(0,0,0,.2)}
+.closing__offer span,.closing__offer strong,.closing__offer small{display:block}
+.closing__offer span{color:var(--ink);font-size:14px;font-weight:700}
+.closing__offer strong{color:var(--ink);font:400 clamp(58px,6vw,80px)/1 var(--display);margin:4px 0}
+.closing__offer small{color:var(--muted);font-size:12px;line-height:1.5}
+.closing__copy .button{min-width:300px}
+.mascot--jump{position:absolute;right:-35px;bottom:-60px;width:230px;opacity:.82}
+.promo-banner{max-height:min(90vh,800px);overflow:auto}
+.promo-banner h2{font-size:clamp(42px,5vw,54px);line-height:1.04}
+.promo-banner__price{font-size:clamp(54px,6vw,68px);line-height:1.02}
+.promo-banner__price small{font-size:12px}
+.promo-banner__assurance{margin:14px auto 18px;font-size:12px}
+[data-review-prev]:focus-visible,[data-review-next]:focus-visible,.promo-banner__close:focus-visible{outline:3px solid var(--petrol);outline-offset:3px}
+@media(max-width:980px){.mascot--jump{display:none}}
+@media(max-width:720px){
+  .hero{padding:28px 0 38px}
+  .hero__copy h1{font-size:clamp(44px,11vw,54px)}
+  .hero__art{min-height:360px}
+  .hero-urgency{margin-top:15px}
+  .hero-urgency strong{font-size:30px}
+  .entry-offer,.visit,.reviews,.interview,.experience{padding-block:52px}
+  .entry-offer__copy h2,.visit__head h2,.reviews__head h2,.experience__head h2{font-size:clamp(41px,9vw,48px)}
+  .entry-offer__value>strong{font-size:54px}
+  .review-grid{padding:8px 5%;gap:12px}
+  .review-card,.review-card:last-child{flex-basis:90%;min-height:380px;padding:23px 18px}
+  .review-card blockquote{font-size:26px}
+  .closing{min-height:0}
+  .closing__content{padding:64px 0}
+  .closing__copy h2{font-size:51px}
+  .closing__copy .button{min-width:0;width:100%}
+  .promo-banner{padding:28px 18px 22px}
+  .promo-banner h2{font-size:42px}
+  .promo-banner__price{font-size:55px}
+}
+@media(prefers-reduced-motion:reduce){.review-grid{scroll-behavior:auto}}
