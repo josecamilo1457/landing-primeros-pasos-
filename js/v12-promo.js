@@ -3,8 +3,8 @@
   const backdrop = document.getElementById('promo-backdrop');
   const closeButton = banner?.querySelector('.promo-banner__close');
   const storageKey = 'pp_october_promo_seen_2026';
-  const minimumDelayMs = 20000;
-  const engagementScrollRatio = 0.40;
+  const minimumDelayMs = 30000;
+  const engagementScrollRatio = 0.45;
   let minimumDelayReached = false;
   let previousFocus = null;
   const offerName = 'octubre_blois_95000';
@@ -27,6 +27,39 @@
       closingCta.href = 'https://wa.me/5491130011050?text=Hola%2C%20quiero%20conocer%20Primeros%20Pasos%20con%20mi%20peque%20y%20coordinar%20una%20visita.';
     }
   }
+
+  // La vigencia de cada semana cierra el jueves a las 23:59:59, hora argentina.
+  // El viernes se inicia una nueva semana, siempre sujeta a la disponibilidad real.
+  function remainingWeeklySeconds(now = new Date()) {
+    const parts = Object.fromEntries(new Intl.DateTimeFormat('en-US', {
+      timeZone: 'America/Argentina/Buenos_Aires', weekday: 'short',
+      hour: '2-digit', minute: '2-digit', second: '2-digit', hourCycle: 'h23'
+    }).formatToParts(now).map(({ type, value }) => [type, value]));
+    const day = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(parts.weekday);
+    const daysToThursday = (4 - day + 7) % 7;
+    return daysToThursday * 86400 + (23 - Number(parts.hour)) * 3600 +
+      (59 - Number(parts.minute)) * 60 + 59 - Number(parts.second);
+  }
+
+  function updateCountdown() {
+    if (!offerAvailable) return;
+    let remaining = remainingWeeklySeconds();
+    const values = [
+      ['[data-count-days]', Math.floor(remaining / 86400)]
+    ];
+    remaining %= 86400;
+    values.push(['[data-count-hours]', Math.floor(remaining / 3600)]);
+    remaining %= 3600;
+    values.push(['[data-count-minutes]', Math.floor(remaining / 60)]);
+    values.push(['[data-count-seconds]', remaining % 60]);
+    values.forEach(([selector, value]) => {
+      const element = banner.querySelector(selector);
+      if (element) element.textContent = String(value).padStart(2, '0');
+    });
+  }
+
+  updateCountdown();
+  if (offerAvailable) window.setInterval(updateCountdown, 1000);
 
   function stopTriggerListeners() {
     window.removeEventListener('scroll', maybeShowAfterEngagement);
@@ -94,6 +127,7 @@
   window.__PP_PROMO = {
     showPromo,
     closePromo,
-    triggerConfig: { minimumDelayMs, engagementScrollRatio }
+    triggerConfig: { minimumDelayMs, engagementScrollRatio },
+    remainingWeeklySeconds
   };
 })();
