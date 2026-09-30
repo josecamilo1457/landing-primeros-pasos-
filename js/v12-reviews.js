@@ -11,6 +11,8 @@
   let index = 0;
   let visible = false;
   let paused = false;
+  let settledIndex = 0;
+  let settleTimer;
 
   function updateCount() {
     if (count) count.textContent = `${index + 1} / ${cards.length}`;
@@ -36,6 +38,14 @@
       return distance < bestDistance ? candidate : nearest;
     }, 0);
     updateCount();
+    if (reducedMotion) return;
+    clearTimeout(settleTimer);
+    settleTimer = setTimeout(() => {
+      if (index === settledIndex) return;
+      cards[settledIndex].classList.remove('review-card--spring');
+      cards[index].classList.add('review-card--spring');
+      settledIndex = index;
+    }, 160);
   }, { passive: true });
 
   container.addEventListener('mouseenter', () => { paused = true; });
