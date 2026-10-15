@@ -1,17 +1,31 @@
 (() => {
   window.dataLayer = window.dataLayer || [];
-  const MAKE_WEBHOOK = 'https://hook.us2.make.com/742dgrpbco5isrihxjaunocmkq6hlig8';
+  const ATTRIBUTION_WEBHOOK = 'https://primeros-pasos-notifier.primeros-pasos-notifier.workers.dev/landing-click';
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // ── Genera ID corto de atribución con prefijo de canal (ej. "M-A7K3") ─
   function generateRefId() {
     const params = new URLSearchParams(window.location.search);
-    const src = (params.get('utm_source') || localStorage.getItem('utm_source') || '').toLowerCase();
+    const currentSource = (params.get('utm_source') || '').toLowerCase();
+    const storedSource = (localStorage.getItem('utm_source') || '').toLowerCase();
+    const metaSources = new Set(['meta', 'fb', 'ig', 'an', 'th', 'facebook', 'instagram', 'threads', 'messenger']);
+    const sourcePrefix = (source) => metaSources.has(source) ? 'M-' : source === 'google' ? 'G-' : 'D-';
     let prefix;
-    if (src === 'meta' || src === 'fb' || src === 'ig' || params.has('fbclid') || localStorage.getItem('fbclid')) {
-      prefix = 'M-';
-    } else if (src === 'google' || params.has('gclid') || localStorage.getItem('gclid')) {
+    // Los datos del clic actual tienen prioridad sobre una visita anterior.
+    if (currentSource === 'google' || metaSources.has(currentSource)) {
+      prefix = sourcePrefix(currentSource);
+    } else if (params.has('gclid')) {
       prefix = 'G-';
+    } else if (params.has('fbclid')) {
+      prefix = 'M-';
+    } else if (currentSource) {
+      prefix = 'D-';
+    } else if (storedSource) {
+      prefix = sourcePrefix(storedSource);
+    } else if (localStorage.getItem('gclid')) {
+      prefix = 'G-';
+    } else if (localStorage.getItem('fbclid')) {
+      prefix = 'M-';
     } else {
       prefix = 'D-';
     }
@@ -33,6 +47,11 @@
     } catch {
       return href; // fallback sin modificar si la URL fuera inválida
     }
+  }
+
+  function getCookie(name) {
+    const prefix = `${name}=`;
+    return String(document.cookie || '').split(';').map((part) => part.trim()).find((part) => part.startsWith(prefix))?.slice(prefix.length) || null;
   }
 
   // ── Indicador de progreso de lectura y header sticky ────────────────
@@ -63,7 +82,7 @@
     document.querySelectorAll('.reveal').forEach((el) => el.classList.add('is-visible'));
   }
 
-  // ── Tracking de CTAs WhatsApp (Lead + Webhook Make + GTM + Ref ID) ─
+  // ── Tracking de CTAs WhatsApp (clic + atribución first-party + GTM + Ref ID) ─
   document.querySelectorAll('[data-track]').forEach((element) => {
     element.addEventListener('click', (e) => {
       e.preventDefault();
@@ -78,6 +97,7 @@
       // 2. GTM dataLayer
       window.dataLayer.push({
         event: 'whatsapp_interview_request',
+        signal_type: 'click',
         page_variant: 'v12-visita',
         placement,
         ref_id: refId
@@ -86,17 +106,27 @@
         window.dataLayer.push({ event: 'landing_offer_click', offer: 'octubre_blois_95000', placement, ref_id: refId });
       }
 
-      // 3. Meta Pixel — Lead (disparo único por click)
+      // 3. Meta Pixel — señal intermedia. Lead queda reservado para un
+      // mensaje real confirmado server-side por Tita/Sniper/CAPI.
       if (typeof window.fbq === 'function') {
-        window.fbq('track', 'Lead', { placement, ref_id: refId });
+        window.fbq('trackCustom', 'WhatsAppClick', {
+          placement,
+          ref_id: refId,
+          page_variant: 'v12-visita'
+        });
       }
 
-      // 4. Webhook Make.com — fire-and-forget con keepalive
-      fetch(MAKE_WEBHOOK, {
+      // 4. Webhook first-party de atribución — fire-and-forget con keepalive
+      fetch(ATTRIBUTION_WEBHOOK, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           whatsapp: element.href || '',
+          whatsapp_with_ref: waUrlWithRef,
+          event_type: 'whatsapp_click',
+          fbc: getCookie('_fbc'),
+          fbp: getCookie('_fbp'),
+          click_epoch_ms: Number(localStorage.getItem('attribution_timestamp_ms')) || Date.now(),
           gclid: localStorage.getItem('gclid'),
           fbclid: localStorage.getItem('fbclid'),
           utm_source: localStorage.getItem('utm_source'),
@@ -104,6 +134,7 @@
           utm_campaign: localStorage.getItem('utm_campaign'),
           utm_term: localStorage.getItem('utm_term'),
           utm_content: localStorage.getItem('utm_content'),
+          ad_placement: localStorage.getItem('ad_placement'),
           boton: placement,
           ref_id: refId,
           page_variant: 'v12-visita',
@@ -137,6 +168,6 @@
   window.__PP_TRACKING = {
     generateRefId,
     buildWaUrlWithRef,
-    MAKE_WEBHOOK
+    ATTRIBUTION_WEBHOOK
   };
 })();
