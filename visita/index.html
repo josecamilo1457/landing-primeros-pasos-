@@ -4,13 +4,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#0a4e5c" />
-    <meta name="description" content="Jardín Maternal Primeros Pasos en San Miguel. Vení con tu peque a conocer el jardín antes de decidir. Entrevistas presenciales con Rosana en Paunero 2117 para familias con chicos de 18 meses a 4 años." />
+    <meta name="description" content="Jardín Maternal Primeros Pasos en San Miguel, de 18 meses a 4 años. Ingreso noviembre y diciembre a cuota promocional de $95.000. Conocé el jardín con tu peque y coordiná una entrevista con Rosana." />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://www.jardinprimerospasos.com/" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_AR" />
     <meta property="og:title" content="Conocé Primeros Pasos · Jardín Maternal en San Miguel" />
-    <meta property="og:description" content="Conozcan juntos su primer jardín. Entrevistas presenciales en Paunero 2117." />
+    <meta property="og:description" content="Empezar antes de marzo ayuda a familiarizarse con la salita, las seños y los compañeros. Vení a conocer Primeros Pasos con tu peque." />
     <meta property="og:url" content="https://www.jardinprimerospasos.com/" />
     <meta property="og:image" content="https://www.jardinprimerospasos.com/assets/grupo.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -31,6 +31,7 @@
     <!-- Estilos V12 Visita -->
     <link rel="stylesheet" href="../css/v12-visita.css" />
     <link rel="stylesheet" href="../css/v12-octubre.css" />
+    <link rel="stylesheet" href="../css/v12-oportunidad-semanal.css" />
 
     <!--
       TRACKING — Consent Mode v2 (simplificado)
@@ -105,6 +106,15 @@
 
     <div class="progress" aria-hidden="true"><span></span></div>
 
+    <!-- Franja editorial: invitación al beneficio, sin duplicar CTA a WhatsApp -->
+    <div class="weekly-ribbon" id="weekly-ribbon" hidden>
+      <div class="wrap weekly-ribbon__inner">
+        <span class="weekly-ribbon__label">Una invitación para esta semana</span>
+        <span class="weekly-ribbon__message">Conocé Primeros Pasos con tu peque <span aria-hidden="true">·</span> Noviembre y diciembre a <strong>$95.000 por mes</strong></span>
+        <button class="weekly-ribbon__link" type="button" data-open-promo aria-haspopup="dialog">Ver beneficio <span aria-hidden="true">↗</span></button>
+      </div>
+    </div>
+
     <!-- Header -->
     <header class="header" id="inicio">
       <div class="wrap header__inner">
@@ -126,18 +136,18 @@
         <div class="wrap hero__grid">
           <div class="hero__copy reveal">
             <p class="kicker">18 meses a 4 años · San Miguel</p>
-            <h1 id="hero-title">Empezá ahora. <em>Que marzo no empiece de cero.</em></h1>
+            <h1 id="hero-title">Que en marzo su jardín <em>ya sea un lugar conocido.</em></h1>
             <p class="hero__slogan">El mejor lugar después del hogar.</p>
             <div class="hero-urgency" aria-label="Beneficio especial de ingreso">
-              <span class="hero-urgency__eyebrow">OCTUBRE · 50% DE BONIFICACIÓN EN LA CUOTA</span>
-              <strong>Conocé el jardín con tu peque antes de decidir.</strong>
-              <small class="hero-urgency__benefit">Puede empezar ahora y conocer a sus seños, su salita y sus compañeros de a poco.</small>
+              <span class="hero-urgency__eyebrow">INGRESO NOVIEMBRE Y DICIEMBRE · CUOTA PROMOCIONAL $95.000</span>
+              <strong>Empezar antes le da tiempo para sentirse parte.</strong>
+              <small class="hero-urgency__benefit">Conoce el jardín, a sus seños y a sus compañeritos de a poco. En marzo no todo será nuevo.</small>
             </div>
-            <p class="hero__lead">Vení con tu peque, conocé el jardín, conversá con Rosana y vivan una primera experiencia juntos antes de decidir.</p>
+            <p class="hero__lead">Vení con tu peque, recorré las salas y conversá con Rosana. Si decidís empezar ahora, accedés a una importante bonificación en la matrícula 2027. Vacantes limitadas según sala y sede.</p>
             <div class="hero__actions">
               <div class="hero__primary-action">
-                <a class="button button--sun" data-whatsapp data-track="hero" href="https://wa.me/5491130011050?text=Hola%2C%20quiero%20reservar%20una%20entrevista%20para%20conocer%20Primeros%20Pasos%20con%20mi%20peque.">Quiero reservar una entrevista</a>
-                <span>Vení con tu peque. Rosana les muestra el jardín y responde tus preguntas.</span>
+                <a class="button button--sun" data-whatsapp data-track="hero" href="https://wa.me/5491130011050?text=Hola%2C%20quiero%20coordinar%20una%20entrevista%20para%20ingreso%20en%20noviembre%20o%20diciembre%2C%20y%20conocer%20Primeros%20Pasos%20con%20mi%20peque.">Quiero coordinar una visita</a>
+                <span>La cuota promocional de $95.000 para noviembre y diciembre se obtiene al reservar la vacante durante la entrevista.</span>
               </div>
               <a class="hero__plain" href="#como-funciona">Ver cómo es la visita <span>↓</span></a>
             </div>
@@ -170,20 +180,20 @@
       <section class="entry-offer" aria-labelledby="entry-offer-title">
         <div class="wrap entry-offer__shell reveal">
           <div class="entry-offer__copy">
-            <p class="kicker">50% de bonificación en octubre</p>
-            <h2 id="entry-offer-title">Empezá ahora. <em>Que marzo no empiece de cero.</em></h2>
-            <p>Empezar ahora le da tiempo para conocer a sus seños, su salita y sus compañeros de a poco. Así, cuando llegue marzo, el jardín ya no será completamente nuevo.</p>
+            <p class="kicker">Una oportunidad de ingreso para noviembre y diciembre</p>
+            <h2 id="entry-offer-title">Dos meses para <em>conocer su nuevo mundo.</em></h2>
+            <p>Empezar antes del próximo ciclo le permite conocer el jardín, a su seño, a sus compañeritos y las rutinas a su propio ritmo. Esa familiaridad puede hacer más tranquila la vuelta en marzo de 2027.</p>
             <div class="entry-offer__benefits">
               <span>Conocer seños y compañeros desde ahora</span>
               <span>Familiarizarse con el espacio y las rutinas</span>
-              <span>Llegar a marzo con vínculos ya construidos</span>
+              <span>Llegar a marzo con personas y espacios conocidos</span>
             </div>
-            <a class="button button--dark" data-whatsapp data-track="oferta_empezar_ahora" href="https://wa.me/5491130011050?text=Hola%2C%20quiero%20reservar%20una%20entrevista%20y%20conocer%20la%20bonificaci%C3%B3n%20de%20octubre%20de%20Primeros%20Pasos.">Quiero reservar una entrevista</a>
-            <small class="entry-offer__where">Beneficio vigente hasta el jueves, sujeto a vacantes. Se reserva con seña durante la entrevista.</small>
+            <a class="button button--dark" data-whatsapp data-track="oferta_empezar_ahora" href="https://wa.me/5491130011050?text=Hola%2C%20quiero%20conocer%20la%20cuota%20promocional%20de%20noviembre%20y%20diciembre%20y%20coordinar%20una%20entrevista.">Quiero conocer la promoción</a>
+            <small class="entry-offer__where">Noviembre y diciembre: cuota promocional de $95.000 por mes, exclusiva al reservar la vacante en la entrevista. Importante bonificación en matrícula 2027 para quienes comienzan ahora. Sujeto a vacantes.</small>
           </div>
           <div class="entry-offer__deadline">
-            <b>Vacantes limitadas en San Miguel</b>
-            <span>Rosana les explica la propuesta durante la entrevista. Si les cierra, pueden reservar el beneficio con una seña.</span>
+            <b>Las vacantes son limitadas por sala y sede</b>
+            <span>Coordiná la visita para conocer los cupos disponibles. Rosana te explica la propuesta; si elegís inscribirlo, reservás la vacante y el beneficio durante la entrevista.</span>
           </div>
         </div>
       </section>
@@ -216,7 +226,7 @@
             <div class="visit-step__badge">Último paso</div>
             <span>4</span>
             <h3>Reservan su lugar</h3>
-            <p>Si la propuesta les cierra, pueden dejar la seña durante la entrevista para reservar el beneficio de octubre.</p>
+            <p>Si la propuesta les cierra y hay lugar en la sala, pueden reservar la vacante y acceder a la cuota promocional durante la entrevista.</p>
           </article>
         </div>
 
@@ -390,13 +400,13 @@
           <div class="closing__copy">
             <p class="kicker kicker--light">La mejor forma de elegir</p>
             <h2 id="closing-title">Acá comienza un hermoso camino. <em>Juntos.</em></h2>
-            <p>Puede empezar ahora, conocer a sus seños, hacer amigos y familiarizarse con el jardín de a poco. Vení con tu peque y conversá con Rosana antes de decidir.</p>
+            <p>Puede empezar antes del próximo ciclo, conocer a sus seños, compartir con sus compañeros y familiarizarse con las rutinas. Así, en marzo no todo será nuevo. Vení con tu peque y conversá con Rosana antes de decidir.</p>
             <div class="closing__offer">
-              <span>Una oportunidad especial para empezar en octubre</span>
-              <strong>50% de bonificación en la cuota</strong>
-              <small>Beneficio vigente hasta el jueves, sujeto a vacantes. Se reserva con seña durante la entrevista.</small>
+              <span>Ingreso promocional para noviembre y diciembre</span>
+              <strong>$95.000 por mes + importante bonificación de matrícula 2027</strong>
+              <small>Promoción exclusiva al reservar la vacante durante la entrevista. Matrícula bonificada para quienes comienzan ahora. Cupos sujetos a disponibilidad real.</small>
             </div>
-            <a class="button button--sun" data-whatsapp data-track="cierre" href="https://wa.me/5491130011050?text=Hola%2C%20quiero%20reservar%20una%20entrevista%20y%20conocer%20la%20bonificaci%C3%B3n%20de%20octubre%20de%20Primeros%20Pasos.">Quiero reservar una entrevista</a>
+            <a class="button button--sun" data-whatsapp data-track="cierre" href="https://wa.me/5491130011050?text=Hola%2C%20quiero%20reservar%20una%20entrevista%20y%20conocer%20la%20promocion%20de%20noviembre%20y%20diciembre%20de%20Primeros%20Pasos.">Quiero coordinar una visita</a>
             <small class="closing__microcopy">Primero vengan a conocerlo. Después deciden con tranquilidad.</small>
           </div>
           <img class="mascot mascot--jump" src="../assets/mascota-salta.webp" alt="" aria-hidden="true" width="330" height="330" />
@@ -425,23 +435,33 @@
     <!-- Barra sticky inferior para mobile -->
     <a class="mobile-cta" data-whatsapp data-track="sticky_mobile" href="https://wa.me/5491130011050?text=Hola%2C%20quiero%20reservar%20una%20entrevista%20para%20conocer%20Primeros%20Pasos%20con%20mi%20peque.">Quiero reservar mi entrevista</a>
 
-    <!-- Promoción de octubre: aparece una vez por sesión, después de tiempo y recorrido -->
+    <!-- Beneficio semanal noviembre/diciembre: una vez por sesión, después de interés real -->
     <aside class="promo-banner" id="promo-banner" role="dialog" aria-modal="true" aria-labelledby="promo-title" aria-describedby="promo-copy" hidden>
       <button class="promo-banner__close" type="button" aria-label="Cerrar promoción">×</button>
-      <div class="promo-banner__eyebrow">50% DE BONIFICACIÓN EN OCTUBRE</div>
-      <h2 id="promo-title">Empezá ahora. Que marzo no empiece de cero.</h2>
-      <strong class="promo-banner__price">50% de bonificación <small>en la cuota de octubre</small></strong>
-      <p id="promo-copy">Vení con tu peque, conocé el jardín y conversá con Rosana antes de decidir. Empezar ahora le da tiempo para conocer seños, compañeros y rutinas de a poco.</p>
-      <div class="promo-banner__deadline">Beneficio vigente hasta el jueves a las 23:59</div>
-      <div class="promo-countdown" role="timer" aria-label="Tiempo restante de la vigencia semanal" aria-live="off">
-        <span><b data-count-days>--</b><small>días</small></span>
-        <span><b data-count-hours>--</b><small>horas</small></span>
-        <span><b data-count-minutes>--</b><small>min</small></span>
-        <span><b data-count-seconds>--</b><small>seg</small></span>
+      <div class="promo-banner__visual">
+        <img src="../assets/hero-acompanamiento.webp" alt="Docente de Primeros Pasos acompañando a los chicos en una actividad" loading="lazy" width="600" height="450" />
+        <span class="promo-banner__photo-note">El mejor lugar después del hogar.</span>
       </div>
-      <small class="promo-banner__renewal">La vigencia semanal se renueva cada viernes. Sujeta a vacantes.</small>
-      <div class="promo-banner__assurance">Reservá con seña durante la entrevista. Rosana te explica las condiciones.</div>
-      <a class="button button--sun promo-banner__cta" data-whatsapp data-track="promo_empezar_ahora" href="https://wa.me/5491130011050?text=Hola%2C%20quiero%20reservar%20una%20entrevista%20y%20conocer%20la%20bonificaci%C3%B3n%20de%20octubre%20de%20Primeros%20Pasos.">Quiero reservar una entrevista</a>
+      <div class="promo-banner__body">
+        <div class="promo-banner__eyebrow">Una oportunidad especial de esta semana</div>
+        <h2 id="promo-title">Que marzo los encuentre <em>sintiéndose parte.</em></h2>
+        <p id="promo-copy">Vení con tu peque, conocé su salita, sus seños y sus compañeritos. Empezar antes puede hacer que en marzo todo resulte más familiar.</p>
+        <div class="promo-banner__offer">
+          <span>Ingreso noviembre y diciembre</span>
+          <strong>$95.000 <small>por mes</small></strong>
+          <span>+ importante bonificación en matrícula 2027 para quienes comienzan ahora.</span>
+        </div>
+        <div class="promo-banner__deadline">Esta vigencia semanal cierra el jueves a las 23:59 (hora argentina)</div>
+        <div class="promo-countdown" role="timer" aria-label="Tiempo restante de la vigencia semanal">
+          <span><b data-count-days>--</b><small>días</small></span>
+          <span><b data-count-hours>--</b><small>horas</small></span>
+          <span><b data-count-minutes>--</b><small>min</small></span>
+          <span><b data-count-seconds>--</b><small>seg</small></span>
+        </div>
+        <a class="button button--sun promo-banner__cta" data-whatsapp data-track="promo_empezar_ahora" href="https://wa.me/5491130011050?text=Hola%2C%20quiero%20coordinar%20una%20entrevista%20para%20conocer%20Primeros%20Pasos%20y%20reservar%20el%20beneficio%20de%20noviembre%20y%20diciembre.">Quiero conocer el jardín</a>
+        <small class="promo-banner__assurance">Beneficio exclusivo al reservar la vacante durante la entrevista con Rosana, sujeto a cupos por sala y sede.</small>
+        <small class="promo-banner__renewal">Las condiciones semanales se renuevan los viernes según disponibilidad real.</small>
+      </div>
     </aside>
     <div class="promo-backdrop" id="promo-backdrop" hidden></div>
 

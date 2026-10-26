@@ -2,21 +2,70 @@
   const banner = document.getElementById('promo-banner');
   const backdrop = document.getElementById('promo-backdrop');
   const closeButton = banner?.querySelector('.promo-banner__close');
-  const storageKey = 'pp_october_promo_seen_2026';
+  const ribbon = document.getElementById('weekly-ribbon');
+  const ribbonOpen = ribbon?.querySelector('[data-open-promo]');
+  const storageKey = 'pp_nov_dic_promo_seen_2026';
   const minimumDelayMs = 30000;
   const engagementScrollRatio = 0.45;
   let minimumDelayReached = false;
   let previousFocus = null;
-  const offerName = 'octubre_blois_95000';
+  let previousBodyOverflow = '';
+  const offerName = 'nov_dic_95000';
 
   if (!banner || !backdrop || !closeButton) return;
 
-  const dateParts = new Intl.DateTimeFormat('en-US', {
-    timeZone: 'America/Argentina/Buenos_Aires', year: 'numeric', month: '2-digit', day: '2-digit'
-  }).formatToParts(new Date());
-  const date = Object.fromEntries(dateParts.map(({ type, value }) => [type, value]));
-  const monthIsCurrent = Number(`${date.year}${date.month}${date.day}`) <= 20261031;
-  const offerAvailable = monthIsCurrent && window.PRIMEROS_PASOS_CONFIG?.octoberOfferAvailable !== false;
+  const formatter = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/Argentina/Buenos_Aires',
+    weekday: 'short', year: 'numeric', month: '2-digit', day: '2-digit',
+    hour: '2-digit', minute: '2-digit', second: '2-digit', hourCycle: 'h23'
+  });
+  function localParts(now = new Date()) {
+    return Object.fromEntries(formatter.formatToParts(now).map(({ type, value }) => [type, value]));
+  }
+  function currentArgentinaDate(now = new Date()) {
+    const local = localParts(now);
+    return Number(`${local.year}${local.month}${local.day}`);
+  }
+  // Ventana de ingreso noviembre/diciembre; desactivar si se agotan vacantes.
+  function isOfferAvailable(now = new Date()) {
+    const date = currentArgentinaDate(now);
+    return date >= 20261025 && date <= 20261231 &&
+      window.PRIMEROS_PASOS_CONFIG?.novDecOfferAvailable !== false;
+  }
+  const offerAvailable = isOfferAvailable();
+  // Jueves 23:59:59 en Buenos Aires (UTC-03); reinicia los viernes.
+  // El reinicio no implica más vacantes: disponibilidad real en entrevista.
+  function remainingWeeklySeconds(now = new Date()) {
+    const local = localParts(now);
+    const day = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(local.weekday);
+    const daysUntilThursday = (4 - day + 7) % 7;
+    const endUtc = Date.UTC(
+      Number(local.year), Number(local.month) - 1,
+      Number(local.day) + daysUntilThursday, 26, 59, 59
+    );
+    return Math.max(0, Math.floor((endUtc - now.getTime()) / 1000));
+  }
+  function updateCountdown(now = new Date()) {
+    if (!isOfferAvailable(now)) {
+      if (ribbon) ribbon.hidden = true;
+      if (!banner.hidden) closePromo();
+      return;
+    }
+    let seconds = remainingWeeklySeconds(now);
+    const values = [
+      ['[data-count-days]', Math.floor(seconds / 86400)]
+    ];
+    seconds %= 86400;
+    values.push(['[data-count-hours]', Math.floor(seconds / 3600)]);
+    seconds %= 3600;
+    values.push(['[data-count-minutes]', Math.floor(seconds / 60)]);
+    values.push(['[data-count-seconds]', seconds % 60]);
+    for (const [selector, value] of values) {
+      const element = banner.querySelector(selector);
+      if (element) element.textContent = String(value).padStart(2, '0');
+    }
+  }
+  if (ribbon) ribbon.hidden = !offerAvailable;
   if (!offerAvailable) {
     document.querySelector('.hero-urgency')?.remove();
     document.querySelector('.entry-offer')?.remove();
@@ -28,52 +77,23 @@
     }
   }
 
-  // La vigencia de cada semana cierra el jueves a las 23:59:59, hora argentina.
-  // El viernes se inicia una nueva semana, siempre sujeta a la disponibilidad real.
-  function remainingWeeklySeconds(now = new Date()) {
-    const parts = Object.fromEntries(new Intl.DateTimeFormat('en-US', {
-      timeZone: 'America/Argentina/Buenos_Aires', weekday: 'short',
-      hour: '2-digit', minute: '2-digit', second: '2-digit', hourCycle: 'h23'
-    }).formatToParts(now).map(({ type, value }) => [type, value]));
-    const day = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(parts.weekday);
-    const daysToThursday = (4 - day + 7) % 7;
-    return daysToThursday * 86400 + (23 - Number(parts.hour)) * 3600 +
-      (59 - Number(parts.minute)) * 60 + 59 - Number(parts.second);
-  }
-
-  function updateCountdown() {
-    if (!offerAvailable) return;
-    let remaining = remainingWeeklySeconds();
-    const values = [
-      ['[data-count-days]', Math.floor(remaining / 86400)]
-    ];
-    remaining %= 86400;
-    values.push(['[data-count-hours]', Math.floor(remaining / 3600)]);
-    remaining %= 3600;
-    values.push(['[data-count-minutes]', Math.floor(remaining / 60)]);
-    values.push(['[data-count-seconds]', remaining % 60]);
-    values.forEach(([selector, value]) => {
-      const element = banner.querySelector(selector);
-      if (element) element.textContent = String(value).padStart(2, '0');
-    });
-  }
-
-  updateCountdown();
-  if (offerAvailable) window.setInterval(updateCountdown, 1000);
-
   function stopTriggerListeners() {
     window.removeEventListener('scroll', maybeShowAfterEngagement);
   }
 
-  function showPromo() {
-    if (!offerAvailable || sessionStorage.getItem(storageKey) || sessionStorage.getItem('pp_october_whatsapp_clicked')) return;
+  function showPromo(manuallyRequested = false) {
+    if (!isOfferAvailable() || (!manuallyRequested &&
+      (sessionStorage.getItem(storageKey) || sessionStorage.getItem('pp_nov_dic_whatsapp_clicked')))) return;
     stopTriggerListeners();
     sessionStorage.setItem(storageKey, '1');
     previousFocus = document.activeElement;
+    previousBodyOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
     banner.hidden = false;
     backdrop.hidden = false;
+    updateCountdown();
     window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({ event: 'landing_offer_view', offer: offerName, placement: 'popup_octubre' });
+    window.dataLayer.push({ event: 'landing_offer_view', offer: offerName, placement: 'popup_nov_dic' });
     requestAnimationFrame(() => {
       banner.classList.add('is-visible');
       backdrop.classList.add('is-visible');
@@ -92,9 +112,11 @@
   }
 
   function closePromo() {
+    if (banner.hidden) return;
     banner.classList.remove('is-visible');
     backdrop.classList.remove('is-visible');
-    window.dataLayer.push({ event: 'landing_offer_close', offer: offerName, placement: 'popup_octubre' });
+    document.body.style.overflow = previousBodyOverflow;
+    window.dataLayer.push({ event: 'landing_offer_close', offer: offerName, placement: 'popup_nov_dic' });
     window.setTimeout(() => {
       banner.hidden = true;
       backdrop.hidden = true;
@@ -103,6 +125,7 @@
   }
 
   closeButton.addEventListener('click', closePromo);
+  ribbonOpen?.addEventListener('click', () => showPromo(true));
   backdrop.addEventListener('click', closePromo);
   document.addEventListener('keydown', (event) => {
     if (banner.hidden) return;
@@ -117,6 +140,8 @@
   banner.querySelector('.promo-banner__cta')?.addEventListener('click', closePromo);
 
   if (offerAvailable) {
+    updateCountdown();
+    window.setInterval(updateCountdown, 1000);
     window.addEventListener('scroll', maybeShowAfterEngagement, { passive: true });
     window.setTimeout(() => {
       minimumDelayReached = true;
@@ -128,6 +153,9 @@
     showPromo,
     closePromo,
     triggerConfig: { minimumDelayMs, engagementScrollRatio },
-    remainingWeeklySeconds
+    offerAvailable,
+    remainingWeeklySeconds,
+    isOfferAvailable,
+    updateCountdown
   };
 })();
