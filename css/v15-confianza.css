@@ -1,0 +1,47 @@
+/* V15: confianza y uniforme. */
+.activities{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:32px}
+.activity{display:flex;align-items:center;gap:18px;border-radius:25px;padding:24px;background:var(--cream)}
+.activity--music{background:#ffded5}.activity--movement{background:#b9eeeb}
+.activity>span{font:900 28px var(--display);min-width:58px;text-align:center}
+.activity--english>span{font-size:22px;transform:rotate(-8deg)}
+.activity p{font-size:16px;line-height:1.5;margin-top:6px}.activity h3{font-size:22px}
+.activities__note{grid-column:1/-1;font-size:16px;line-height:1.5}
+.moment--round img{object-position:center center}.moment--patio img{object-position:center 30%}
+.care-band{display:grid;grid-template-columns:1fr 1fr;gap:32px;background:var(--mint);border-radius:28px;padding:28px;margin-top:36px}
+.care-band h3{font-size:24px}.care-band p{margin-top:10px;font-size:16px;line-height:1.6}
+.visit__grid{align-items:center}.visit__intro .heart{display:none}.visit-photo{margin-top:24px}.visit-photo img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center top;border:7px solid white;border-radius:38px 24px 48px 24px}
+.visit-photo figcaption{font:800 18px var(--display);margin-top:10px}
+.uniform{background:#fff0e9}.uniform__grid{display:grid;grid-template-columns:.65fr 1.35fr;gap:50px;align-items:center;max-width:1050px}
+.uniform__art{position:relative}.uniform__art img{height:330px;width:100%;object-fit:contain}
+.uniform__art figcaption,.promo-art figcaption{font-size:12px;text-align:center}
+.uniform h2{font-size:44px}.uniform h2+p{margin-top:20px;max-width:52ch}
+.uniform .button{margin-top:24px}.uniform__terms{font-size:16px;line-height:1.5;margin-top:16px;max-width:52ch}
+.promo-details,.promo-later{font:600 16px var(--body);color:var(--ink);background:none;border:0;min-height:48px;text-decoration:underline;text-underline-offset:4px;cursor:pointer;padding:10px 0}
+button:focus-visible{outline:3px solid var(--teal);outline-offset:4px}
+.uniform-dialog{border:0;border-radius:32px;padding:44px 32px 26px;background:#fff6e7;color:var(--ink);width:min(790px,calc(100% - 28px));max-height:calc(100dvh - 28px);overflow-y:auto;overscroll-behavior:contain;box-shadow:0 24px 90px #003c4966}
+.uniform-dialog::backdrop{background:#003c498f}
+.promo-close{position:absolute;right:10px;top:8px;width:44px;height:44px;border:0;border-radius:50%;background:white;color:var(--ink);font:32px/1 Arial;cursor:pointer;z-index:2}
+.promo-grid{display:grid;grid-template-columns:.65fr 1.35fr;gap:26px;align-items:center}
+.promo-art img{width:100%;height:330px;object-fit:contain}
+.promo-copy h2{font-size:34px}.promo-copy .kicker{font-size:12px}.promo-copy>p{line-height:1.5}
+#promo-condition{margin-top:16px;font-size:17px}.promo-deadline{font-weight:700;font-size:16px;margin-top:18px}
+.promo-countdown{font:900 25px var(--display);font-variant-numeric:tabular-nums;background:var(--aqua);border-radius:12px;padding:8px 14px;width:fit-content;margin-top:8px}
+.promo-renewal,.promo-fine{font-size:14px}.promo-copy .button{font-size:18px;width:100%;margin-top:18px}
+.promo-copy .promo-fine{margin-top:12px}.promo-later{display:block;margin:auto}
+@media(max-width:767px){
+.activities{grid-template-columns:1fr;gap:12px;margin-top:24px}.activity{padding:18px;gap:16px}.activity p{margin-top:4px}
+.care-band{grid-template-columns:1fr;gap:24px;padding:24px;margin-top:28px}.care-band h3{font-size:22px}
+.visit-photo{max-width:310px;margin:24px auto 0}.visit-photo img{height:auto;object-position:center top}.visit-photo figcaption{font-size:16px}
+.uniform__grid{grid-template-columns:1fr;gap:20px}.uniform__art img{height:210px}.uniform h2{font-size:34px}
+.uniform .button{width:100%;font-size:18px}.uniform__art{order:1}.uniform__grid>div{order:0}
+.uniform-dialog{padding:46px 20px 18px;border-radius:24px}.promo-grid{grid-template-columns:86px 1fr;gap:12px;align-items:start}
+.promo-art img{height:180px;width:144px;max-width:none;margin-left:-29px}.promo-art figcaption{font-size:10px}.promo-copy{display:contents}.promo-copy .kicker{grid-column:2;margin:0;font-size:11px;align-self:end}
+.promo-copy h2{grid-column:2;font-size:25px;grid-row:2}.promo-art{grid-row:1/3;align-self:center}
+.promo-copy>p,.promo-copy>a,.promo-copy>button{grid-column:1/-1;margin:0}
+#promo-condition{font-size:16px;margin-top:2px}.promo-copy .promo-deadline{margin-top:4px}
+.promo-copy .promo-countdown{font-size:23px;margin:0}.promo-copy .promo-renewal{font-size:14px}
+.promo-copy .button{font-size:17px;margin-top:2px}.promo-copy .promo-fine{font-size:13px;margin:0}
+.promo-later{font-size:15px;padding:6px 0;min-height:44px}
+}
+.ai-disclosure{grid-column:1/-1;font-size:13px;margin-top:12px;color:var(--ink)}
+
